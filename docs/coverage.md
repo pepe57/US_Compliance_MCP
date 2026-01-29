@@ -323,6 +323,43 @@ The v1.1 release includes eight US regulations:
 
 ---
 
+### PCI DSS - Payment Card Industry Data Security Standard
+
+**Status**: Reference (see security-controls-mcp)
+
+**Citation**: PCI DSS v4.0
+
+**Jurisdiction**: Industry standard (applies to organizations handling payment cards globally)
+
+**Effective Date**: March 31, 2024 (v4.0)
+
+**Coverage**: Handled by [security-controls-mcp](https://github.com/Ansvar-Systems/security-controls-mcp)
+- Build and Maintain a Secure Network and Systems
+- Protect Account Data
+- Maintain a Vulnerability Management Program
+- Implement Strong Access Control Measures
+- Regularly Monitor and Test Networks
+- Maintain an Information Security Policy
+
+**Applicability**:
+- Merchants accepting payment cards (all sizes)
+- Payment processors and service providers
+- Financial institutions issuing payment cards
+- Any organization storing, processing, or transmitting cardholder data
+
+**Data Source**: security-controls-mcp MCP server (separate installation)
+
+**Integration**: Install both MCPs for comprehensive financial compliance:
+```bash
+# This MCP
+npx @ansvar/us-regulations-mcp
+
+# Security controls MCP (includes PCI DSS)
+npx @ansvar/security-controls-mcp
+```
+
+---
+
 ## Planned Future Coverage
 
 ### Phase 2: State Privacy Laws (Q2 2026)

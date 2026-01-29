@@ -170,6 +170,11 @@ Once connected, just ask naturally:
   - 40 CFR Part 68
   - Chemical facility accident prevention
 
+**Payment Card Industry:**
+- **PCI DSS** - Payment Card Industry Data Security Standard (cross-reference)
+  - See [security-controls-mcp](https://github.com/Ansvar-Systems/security-controls-mcp) for PCI DSS v4.0 requirements
+  - This MCP provides PCI SSC official requirements and testing procedures
+
 ### Control Framework Mappings
 
 - **NIST 800-53** - Security and Privacy Controls (Rev 5)

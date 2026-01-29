@@ -47,6 +47,8 @@
     "sarbanes-oxley",
     "california-consumer-privacy-act",
     "gramm-leach-bliley",
+    "pci-dss",
+    "payment-card-security",
     "claude",
     "llm"
   ],
