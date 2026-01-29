@@ -95,22 +95,46 @@ Once connected, just ask naturally:
 - *"How long must I retain financial records under SOX?"*
 - *"What are the requirements for SOX internal control assessments?"*
 
+### Financial Services & GLBA
+- *"What are the GLBA safeguards rule requirements for customer data protection?"*
+- *"Compare encryption requirements across HIPAA, GLBA, and SOX"*
+- *"What information security program elements does GLBA require?"*
+
+### Education & FERPA
+- *"What are FERPA requirements for student record access?"*
+- *"Can I share student data with third-party analytics tools under FERPA?"*
+- *"What parental consent is needed to disclose student directory information?"*
+
+### Children's Privacy & COPPA
+- *"What parental consent mechanisms are acceptable under COPPA?"*
+- *"COPPA requirements for collecting personal information from children under 13"*
+- *"Do I need COPPA compliance for a kids' mobile app?"*
+
+### Pharmaceutical & FDA
+- *"What are FDA 21 CFR Part 11 requirements for electronic signatures?"*
+- *"How must clinical trial data be validated under 21 CFR Part 11?"*
+- *"What audit trail requirements apply to electronic records in pharma?"*
+
+### Environmental & EPA
+- *"Which chemical facilities must submit an EPA Risk Management Plan?"*
+- *"What accident prevention requirements does EPA RMP mandate?"*
+- *"How often must I update my facility's EPA RMP?"*
+
 ### Cross-Regulation Analysis
 - *"Compare incident response requirements across HIPAA, CCPA, and SOX"*
 - *"Which regulations apply to a fintech company in California?"*
 - *"Map NIST CSF to our HIPAA and SOX obligations"*
-- *"What are my data retention requirements across all three regulations?"*
+- *"What are my data retention requirements across all regulations?"*
 
 ---
 
 ## What's Included
 
-### MVP Regulations (3)
+### v1.1 Regulations (8 total)
 
-This is a **production-ready initial release** with three foundational US regulations:
-
+**Healthcare & Privacy:**
 - **HIPAA** - Health Insurance Portability and Accountability Act
-  - Privacy Rule (45 CFR Part 160, 164 Subpart E)
+  - Privacy Rule (45 CFR Part 164 Subpart E)
   - Security Rule (45 CFR 164 Subpart C)
   - Breach Notification Rule (45 CFR 164 Subpart D)
 
@@ -118,10 +142,33 @@ This is a **production-ready initial release** with three foundational US regula
   - California Civil Code §1798.100-1798.199
   - Consumer rights and business obligations
 
+**Financial Services:**
 - **SOX** - Sarbanes-Oxley Act
   - Section 404 (Management Assessment of Internal Controls)
   - IT controls and audit requirements
-  - Financial data retention requirements
+
+- **GLBA** - Gramm-Leach-Bliley Act Safeguards Rule (NEW in v1.1)
+  - 16 CFR Part 314
+  - Financial institution data security requirements
+
+**Education:**
+- **FERPA** - Family Educational Rights and Privacy Act (NEW in v1.1)
+  - 34 CFR Part 99
+  - Student education records privacy
+
+**Children's Privacy:**
+- **COPPA** - Children's Online Privacy Protection Act (NEW in v1.1)
+  - 16 CFR Part 312
+  - Requirements for collecting data from children under 13
+
+**Pharmaceutical & Medical Devices:**
+- **FDA 21 CFR Part 11** - Electronic Records and Signatures (NEW in v1.1)
+  - Electronic record keeping and digital signatures for FDA-regulated industries
+
+**Environmental & Chemical Safety:**
+- **EPA RMP** - Risk Management Plan Rule (NEW in v1.1)
+  - 40 CFR Part 68
+  - Chemical facility accident prevention
 
 ### Control Framework Mappings
 
@@ -132,8 +179,6 @@ This is a **production-ready initial release** with three foundational US regula
 ### Roadmap
 
 Additional regulations in development:
-- **GLBA** - Gramm-Leach-Bliley Act (financial privacy)
-- **FERPA** - Family Educational Rights and Privacy Act
 - **State breach notification laws** (50 states)
 - **FISMA** - Federal Information Security Management Act
 - **CAN-SPAM** - Email marketing regulations
