@@ -70,7 +70,14 @@ export async function getSection(
     text,
     chapter: row.chapter,
     parent_section: row.parent_section,
-    cross_references: row.cross_references ? JSON.parse(row.cross_references) : null,
+    cross_references: row.cross_references ? (() => {
+      try {
+        return JSON.parse(row.cross_references);
+      } catch {
+        console.warn(`Invalid cross_references JSON for ${row.regulation} ${row.section_number}`);
+        return null;
+      }
+    })() : null,
     truncated,
     original_length: truncated ? originalLength : undefined,
     token_estimate: truncated ? tokenEstimate : undefined,
