@@ -472,3 +472,73 @@ export function createHipaaAdapter(): EcfrAdapter {
     regulation_type: 'rule'
   });
 }
+
+/**
+ * Factory function to create GLBA adapter
+ * Gramm-Leach-Bliley Act - Safeguards Rule
+ */
+export function createGlbaAdapter(): EcfrAdapter {
+  return new EcfrAdapter('GLBA', 16, [314], {
+    full_name: 'Gramm-Leach-Bliley Act - Safeguards Rule',
+    citation: '16 CFR Part 314',
+    effective_date: '2003-05-23',
+    jurisdiction: 'federal',
+    regulation_type: 'rule'
+  });
+}
+
+/**
+ * Factory function to create FERPA adapter
+ * Family Educational Rights and Privacy Act
+ */
+export function createFerpaAdapter(): EcfrAdapter {
+  return new EcfrAdapter('FERPA', 34, [99], {
+    full_name: 'Family Educational Rights and Privacy Act',
+    citation: '34 CFR Part 99',
+    effective_date: '2009-01-03',
+    jurisdiction: 'federal',
+    regulation_type: 'rule'
+  });
+}
+
+/**
+ * Factory function to create COPPA adapter
+ * Children's Online Privacy Protection Act Rule
+ */
+export function createCoppaAdapter(): EcfrAdapter {
+  return new EcfrAdapter('COPPA', 16, [312], {
+    full_name: "Children's Online Privacy Protection Act Rule",
+    citation: '16 CFR Part 312',
+    effective_date: '2013-07-01',
+    jurisdiction: 'federal',
+    regulation_type: 'rule'
+  });
+}
+
+/**
+ * Factory function to create FDA 21 CFR Part 11 adapter
+ * Electronic Records and Electronic Signatures
+ */
+export function createFdaAdapter(): EcfrAdapter {
+  return new EcfrAdapter('FDA_CFR_11', 21, [11], {
+    full_name: 'FDA Electronic Records and Electronic Signatures',
+    citation: '21 CFR Part 11',
+    effective_date: '1997-08-20',
+    jurisdiction: 'federal',
+    regulation_type: 'rule'
+  });
+}
+
+/**
+ * Factory function to create EPA RMP adapter
+ * Risk Management Plan Rule
+ */
+export function createEpaRmpAdapter(): EcfrAdapter {
+  return new EcfrAdapter('EPA_RMP', 40, [68], {
+    full_name: 'EPA Risk Management Plan Rule',
+    citation: '40 CFR Part 68',
+    effective_date: '2017-01-13',
+    jurisdiction: 'federal',
+    regulation_type: 'rule'
+  });
+}
