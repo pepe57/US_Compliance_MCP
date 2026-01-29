@@ -17,7 +17,20 @@ This document details the current regulation coverage, planned expansions, contr
 
 ## MVP Regulations
 
-The initial release (v0.1.0) includes three core US regulations with placeholder ingestion adapters. Full automated ingestion is in development.
+The v1.1 release includes eight US regulations:
+
+| Regulation | Citation | Status | Sections |
+|------------|----------|--------|----------|
+| HIPAA | 45 CFR 160, 162, 164 | ✅ Production | ~143 |
+| CCPA/CPRA | Cal. Civ. Code §1798.100-199 | ✅ Production | ~23 |
+| SOX | 17 CFR 229, 240 | ✅ Production | ~5 |
+| GLBA | 16 CFR 314 | ✅ Production (v1.1) | ~6 |
+| FERPA | 34 CFR 99 | ✅ Production (v1.1) | ~31 |
+| COPPA | 16 CFR 312 | ✅ Production (v1.1) | ~13 |
+| FDA 21 CFR 11 | 21 CFR 11 | ✅ Production (v1.1) | ~10 |
+| EPA RMP | 40 CFR 68 | ✅ Production (v1.1) | ~63 |
+
+**Total**: ~294 sections across 8 regulations
 
 ### HIPAA - Health Insurance Portability and Accountability Act
 
@@ -156,6 +169,157 @@ The initial release (v0.1.0) includes three core US regulations with placeholder
 - Accounting firms that audit public companies
 
 **Data Source**: SEC.gov + regulations.gov for implementing regulations
+
+---
+
+### GLBA - Gramm-Leach-Bliley Act Safeguards Rule
+
+**Status**: Production (v1.1.0)
+
+**Citation**: 16 CFR Part 314
+
+**Jurisdiction**: Federal (applies nationwide)
+
+**Effective Date**: May 23, 2003
+
+**Last Major Amendment**: June 9, 2023 (FTC updated Safeguards Rule)
+
+**Coverage**:
+- Information security program requirements
+- Risk assessment and management
+- Access controls and encryption standards
+- Vendor management and oversight
+- Incident response planning
+- Annual reporting requirements
+
+**Applicability**:
+- Financial institutions (banks, credit unions, mortgage lenders)
+- Investment firms and broker-dealers
+- Insurance companies
+- Non-bank lenders (payday lenders, auto dealers offering financing)
+- Service providers to financial institutions
+
+**Data Source**: ecfr.gov API - Electronic Code of Federal Regulations
+
+---
+
+### FERPA - Family Educational Rights and Privacy Act
+
+**Status**: Production (v1.1.0)
+
+**Citation**: 34 CFR Part 99
+
+**Jurisdiction**: Federal (applies to all schools receiving federal funding)
+
+**Effective Date**: January 3, 2009 (current regulations)
+
+**Last Major Amendment**: December 2, 2011 (FERPA Final Rule)
+
+**Coverage**:
+- Student education records privacy rights
+- Parental access to records (students under 18)
+- Student access to records (students 18+ or in postsecondary)
+- Disclosure restrictions and consent requirements
+- Directory information policies
+- Record amendment procedures
+
+**Applicability**:
+- All schools receiving federal funding (K-12, colleges, universities)
+- Educational technology vendors accessing student records
+- School districts and state education agencies
+
+**Data Source**: ecfr.gov API
+
+---
+
+### COPPA - Children's Online Privacy Protection Act
+
+**Status**: Production (v1.1.0)
+
+**Citation**: 16 CFR Part 312
+
+**Jurisdiction**: Federal (applies to operators worldwide if targeting US children)
+
+**Effective Date**: July 1, 2013 (amended rule)
+
+**Last Major Amendment**: July 1, 2013 (FTC's COPPA Rule amendments)
+
+**Coverage**:
+- Verifiable parental consent requirements
+- Notice obligations for data collection
+- Data retention and deletion policies
+- Third-party disclosure restrictions
+- Safe harbor program provisions
+- Parental access rights
+
+**Applicability**:
+- Websites, apps, or online services directed to children under 13
+- General audience sites with actual knowledge of collecting data from children under 13
+- Advertising networks and plug-ins on child-directed sites
+
+**Data Source**: ecfr.gov API
+
+---
+
+### FDA 21 CFR Part 11 - Electronic Records and Signatures
+
+**Status**: Production (v1.1.0)
+
+**Citation**: 21 CFR Part 11
+
+**Jurisdiction**: Federal (FDA-regulated industries)
+
+**Effective Date**: August 20, 1997
+
+**Last Major Amendment**: August 20, 1997 (original final rule)
+
+**Coverage**:
+- Electronic record requirements (integrity, confidentiality)
+- Electronic signature requirements (authentication, non-repudiation)
+- System validation and audit trails
+- Record retention and retrieval
+- Legacy system requirements
+- Controls for open systems vs. closed systems
+
+**Applicability**:
+- Pharmaceutical manufacturers (drug development, manufacturing)
+- Medical device manufacturers
+- Biologics and vaccine producers
+- Clinical research organizations (CROs)
+- Contract manufacturing organizations (CMOs)
+
+**Data Source**: ecfr.gov API
+
+---
+
+### EPA RMP - Risk Management Plan Rule
+
+**Status**: Production (v1.1.0)
+
+**Citation**: 40 CFR Part 68
+
+**Jurisdiction**: Federal (applies to facilities using threshold quantities of regulated substances)
+
+**Effective Date**: January 13, 2017 (amended rule)
+
+**Last Major Amendment**: December 19, 2019 (EPA RMP Reconsideration Rule)
+
+**Coverage**:
+- Hazard assessment requirements
+- Prevention program elements
+- Emergency response coordination
+- Risk Management Plan (RMP) submission
+- Public disclosure and community right-to-know
+- Accident history reporting
+
+**Applicability**:
+- Chemical manufacturing facilities
+- Petroleum refineries
+- Facilities using ammonia refrigeration (food processing, cold storage)
+- Water treatment plants using chlorine
+- Facilities storing threshold quantities of toxic, flammable, or explosive substances
+
+**Data Source**: ecfr.gov API
 
 ---
 
