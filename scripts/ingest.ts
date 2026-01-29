@@ -10,7 +10,14 @@
 import Database from 'better-sqlite3';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { createHipaaAdapter } from '../src/ingest/adapters/ecfr.js';
+import {
+  createHipaaAdapter,
+  createGlbaAdapter,
+  createFerpaAdapter,
+  createCoppaAdapter,
+  createFdaAdapter,
+  createEpaRmpAdapter
+} from '../src/ingest/adapters/ecfr.js';
 import { createCcpaAdapter } from '../src/ingest/adapters/california-leginfo.js';
 import { createSoxAdapter } from '../src/ingest/adapters/regulations-gov.js';
 import type { SourceAdapter } from '../src/ingest/framework.js';
@@ -160,44 +167,72 @@ async function ingestRegulation(
 }
 
 /**
+ * All regulations to ingest
+ * Adding new regulations: add import + entry to this array
+ */
+const REGULATIONS = [
+  { id: 'HIPAA', adapter: createHipaaAdapter() },
+  { id: 'CCPA', adapter: createCcpaAdapter() },
+  { id: 'SOX', adapter: createSoxAdapter() },
+  { id: 'GLBA', adapter: createGlbaAdapter() },
+  { id: 'FERPA', adapter: createFerpaAdapter() },
+  { id: 'COPPA', adapter: createCoppaAdapter() },
+  { id: 'FDA_CFR_11', adapter: createFdaAdapter() },
+  { id: 'EPA_RMP', adapter: createEpaRmpAdapter() },
+];
+
+/**
  * Main ingestion function
  */
 async function ingestAll(): Promise<IngestResult[]> {
-  console.log('🚀 Starting US Compliance MCP Ingestion...\n');
-  console.log(`Database: ${DB_PATH}`);
-
   const db = Database(DB_PATH);
   const results: IngestResult[] = [];
 
-  const adapters: Array<{ id: string; adapter: SourceAdapter }> = [
-    { id: 'HIPAA', adapter: createHipaaAdapter() },
-    { id: 'CCPA', adapter: createCcpaAdapter() },
-    { id: 'SOX', adapter: createSoxAdapter() },
-  ];
+  console.log(`🚀 Ingesting ${REGULATIONS.length} regulations...\n`);
 
-  for (const { id, adapter } of adapters) {
+  // Sequential ingestion for now
+  for (const { id, adapter } of REGULATIONS) {
     const result = await ingestRegulation(db, id, adapter);
     results.push(result);
   }
 
   db.close();
 
+  // Summary report
   console.log('\n📊 Ingestion Summary:');
-  console.table(
-    results.map(r => ({
-      Regulation: r.regulation,
-      Status: r.success ? '✅ Success' : '❌ Failed',
-      Sections: r.sections_added,
-      Definitions: r.definitions_added,
-      'Duration (s)': (r.duration_ms / 1000).toFixed(2),
-      Error: r.error || '-',
-    }))
-  );
+  console.log('━'.repeat(60));
 
-  const totalSections = results.reduce((sum, r) => sum + r.sections_added, 0);
-  const successCount = results.filter(r => r.success).length;
+  let totalSections = 0;
+  let totalDefinitions = 0;
+  let successCount = 0;
 
-  console.log(`\n✨ Total: ${totalSections} sections from ${successCount}/${adapters.length} regulations`);
+  results.forEach(r => {
+    const status = r.success ? '✅' : '❌';
+    const secStr = `${r.sections_added} sections`.padEnd(15);
+    const defStr = `${r.definitions_added} defs`.padEnd(10);
+    const timeStr = `${r.duration_ms}ms`;
+
+    console.log(`${status} ${r.regulation.padEnd(12)} ${secStr} ${defStr} ${timeStr}`);
+
+    if (r.success) {
+      successCount++;
+      totalSections += r.sections_added;
+      totalDefinitions += r.definitions_added;
+    } else {
+      console.error(`   Error: ${r.error}`);
+    }
+  });
+
+  console.log('━'.repeat(60));
+  console.log(`Total: ${successCount}/${results.length} regulations, ${totalSections} sections, ${totalDefinitions} definitions`);
+
+  // Exit with error if any failed
+  if (successCount < results.length) {
+    console.error('\n❌ Some regulations failed to ingest');
+    process.exit(1);
+  }
+
+  console.log('\n✅ All regulations ingested successfully!');
 
   return results;
 }
