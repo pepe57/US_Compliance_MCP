@@ -48,7 +48,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Performance
 - Regulation coverage increased 40% (10 → 14 regulations)
-- Geographic coverage: Federal + 3 states (CA, NY, VA, CO, CT, UT)
+- Geographic coverage: Federal + 6 states (CA, NY, VA, CO, CT, UT)
 - Section count increased 15% (320 → 369 sections)
 
 ## [1.1.0] - 2026-01-29

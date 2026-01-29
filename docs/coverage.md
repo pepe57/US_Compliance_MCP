@@ -441,7 +441,7 @@ The v1.2 release includes fourteen US regulations:
   - Control or process personal data of 25,000+ Virginia consumers AND derive >50% revenue from sale of personal data
 - Exemptions: HIPAA, GLBA, FCRA covered entities, non-profits, higher education institutions
 
-**Data Source**: Seed data (data/seed/virginia-cdpa.json)
+**Data Source**: HTML scraping from law.lis.virginia.gov (Virginia Legislative Information System)
 
 ---
 
@@ -489,7 +489,7 @@ The v1.2 release includes fourteen US regulations:
   - Control or process personal data of 25,000+ Colorado consumers AND derive revenue from sale of personal data
 - Exemptions: HIPAA, GLBA, FCRA covered entities, higher education institutions
 
-**Data Source**: Seed data (data/seed/colorado-cpa.json)
+**Data Source**: HTML scraping from colorado.public.law (third-party Colorado statute aggregator)
 
 ---
 
@@ -541,7 +541,7 @@ The v1.2 release includes fourteen US regulations:
   - Control or process personal data of 25,000+ Connecticut consumers AND derive >25% revenue from sale of personal data
 - Exemptions: HIPAA, GLBA, FCRA covered entities, non-profits, higher education institutions
 
-**Data Source**: Seed data (data/seed/connecticut-ctdpa.json)
+**Data Source**: HTML scraping from cga.ct.gov (Connecticut General Assembly)
 
 ---
 
@@ -590,7 +590,7 @@ The v1.2 release includes fourteen US regulations:
   - Control or process personal data of 25,000+ Utah consumers AND derive >50% revenue from sale of personal data
 - Note: Excludes data controlled or processed solely for payment transactions
 
-**Data Source**: Seed data (data/seed/utah-ucpa.json)
+**Data Source**: HTML scraping from le.utah.gov/xcode (Utah State Legislature - two-step version resolution)
 
 ---
 
