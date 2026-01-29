@@ -218,6 +218,55 @@ addTest('EPA RMP', 'EPA RMP chemical safety', async () => {
   return result;
 });
 
+// ===== v1.2 STATE PRIVACY LAWS QUERIES =====
+addTest('Virginia CDPA', 'Consumer rights data deletion Virginia', async () => {
+  const result = await searchRegulations(db, {
+    query: 'consumer rights data deletion Virginia',
+    regulation: 'VIRGINIA_CDPA',
+    limit: 5
+  });
+  if (!result || result.length === 0) throw new Error('No results');
+  console.log(`   📋 Found ${result.length} sections`);
+  console.log(`   📝 Top result: ${result[0].section}`);
+  return result;
+});
+
+addTest('Colorado CPA', 'Universal opt-out mechanism Colorado', async () => {
+  const result = await searchRegulations(db, {
+    query: 'universal opt-out mechanism Colorado',
+    regulation: 'COLORADO_CPA',
+    limit: 5
+  });
+  if (!result || result.length === 0) throw new Error('No results');
+  console.log(`   📋 Found ${result.length} sections`);
+  console.log(`   📝 Top result: ${result[0].section}`);
+  return result;
+});
+
+addTest('Connecticut CTDPA', 'Data protection assessment Connecticut', async () => {
+  const result = await searchRegulations(db, {
+    query: 'data protection assessment Connecticut',
+    regulation: 'CONNECTICUT_CTDPA',
+    limit: 5
+  });
+  if (!result || result.length === 0) throw new Error('No results');
+  console.log(`   📋 Found ${result.length} sections`);
+  console.log(`   📝 Top result: ${result[0].section}`);
+  return result;
+});
+
+addTest('Utah UCPA', 'Consumer privacy rights Utah', async () => {
+  const result = await searchRegulations(db, {
+    query: 'consumer privacy rights Utah',
+    regulation: 'UTAH_UCPA',
+    limit: 5
+  });
+  if (!result || result.length === 0) throw new Error('No results');
+  console.log(`   📋 Found ${result.length} sections`);
+  console.log(`   📝 Top result: ${result[0].section}`);
+  return result;
+});
+
 // ===== CROSS-REGULATION QUERIES =====
 addTest('Cross-Regulation', 'Compare breach notification timelines', async () => {
   const result = await compareRequirements(db, {
