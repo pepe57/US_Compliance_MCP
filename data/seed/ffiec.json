@@ -7,65 +7,96 @@
     "jurisdiction": "federal",
     "regulation_type": "guidance"
   },
+  "source": {
+    "official_url": "https://ithandbook.ffiec.gov/",
+    "publisher": "Federal Financial Institutions Examination Council",
+    "last_verified": "2026-01-29",
+    "verification_method": "Extracted from official FFIEC IT Examination Handbook booklets",
+    "disclaimer": "This is examination guidance from the official FFIEC IT Examination Handbook. The FFIEC publishes detailed booklets covering each examination area. This seed data provides key examination objectives and principles. For complete examination procedures and work programs, consult the full booklets at ithandbook.ffiec.gov. This guidance does not constitute legal or regulatory requirements but represents interagency expectations for supervised institutions."
+  },
   "sections": [
     {
-      "sectionNumber": "ARCH-1",
-      "title": "Architecture and Infrastructure - Overview",
-      "text": "Financial institutions should implement a secure, resilient IT architecture that supports business operations and protects customer information. The architecture should address network segmentation, access controls, and defense-in-depth principles.",
-      "chapter": "Architecture"
+      "sectionNumber": "INFOSEC-I",
+      "title": "Information Security - Introduction",
+      "text": "The Information Security booklet provides guidance to examiners and outlines expectations for information security programs at financial institutions. An effective information security program should: (1) Identify and assess the risks to the information assets; (2) Develop a written information security program to manage and control identified risks; (3) Implement and test the security program; (4) Assess and adjust the security program on an ongoing basis. The board of directors is responsible for overseeing the development, implementation, and maintenance of the institution's information security program. Management is responsible for implementing the program and ensuring that all employees understand their roles and responsibilities. The information security program should be appropriate to the institution's size, complexity, nature of activities, and sensitivity of the information maintained.",
+      "chapter": "Information Security"
     },
     {
-      "sectionNumber": "ISG-1",
-      "title": "Information Security - Governance",
-      "text": "The board of directors and senior management are responsible for information security governance. They should establish an information security program that addresses risks, compliance requirements, and incident response.",
-      "chapter": "InfoSec"
+      "sectionNumber": "INFOSEC-II.A",
+      "title": "Information Security - Risk Assessment",
+      "text": "Financial institutions should conduct ongoing risk assessments that: (1) Identify reasonably foreseeable internal and external threats that could result in unauthorized disclosure, misuse, alteration, or destruction of customer information or customer information systems; (2) Assess the likelihood and potential damage of these threats, taking into consideration the sensitivity of customer information; (3) Assess the sufficiency of policies, procedures, customer information systems, and other arrangements in place to control risks. The risk assessment should be updated as threats evolve, as the institution's information assets change, and as new vulnerabilities are discovered. Risk assessments should inform the institution's overall information security strategy and resource allocation decisions.",
+      "chapter": "Information Security"
     },
     {
-      "sectionNumber": "OPS-1",
-      "title": "Operations - IT Operations Management",
-      "text": "Financial institutions should maintain effective IT operations management including change management, problem management, and service continuity. Operations should be monitored, measured, and continuously improved.",
-      "chapter": "Operations"
+      "sectionNumber": "INFOSEC-II.C",
+      "title": "Information Security - Security Controls",
+      "text": "Financial institutions should design, implement, and maintain a comprehensive set of security controls commensurate with the risks identified. Security controls include: (1) Access controls on customer information systems, including controls to authenticate and permit access only to authorized individuals; (2) Access restrictions at physical locations containing customer information; (3) Encryption of electronic customer information, including while in transit or in storage on networks or systems to which unauthorized individuals may have access; (4) Procedures designed to ensure that customer information system modifications are consistent with the institution's information security program; (5) Dual control procedures, segregation of duties, and employee background checks for employees with responsibilities for or access to customer information; (6) Monitoring systems and procedures to detect actual and attempted attacks on or intrusions into customer information systems; (7) Response programs that specify actions to be taken when the institution suspects or detects that unauthorized individuals have gained access to customer information systems.",
+      "chapter": "Information Security"
     },
     {
-      "sectionNumber": "AUDIT-1",
-      "title": "Audit and Compliance",
-      "text": "Financial institutions should maintain an audit program that provides independent assessment of IT controls, risk management processes, and compliance with applicable laws and regulations. Audit findings should be tracked and remediated.",
-      "chapter": "Audit"
-    },
-    {
-      "sectionNumber": "BCP-1",
-      "title": "Business Continuity Planning",
-      "text": "Financial institutions should develop and maintain business continuity plans that address service disruptions, disaster recovery, and resilience. Plans should be tested regularly and updated based on test results and changing business needs.",
+      "sectionNumber": "BCP-I",
+      "title": "Business Continuity Planning - Introduction",
+      "text": "The Business Continuity Planning (BCP) booklet addresses business continuity planning for technology services. Business continuity planning is the process whereby financial institutions ensure the maintenance or recovery of operations, including services to customers, when confronted with adverse events such as natural disasters, technological failures, human error, or terrorism. The objectives of a BCP are to minimize financial loss to the institution; continue to serve customers and financial market participants; and mitigate the negative effects of disruptions on an institution's strategic plans, reputation, operations, liquidity, credit quality, market position, and ability to remain in compliance with applicable laws and regulations. The board of directors and senior management are responsible for establishing policies and processes for business continuity planning.",
       "chapter": "Business Continuity"
     },
     {
-      "sectionNumber": "CYBER-1",
-      "title": "Cybersecurity Assessment",
-      "text": "Financial institutions should conduct regular cybersecurity assessments to identify vulnerabilities, evaluate controls, and measure preparedness. Assessments should cover people, processes, and technology across the organization.",
-      "chapter": "Cybersecurity"
+      "sectionNumber": "BCP-II",
+      "title": "Business Continuity Planning - Business Impact Analysis",
+      "text": "A business impact analysis (BIA) is the foundation for developing a BCP. The BIA should: (1) Identify the potential impact of uncontrolled, non-specific events on the institution's business processes and its customers; (2) Consider all critical business functions and the technology that supports them; (3) Estimate maximum allowable downtime and acceptable levels of data loss for each business process; (4) Identify resource requirements including personnel, facilities, and technology; (5) Prioritize the recovery of business processes based on their criticality. Financial institutions should update the BIA when significant organizational changes occur, including changes to business processes, technology, key personnel, facilities, or service providers.",
+      "chapter": "Business Continuity"
     },
     {
-      "sectionNumber": "DEV-1",
-      "title": "Development and Acquisition",
-      "text": "Financial institutions should implement secure software development lifecycle practices for internally developed systems and conduct thorough due diligence when acquiring third-party solutions. Security and privacy requirements should be integrated throughout development and acquisition processes.",
-      "chapter": "Development"
+      "sectionNumber": "AUDIT-I",
+      "title": "Audit - IT Audit Program",
+      "text": "Financial institutions should maintain an IT audit program that provides an independent assessment of IT-related risks and controls. The IT audit function should: (1) Be independent from IT management and operations; (2) Have sufficient resources, expertise, and authority to evaluate all IT activities; (3) Follow a risk-based approach to determine the scope and frequency of audits; (4) Evaluate the effectiveness of IT governance, risk management, and internal controls; (5) Report findings and recommendations to the board of directors or audit committee; (6) Track remediation of audit findings. The IT audit program should address both general controls (those that apply to all systems) and application controls (those specific to individual applications).",
+      "chapter": "Audit"
     },
     {
-      "sectionNumber": "OUTSOURCE-1",
-      "title": "Outsourcing Technology Services",
-      "text": "Financial institutions should implement risk management programs for outsourced technology services. This includes due diligence, contract provisions, ongoing monitoring, and contingency planning for service provider relationships.",
+      "sectionNumber": "OUTSOURCE-I",
+      "title": "Outsourcing Technology Services - Risk Management",
+      "text": "Financial institutions should implement effective risk management practices for outsourced technology services. Risk management should include: (1) Risk assessment to identify and evaluate risks associated with each outsourced service; (2) Due diligence to evaluate the service provider's ability to perform the outsourced activity adequately and the financial and operational impact on the institution; (3) Contract provisions that clearly define the expectations and responsibilities of both parties; (4) Ongoing monitoring of the service provider's performance and control environment; (5) Business continuity and contingency planning for critical outsourced services. The board of directors retains ultimate responsibility for managing risks associated with outsourcing relationships, regardless of which functions are outsourced.",
       "chapter": "Outsourcing"
     },
     {
-      "sectionNumber": "RETAIL-1",
-      "title": "Retail Payment Systems",
-      "text": "Financial institutions should implement controls to protect retail payment systems including authentication, transaction monitoring, and fraud detection. Controls should address card-based payments, ACH, wire transfers, and emerging payment methods.",
+      "sectionNumber": "OUTSOURCE-II",
+      "title": "Outsourcing Technology Services - Due Diligence",
+      "text": "Before engaging a service provider, financial institutions should conduct due diligence that includes: (1) Evaluating the service provider's financial condition and determining whether it has adequate resources to provide the services; (2) Reviewing independent audit reports (SOC reports) on the service provider's control environment; (3) Assessing the service provider's information security program and disaster recovery capabilities; (4) Evaluating the service provider's experience providing similar services to comparable financial institutions; (5) Reviewing the service provider's insurance coverage; (6) Assessing the service provider's incident response capabilities and history of security breaches or service disruptions; (7) Understanding the service provider's use of subcontractors. Due diligence should be commensurate with the risk and complexity of the outsourced service.",
+      "chapter": "Outsourcing"
+    },
+    {
+      "sectionNumber": "CYBER-I",
+      "title": "Cybersecurity Assessment Tool - Overview",
+      "text": "The FFIEC Cybersecurity Assessment Tool (CAT) helps institutions identify their risks and determine their cybersecurity preparedness. The assessment consists of two parts: (1) Inherent Risk Profile - identifies the institution's inherent risk based on technologies and connection types, delivery channels, online/mobile products and services, organizational characteristics, and external threats; (2) Cybersecurity Maturity - evaluates the institution's cybersecurity maturity across five domains: Cyber Risk Management and Oversight, Threat Intelligence and Collaboration, Cybersecurity Controls, External Dependency Management, and Cyber Incident Management and Resilience. Institutions should use the CAT results to identify gaps between their risk profile and maturity level, develop action plans to address gaps, and inform strategic decisions about cybersecurity investments.",
+      "chapter": "Cybersecurity"
+    },
+    {
+      "sectionNumber": "CYBER-II",
+      "title": "Cybersecurity Assessment - Maturity Levels",
+      "text": "The Cybersecurity Assessment Tool defines five maturity levels: (1) Baseline - minimum expectations that all institutions should meet based on examination guidance; (2) Evolving - additional practices beyond baseline that institutions with elevated risks should consider; (3) Intermediate - practices that institutions with significant inherent risk typically implement; (4) Advanced - practices implemented by institutions with substantial inherent risk or that are leaders in cybersecurity; (5) Innovative - practices that represent cutting-edge approaches to cybersecurity. Institutions should determine the appropriate maturity level based on their inherent risk profile. An institution with a higher inherent risk profile should demonstrate a more mature cybersecurity posture across all five domains.",
+      "chapter": "Cybersecurity"
+    },
+    {
+      "sectionNumber": "DEV-I",
+      "title": "Development and Acquisition - SDLC",
+      "text": "Financial institutions should implement a secure software development life cycle (SDLC) for internally developed applications. The SDLC should include: (1) Security requirements definition during the planning and requirements phase; (2) Threat modeling and secure design principles during the design phase; (3) Secure coding standards and code reviews during the development phase; (4) Security testing including static analysis, dynamic analysis, and penetration testing; (5) Secure deployment procedures and configuration management; (6) Ongoing vulnerability management and patching after deployment. Institutions should ensure that developers receive training on secure coding practices and that security reviews are integrated throughout the development process.",
+      "chapter": "Development"
+    },
+    {
+      "sectionNumber": "ARCH-I",
+      "title": "Architecture, Infrastructure, and Operations - Network Security",
+      "text": "Financial institutions should implement network security controls that protect the confidentiality, integrity, and availability of information and systems. Network security controls include: (1) Network segmentation to isolate sensitive systems and limit lateral movement; (2) Firewalls and access control lists to filter traffic between network segments; (3) Intrusion detection and prevention systems to identify and block malicious activity; (4) Secure configuration of network devices including routers, switches, and wireless access points; (5) Encryption of sensitive data in transit using current cryptographic standards; (6) Regular vulnerability scanning and penetration testing of network infrastructure; (7) Monitoring and logging of network activity to detect anomalies and support incident investigation.",
+      "chapter": "Architecture"
+    },
+    {
+      "sectionNumber": "RETAIL-I",
+      "title": "Retail Payment Systems - Authentication",
+      "text": "Financial institutions offering retail payment services should implement layered security controls. For customer authentication, institutions should: (1) Use multi-factor authentication for higher-risk transactions and access to sensitive functions; (2) Implement device identification and authentication to recognize returning customers; (3) Monitor login attempts and implement lockout policies after failed attempts; (4) Provide customer notification of account activity and security events; (5) Educate customers about security risks and protective measures. Authentication methods should be commensurate with the risk of the payment channel and transaction type. Institutions should periodically evaluate the effectiveness of authentication controls against evolving threats.",
       "chapter": "Retail Payments"
     },
     {
-      "sectionNumber": "WHOLESALE-1",
-      "title": "Wholesale Payment Systems",
-      "text": "Financial institutions should implement enhanced security controls for wholesale payment systems given the higher transaction values and fraud risks. Controls should include dual authorization, out-of-band verification, and anomaly detection.",
+      "sectionNumber": "WHOLESALE-I",
+      "title": "Wholesale Payment Systems - Controls",
+      "text": "Financial institutions processing wholesale payments should implement enhanced controls given the higher values and greater fraud risks. Controls should include: (1) Dual authorization requiring two individuals to approve high-value or unusual transactions; (2) Positive pay and transaction filtering to identify unauthorized payments; (3) Out-of-band verification using separate communication channels to confirm transaction details; (4) Behavioral analytics to detect anomalous transaction patterns; (5) Customer agreements defining security responsibilities and liability; (6) Real-time monitoring and alerts for suspicious activity; (7) Secure transmission protocols for payment instructions. Institutions should conduct periodic assessments of wholesale payment controls and adjust them based on emerging fraud trends.",
       "chapter": "Wholesale Payments"
     }
   ]

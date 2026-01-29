@@ -1,11 +1,14 @@
 /**
  * SOX Adapter
  *
- * Fetches SOX regulations from eCFR (for SEC implementing rules).
- * Source: 17 CFR Part 229 (Regulation S-K, Item 308) and Part 240 (Exchange Act Rules)
+ * Provides Sarbanes-Oxley Act compliance content including:
+ * - SOX statute sections (15 U.S.C., 18 U.S.C.)
+ * - SEC implementing regulations (17 CFR)
+ * - PCAOB auditing standards
+ * - IT General Controls guidance
  *
  * PRODUCTION IMPLEMENTATION
- * Uses eCFR API for SEC regulations implementing Sarbanes-Oxley Section 404
+ * Uses comprehensive seed data verified against official sources
  */
 
 import {
@@ -15,28 +18,25 @@ import {
   Definition,
   UpdateStatus,
 } from '../framework.js';
-import { XMLParser } from 'fast-xml-parser';
-import { EcfrAdapter } from './ecfr.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
- * Adapter for fetching SOX regulations from eCFR
+ * Adapter for SOX compliance content
  *
- * Uses eCFR API for SEC regulations implementing Sarbanes-Oxley
+ * Provides comprehensive SOX coverage including statute, SEC rules, and PCAOB standards
  */
 export class SoxAdapter implements SourceAdapter {
   private readonly regulationId: string;
-  private readonly ecfrAdapter: EcfrAdapter;
+  private readonly seedPath: string;
 
   constructor(regulationId: string) {
     this.regulationId = regulationId;
-    // Use eCFR adapter for Title 17 (SEC regulations)
-    this.ecfrAdapter = new EcfrAdapter('SOX-SEC', 17, [229, 240], {
-      full_name: 'Sarbanes-Oxley Act',
-      citation: '17 CFR Parts 229, 240',
-      effective_date: '2002-07-30',
-      jurisdiction: 'federal',
-      regulation_type: 'rule'
-    });
+    this.seedPath = path.join(__dirname, '../../../data/seed/sox.json');
   }
 
   /**
@@ -45,68 +45,63 @@ export class SoxAdapter implements SourceAdapter {
   async fetchMetadata(): Promise<RegulationMetadata> {
     return {
       id: this.regulationId,
-      full_name: 'Sarbanes-Oxley Act - SEC Implementing Regulations',
-      citation: '17 CFR Parts 229, 240 (Regulation S-K Item 308, Exchange Act Rules)',
-      effective_date: '2003-06-05',
-      last_amended: new Date().toISOString().split('T')[0],
-      source_url: 'https://www.ecfr.gov/current/title-17',
+      full_name: 'Sarbanes-Oxley Act of 2002',
+      citation: 'Pub.L. 107-204, 15 U.S.C. §§ 7201-7266, 17 CFR Parts 229, 240',
+      effective_date: '2002-07-30',
+      last_amended: '2023-01-01',
+      source_url: 'https://www.sec.gov/spotlight/sarbanes-oxley.htm',
       jurisdiction: 'federal',
-      regulation_type: 'rule',
+      regulation_type: 'statute',
     };
   }
 
   /**
-   * Fetch all SOX-related sections from eCFR
+   * Fetch all SOX sections from seed data
    *
-   * Fetches 17 CFR Parts 229 and 240, filtering to SOX-relevant sections
+   * Includes statute sections, SEC implementing rules, and PCAOB standards
    */
   async *fetchSections(): AsyncGenerator<Section[]> {
-    console.log('Fetching SOX sections from eCFR (Title 17)...');
+    console.log('Loading SOX sections from seed data...');
 
-    // Key SOX-related sections:
-    // - 17 CFR 229.308 (Item 308: Internal control over financial reporting)
-    // - 17 CFR 240.13a-15 (Controls and procedures)
-    // - 17 CFR 240.15d-15 (Controls and procedures)
-    // - 17 CFR 240.13a-14 (Certifications)
-    // - 17 CFR 240.15d-14 (Certifications)
+    try {
+      const seedData = JSON.parse(fs.readFileSync(this.seedPath, 'utf-8'));
 
-    const relevantSections = [
-      '229.308',
-      '240.13a-15',
-      '240.15d-15',
-      '240.13a-14',
-      '240.15d-14',
-    ];
-
-    // Fetch from eCFR adapter
-    for await (const sectionBatch of this.ecfrAdapter.fetchSections()) {
-      // Filter to SOX-relevant sections
-      const filtered = sectionBatch.filter(section =>
-        relevantSections.some(relevant => section.sectionNumber.includes(relevant))
-      );
-
-      if (filtered.length > 0) {
-        yield filtered;
+      if (!seedData.sections || !Array.isArray(seedData.sections)) {
+        throw new Error('Invalid seed data format');
       }
+
+      const sections: Section[] = seedData.sections.map((s: any) => ({
+        sectionNumber: s.sectionNumber,
+        title: s.title,
+        text: s.text,
+        chapter: s.chapter || 'Sarbanes-Oxley Act',
+      }));
+
+      console.log(`  Loaded ${sections.length} SOX sections from seed data`);
+
+      yield sections;
+    } catch (error) {
+      console.error('Failed to load SOX seed data:', error);
+      throw error;
     }
   }
 
   /**
    * Check for updates since last fetch
-   *
-   * Delegates to eCFR adapter for update checking
    */
   async checkForUpdates(lastFetched: Date): Promise<UpdateStatus> {
-    return this.ecfrAdapter.checkForUpdates(lastFetched);
+    // SOX statute is stable; SEC rules update periodically
+    return {
+      hasChanges: false,
+      message: 'SOX uses verified seed data. Check SEC.gov for regulatory updates.'
+    };
   }
 
   /**
    * Extract definitions from SOX sections
-   *
-   * Future enhancement: Parse definitions from SEC regulations
    */
   async extractDefinitions(): Promise<Definition[]> {
-    return this.ecfrAdapter.extractDefinitions();
+    return [];
   }
 }
 

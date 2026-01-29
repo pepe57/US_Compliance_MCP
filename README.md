@@ -160,7 +160,7 @@ Once connected, just ask naturally:
 
 ## What's Included
 
-### v1.2 Regulations (14 total, 369 sections)
+### v1.2 Regulations (14 total, ~380 sections)
 
 **Healthcare & Privacy:**
 - **HIPAA** - Health Insurance Portability and Accountability Act
@@ -174,8 +174,10 @@ Once connected, just ask naturally:
 
 **Financial Services:**
 - **SOX** - Sarbanes-Oxley Act
-  - Section 404 (Management Assessment of Internal Controls)
-  - IT controls and audit requirements
+  - Key statute sections (Sections 101, 201, 301, 302, 404, 409, 802, 806, 906)
+  - SEC implementing regulations (17 CFR 229.308, 240.13a-14, 240.13a-15)
+  - PCAOB auditing standards (AS 2201)
+  - IT General Controls guidance
 
 - **GLBA** - Gramm-Leach-Bliley Act Safeguards Rule (NEW in v1.1)
   - 16 CFR Part 314
@@ -296,12 +298,35 @@ eCFR/LegInfo HTML → Parse → SQLite → FTS5 snippet() → MCP response
 
 > **🚨 THIS TOOL IS NOT LEGAL ADVICE 🚨**
 >
-> Regulation text is sourced verbatim from eCFR.gov, California LegInfo, and other official public sources. However:
-> - **Control mappings** (NIST 800-53, NIST CSF) are interpretive aids, not official guidance
+> This tool provides regulatory text for research and educational purposes. However:
+> - **Control mappings** (NIST 800-53, NIST CSF) are interpretive guidance, NOT official HHS, NIST, or agency crosswalks
 > - **Applicability rules** are generalizations, not legal determinations
 > - **Cross-references** are research helpers, not compliance mandates
 >
 > **Always verify against official sources and consult qualified legal counsel for compliance decisions.**
+
+### Data Source Transparency
+
+> **📋 Source Quality Disclosure**
+>
+> **Tier 1 - Official API Sources (Authoritative):**
+> - HIPAA, GLBA, FERPA, COPPA, FDA 21 CFR 11, EPA RMP — sourced from **eCFR.gov official API**
+> - CCPA/CPRA — sourced from **California LegInfo official site**
+>
+> **Tier 2 - Official State Sources (HTML Scraping):**
+> - Virginia CDPA — sourced from law.lis.virginia.gov
+> - Connecticut CTDPA — sourced from cga.ct.gov
+> - Utah UCPA — sourced from le.utah.gov
+> - Colorado CPA — seed data verified against leg.colorado.gov
+>
+> **Tier 3 - Seed Data (Verified but Static):**
+> - FFIEC IT Handbook — examination guidance extracted from ffiec.gov booklets
+> - NYDFS 500 — regulatory text from dfs.ny.gov
+> - SOX — statute and SEC implementing regulations
+>
+> Seed data sources include official source attribution and verification dates. Users should check official sources for updates.
+>
+> **Control Framework Mappings:** HIPAA-to-NIST and CCPA-to-NIST mappings are interpretive guidance to assist compliance research. They are NOT official agency crosswalks. Consult NIST SP 800-66 and official agency guidance for authoritative mappings.
 
 ### Token Usage
 

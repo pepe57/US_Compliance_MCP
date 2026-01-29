@@ -129,16 +129,25 @@ CREATE TABLE IF NOT EXISTS source_registry (
 `;
 
 interface RegulationSeed {
-  id: string;
-  full_name: string;
-  short_name?: string;
-  citation: string;
-  effective_date?: string;
-  source_url?: string;
-  jurisdiction?: string;
-  regulation_type?: string;
+  regulation: {
+    id: string;
+    full_name: string;
+    short_name?: string;
+    citation: string;
+    effective_date?: string;
+    source_url?: string;
+    jurisdiction?: string;
+    regulation_type?: string;
+  };
+  source?: {
+    official_url?: string;
+    publisher?: string;
+    last_verified?: string;
+    verification_method?: string;
+    disclaimer?: string;
+  };
   sections: Array<{
-    number: string;
+    sectionNumber: string;
     title?: string;
     text: string;
     part?: string;
@@ -184,22 +193,30 @@ function buildDatabase() {
       if (file.startsWith('mappings')) continue;
 
       console.log(`Loading ${file}...`);
-      const content = readFileSync(join(SEED_DIR, file), 'utf-8');
-      const regulation: RegulationSeed = JSON.parse(content);
+      let seedData: RegulationSeed;
+      try {
+        const content = readFileSync(join(SEED_DIR, file), 'utf-8');
+        seedData = JSON.parse(content);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error(`Failed to parse ${file}: ${message}`);
+        throw error;
+      }
+      const reg = seedData.regulation;
 
       // Insert regulation
       db.prepare(`
         INSERT INTO regulations (id, full_name, short_name, citation, effective_date, source_url, jurisdiction, regulation_type)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       `).run(
-        regulation.id,
-        regulation.full_name,
-        regulation.short_name || null,
-        regulation.citation,
-        regulation.effective_date || null,
-        regulation.source_url || null,
-        regulation.jurisdiction || null,
-        regulation.regulation_type || null
+        reg.id,
+        reg.full_name,
+        reg.short_name || null,
+        reg.citation,
+        reg.effective_date || null,
+        seedData.source?.official_url || reg.source_url || null,
+        reg.jurisdiction || null,
+        reg.regulation_type || null
       );
 
       // Insert sections
@@ -208,10 +225,10 @@ function buildDatabase() {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
 
-      for (const section of regulation.sections) {
+      for (const section of seedData.sections) {
         insertSection.run(
-          regulation.id,
-          section.number,
+          reg.id,
+          section.sectionNumber,
           section.title || null,
           section.text,
           section.part || null,
@@ -223,34 +240,35 @@ function buildDatabase() {
       }
 
       // Insert definitions
-      if (regulation.definitions) {
+      if (seedData.definitions) {
         const insertDefinition = db.prepare(`
           INSERT OR IGNORE INTO definitions (regulation, term, definition, section)
           VALUES (?, ?, ?, ?)
         `);
 
-        for (const def of regulation.definitions) {
-          insertDefinition.run(regulation.id, def.term, def.definition, def.section);
+        for (const def of seedData.definitions) {
+          insertDefinition.run(reg.id, def.term, def.definition, def.section);
         }
       }
 
       // Update source registry with timestamps
       const now = new Date().toISOString();
-      const sourceType = regulation.source_url?.includes('api') ? 'api' : regulation.source_url?.includes('.pdf') ? 'pdf' : 'html';
+      const sourceUrl = seedData.source?.official_url || reg.source_url || '';
+      const sourceType = sourceUrl.includes('api') ? 'api' : sourceUrl.includes('.pdf') ? 'pdf' : 'seed';
       db.prepare(`
         INSERT INTO source_registry (regulation, source_type, source_url, api_endpoint, last_fetched, sections_expected, sections_parsed, quality_status)
         VALUES (?, ?, ?, ?, ?, ?, ?, 'complete')
       `).run(
-        regulation.id,
+        reg.id,
         sourceType,
-        regulation.source_url || '',
-        regulation.source_url?.includes('api') ? regulation.source_url : null,
+        sourceUrl,
+        sourceUrl.includes('api') ? sourceUrl : null,
         now,
-        regulation.sections.length,
-        regulation.sections.length
+        seedData.sections.length,
+        seedData.sections.length
       );
 
-      console.log(`  Loaded ${regulation.sections.length} sections, ${regulation.definitions?.length || 0} definitions`);
+      console.log(`  Loaded ${seedData.sections.length} sections, ${seedData.definitions?.length || 0} definitions`);
     }
 
     // Note: Control mappings and applicability rules are loaded separately

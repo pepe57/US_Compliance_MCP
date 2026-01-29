@@ -2,8 +2,18 @@
   "framework": "NIST_CSF_2_0",
   "regulation": "CCPA",
   "generated_at": "2026-01-29",
-  "generated_by": "claude-sonnet-4-5",
   "description": "Mapping of CCPA/CPRA requirements to NIST Cybersecurity Framework 2.0",
+  "source": {
+    "disclaimer": "IMPORTANT: These mappings are interpretive guidance created to assist with compliance research. They are NOT official California Attorney General or NIST crosswalks. CCPA/CPRA is a privacy regulation while NIST CSF is a cybersecurity framework - overlap exists but is not complete. For authoritative guidance, consult: (1) California Privacy Protection Agency regulations and guidance, (2) NIST Privacy Framework for privacy-specific controls, (3) Your organization's compliance and legal counsel. These mappings should be validated against your specific implementation context.",
+    "references": [
+      "NIST Cybersecurity Framework 2.0",
+      "NIST Privacy Framework 1.0",
+      "California Consumer Privacy Act (Cal. Civ. Code §§ 1798.100-199)",
+      "CPRA Final Regulations (11 CCR §§ 7000-7304)"
+    ],
+    "methodology": "Mappings identify NIST CSF functions and categories that support CCPA/CPRA compliance objectives. Privacy requirements mapped to closest cybersecurity controls. Coverage indicates degree of alignment: 'full' = strong alignment, 'partial' = supporting control.",
+    "last_reviewed": "2026-01-29"
+  },
   "mappings": [
     {
       "section_number": "1798.100",

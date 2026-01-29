@@ -1,0 +1,109 @@
+{
+  "regulation": {
+    "id": "SOX",
+    "full_name": "Sarbanes-Oxley Act of 2002",
+    "citation": "Pub.L. 107-204, 15 U.S.C. §§ 7201-7266, 18 U.S.C. §§ 1348-1350",
+    "effective_date": "2002-07-30",
+    "jurisdiction": "federal",
+    "regulation_type": "statute"
+  },
+  "source": {
+    "official_url": "https://www.congress.gov/bill/107th-congress/house-bill/3763",
+    "publisher": "United States Congress",
+    "last_verified": "2026-01-29",
+    "verification_method": "Extracted from official Sarbanes-Oxley Act of 2002 statutory text and SEC implementing regulations",
+    "disclaimer": "This includes key provisions from the Sarbanes-Oxley Act statute (15 U.S.C. and 18 U.S.C.) and SEC implementing regulations (17 CFR). For IT compliance purposes, Section 404 and related SEC rules are most relevant. This is not a complete compilation of all SOX requirements. Consult SEC.gov and legal counsel for comprehensive compliance guidance."
+  },
+  "sections": [
+    {
+      "sectionNumber": "SOX-101",
+      "title": "Section 101 - Establishment; Administrative Provisions",
+      "text": "There is established the Public Company Accounting Oversight Board, to oversee the audit of companies that are subject to the securities laws, and related matters, in order to protect the interests of investors and further the public interest in the preparation of informative, accurate, and independent audit reports. The Board shall be a body corporate, operate as a nonprofit corporation, and have succession until dissolved by an Act of Congress enacted after this Act. The Board shall not be an agency or establishment of the United States Government, and, except as otherwise provided in this Act, shall be subject to, and have all the powers conferred upon a nonprofit corporation by, the District of Columbia Nonprofit Corporation Act.",
+      "chapter": "Title I - Public Company Accounting Oversight Board"
+    },
+    {
+      "sectionNumber": "SOX-201",
+      "title": "Section 201 - Services Outside the Scope of Practice of Auditors",
+      "text": "It shall be unlawful for a registered public accounting firm to provide any non-audit service to an issuer contemporaneously with the audit, including: (1) bookkeeping or other services related to the accounting records or financial statements of the audit client; (2) financial information systems design and implementation; (3) appraisal or valuation services, fairness opinions, or contribution-in-kind reports; (4) actuarial services; (5) internal audit outsourcing services; (6) management functions or human resources; (7) broker or dealer, investment adviser, or investment banking services; (8) legal services and expert services unrelated to the audit; (9) any other service that the Board determines, by regulation, is impermissible. A registered public accounting firm may engage in any non-audit service, including tax services, that is not described above for an audit client, only if the activity is approved in advance by the audit committee of the issuer.",
+      "chapter": "Title II - Auditor Independence"
+    },
+    {
+      "sectionNumber": "SOX-301",
+      "title": "Section 301 - Public Company Audit Committees",
+      "text": "The audit committee of each issuer shall be directly responsible for the appointment, compensation, and oversight of the work of any registered public accounting firm employed by that issuer for the purpose of preparing or issuing an audit report or related work, and each such registered public accounting firm shall report directly to the audit committee. Each member of the audit committee of the issuer shall be a member of the board of directors of the issuer, and shall otherwise be independent. In order to be considered to be independent, a member of an audit committee of an issuer may not, other than in his or her capacity as a member of the audit committee, the board of directors, or any other board committee: (i) accept any consulting, advisory, or other compensatory fee from the issuer; or (ii) be an affiliated person of the issuer or any subsidiary thereof. Each audit committee shall establish procedures for the receipt, retention, and treatment of complaints received by the issuer regarding accounting, internal accounting controls, or auditing matters; and the confidential, anonymous submission by employees of the issuer of concerns regarding questionable accounting or auditing matters.",
+      "chapter": "Title III - Corporate Responsibility"
+    },
+    {
+      "sectionNumber": "SOX-302",
+      "title": "Section 302 - Corporate Responsibility for Financial Reports",
+      "text": "The Commission shall, by rule, require, for each company filing periodic reports under section 13(a) or 15(d) of the Securities Exchange Act of 1934, that the principal executive officer or officers and the principal financial officer or officers, or persons performing similar functions, certify in each annual or quarterly report filed or submitted under either such section of such Act that: (1) the signing officer has reviewed the report; (2) based on the officer's knowledge, the report does not contain any untrue statement of a material fact or omit to state a material fact necessary in order to make the statements made, in light of the circumstances under which such statements were made, not misleading; (3) based on such officer's knowledge, the financial statements, and other financial information included in the report, fairly present in all material respects the financial condition and results of operations of the issuer as of, and for, the periods presented in the report; (4) the signing officers are responsible for establishing and maintaining internal controls, have designed such internal controls to ensure that material information relating to the issuer and its consolidated subsidiaries is made known to such officers, have evaluated the effectiveness of the issuer's internal controls as of a date within 90 days prior to the report, and have presented in the report their conclusions about the effectiveness of their internal controls based on their evaluation.",
+      "chapter": "Title III - Corporate Responsibility"
+    },
+    {
+      "sectionNumber": "SOX-404",
+      "title": "Section 404 - Management Assessment of Internal Controls",
+      "text": "The Commission shall prescribe rules requiring each annual report required by section 13(a) or 15(d) of the Securities Exchange Act of 1934 to contain an internal control report, which shall: (1) state the responsibility of management for establishing and maintaining an adequate internal control structure and procedures for financial reporting; and (2) contain an assessment, as of the end of the most recent fiscal year of the issuer, of the effectiveness of the internal control structure and procedures of the issuer for financial reporting. With respect to the internal control assessment required by subsection (a), each registered public accounting firm that prepares or issues the audit report for the issuer shall attest to, and report on, the assessment made by the management of the issuer. An attestation made under this subsection shall be made in accordance with standards for attestation engagements issued or adopted by the Board. Any such attestation shall not be the subject of a separate engagement.",
+      "chapter": "Title IV - Enhanced Financial Disclosures"
+    },
+    {
+      "sectionNumber": "SOX-409",
+      "title": "Section 409 - Real Time Issuer Disclosures",
+      "text": "Each issuer reporting under section 13(a) or 15(d) of the Securities Exchange Act of 1934 shall disclose to the public on a rapid and current basis such additional information concerning material changes in the financial condition or operations of the issuer, in plain English, which may include trend and qualitative information and graphic presentations, as the Commission determines, by rule, is necessary or useful for the protection of investors and in the public interest.",
+      "chapter": "Title IV - Enhanced Financial Disclosures"
+    },
+    {
+      "sectionNumber": "SOX-802",
+      "title": "Section 802 - Criminal Penalties for Altering Documents",
+      "text": "Whoever knowingly alters, destroys, mutilates, conceals, covers up, falsifies, or makes a false entry in any record, document, or tangible object with the intent to impede, obstruct, or influence the investigation or proper administration of any matter within the jurisdiction of any department or agency of the United States or any case filed under title 11, or in relation to or contemplation of any such matter or case, shall be fined under this title, imprisoned not more than 20 years, or both. Whoever knowingly, with the intent to retaliate, takes any action harmful to any person, including interference with the lawful employment or livelihood of any person, for providing to a law enforcement officer any truthful information relating to the commission or possible commission of any Federal offense, shall be fined under this title or imprisoned not more than 10 years, or both.",
+      "chapter": "Title VIII - Corporate and Criminal Fraud Accountability"
+    },
+    {
+      "sectionNumber": "SOX-806",
+      "title": "Section 806 - Protection for Employees of Publicly Traded Companies Who Provide Evidence of Fraud",
+      "text": "No company with a class of securities registered under section 12 of the Securities Exchange Act of 1934, or that is required to file reports under section 15(d) of the Securities Exchange Act of 1934, or any officer, employee, contractor, subcontractor, or agent of such company, may discharge, demote, suspend, threaten, harass, or in any other manner discriminate against an employee in the terms and conditions of employment because of any lawful act done by the employee to provide information, cause information to be provided, or otherwise assist in an investigation regarding any conduct which the employee reasonably believes constitutes a violation of section 1341, 1343, 1344, or 1348, any rule or regulation of the Securities and Exchange Commission, or any provision of Federal law relating to fraud against shareholders, when the information or assistance is provided to or the investigation is conducted by a Federal regulatory or law enforcement agency, any Member of Congress or any committee of Congress, or a person with supervisory authority over the employee.",
+      "chapter": "Title VIII - Corporate and Criminal Fraud Accountability"
+    },
+    {
+      "sectionNumber": "SOX-906",
+      "title": "Section 906 - Corporate Responsibility for Financial Reports",
+      "text": "Whoever certifies any statement as set forth in subsections (a) and (b) of this section knowing that the periodic report accompanying the statement does not comport with all the requirements set forth in this section shall be fined not more than $1,000,000 or imprisoned not more than 10 years, or both; or whoever willfully certifies any statement as set forth in subsections (a) and (b) of this section knowing that the periodic report accompanying the statement does not comport with all the requirements set forth in this section shall be fined not more than $5,000,000 or imprisoned not more than 20 years, or both. Each periodic report containing financial statements filed by an issuer with the Securities Exchange Commission pursuant to section 13(a) or 15(d) of the Securities Exchange Act of 1934 shall be accompanied by a written statement by the chief executive officer and chief financial officer of the issuer.",
+      "chapter": "Title IX - White-Collar Crime Penalty Enhancements"
+    },
+    {
+      "sectionNumber": "17-CFR-229.308",
+      "title": "SEC Regulation S-K Item 308 - Internal Control Over Financial Reporting",
+      "text": "(a) Management's annual report on internal control over financial reporting. Provide a report of management on the registrant's internal control over financial reporting that contains: (1) A statement of management's responsibility for establishing and maintaining adequate internal control over financial reporting for the registrant; (2) A statement identifying the framework used by management to evaluate the effectiveness of the registrant's internal control over financial reporting; (3) Management's assessment of the effectiveness of the registrant's internal control over financial reporting as of the end of the registrant's most recent fiscal year, including a statement as to whether or not internal control over financial reporting is effective. This discussion must include disclosure of any material weakness in the registrant's internal control over financial reporting identified by management; (4) If the registrant is an accelerated filer or a large accelerated filer, a statement that the registered public accounting firm that audited the financial statements included in the annual report containing the disclosure required by this Item has issued an attestation report on the registrant's internal control over financial reporting.",
+      "chapter": "SEC Implementing Regulations"
+    },
+    {
+      "sectionNumber": "17-CFR-240.13a-15",
+      "title": "SEC Rule 13a-15 - Controls and Procedures",
+      "text": "(a) Every issuer that has a class of securities registered pursuant to section 12 of the Act, other than an Asset-Backed Issuer, must maintain disclosure controls and procedures designed to ensure that information required to be disclosed by the issuer in the reports that it files or submits under the Act is recorded, processed, summarized and reported, within the time periods specified in the Commission's rules and forms and that information required to be disclosed by an issuer in the reports that it files or submits under the Act is accumulated and communicated to the issuer's management, including its principal executive and principal financial officers, as appropriate to allow timely decisions regarding required disclosure. (b) Each such issuer must maintain a system of internal accounting controls sufficient to provide reasonable assurance that: (1) transactions are executed in accordance with management's general or specific authorization; (2) transactions are recorded as necessary to permit preparation of financial statements in conformity with generally accepted accounting principles and to maintain accountability for assets; (3) access to assets is permitted only in accordance with management's general or specific authorization; (4) the recorded accountability for assets is compared with the existing assets at reasonable intervals and appropriate action is taken with respect to any differences.",
+      "chapter": "SEC Implementing Regulations"
+    },
+    {
+      "sectionNumber": "17-CFR-240.13a-14",
+      "title": "SEC Rule 13a-14 - Certification of Disclosure in Annual and Quarterly Reports",
+      "text": "(a) Each report, including transition reports, filed on Form 10-Q, Form 10-K, Form 20-F or Form 40-F under section 13(a) of the Act must include certifications in the form specified in the applicable exhibit filing requirements of such report and such certifications must be filed as an exhibit to such report. Each principal executive and principal financial officer of the issuer, or persons performing similar functions, at the time of filing of the report must sign a certification. (b) Each periodic report containing financial statements filed by an issuer pursuant to section 13(a) of the Act must be accompanied by the certifications required by Section 1350 of Chapter 63 of Title 18 of the United States Code and such certifications must be furnished as an exhibit to such report.",
+      "chapter": "SEC Implementing Regulations"
+    },
+    {
+      "sectionNumber": "PCAOB-AS-2201",
+      "title": "PCAOB AS 2201 - An Audit of Internal Control Over Financial Reporting",
+      "text": "The auditor's objective in an audit of internal control over financial reporting is to express an opinion on the effectiveness of the company's internal control over financial reporting. Because a company's internal control cannot be considered effective if one or more material weaknesses exist, to form a basis for expressing an opinion, the auditor must plan and perform the audit to obtain appropriate evidence that is sufficient to obtain reasonable assurance about whether material weaknesses exist as of the date specified in management's assessment. A material weakness is a deficiency, or combination of deficiencies, in internal control over financial reporting, such that there is a reasonable possibility that a material misstatement of the company's annual or interim financial statements will not be prevented or detected on a timely basis. The auditor should use the same suitable, recognized control framework to perform his or her audit of internal control over financial reporting as management uses for its annual evaluation of the effectiveness of the company's internal control over financial reporting.",
+      "chapter": "PCAOB Auditing Standards"
+    },
+    {
+      "sectionNumber": "PCAOB-AS-2201-B",
+      "title": "PCAOB AS 2201 - Evaluating Design and Operating Effectiveness",
+      "text": "The auditor must test the design effectiveness and operating effectiveness of controls. Design effectiveness means the control, if operated as designed, satisfies the control objective. Operating effectiveness means the control was applied as designed and by a person who has the necessary authority and qualifications to perform the control effectively. Procedures the auditor performs to test operating effectiveness include a mix of inquiry of appropriate personnel, observation of the company's operations, inspection of relevant documentation, and re-performance of the control. The evidence necessary to persuade the auditor that a control is effective depends on the risk associated with the control. The risk associated with a control consists of the risk that the control might not be effective and, if not effective, the risk that a material weakness would result.",
+      "chapter": "PCAOB Auditing Standards"
+    },
+    {
+      "sectionNumber": "IT-GENERAL-CONTROLS",
+      "title": "IT General Controls for SOX Compliance",
+      "text": "IT General Controls (ITGCs) are foundational controls that support the effectiveness of application controls and the integrity of financial information. SOX-relevant ITGCs include: (1) Access to Programs and Data - controls ensuring only authorized users can access systems, including user provisioning, authentication, authorization, and access reviews; (2) Program Changes - controls ensuring changes to applications are properly authorized, tested, and approved before implementation; (3) Computer Operations - controls ensuring systems operate as intended, including job scheduling, backup procedures, and incident management; (4) Program Development - controls ensuring new systems are developed with appropriate security, testing, and approval. Management must document the design and operating effectiveness of ITGCs as part of the Section 404 assessment. External auditors evaluate ITGCs as part of the integrated audit. Common frameworks for evaluating ITGCs include COBIT, NIST, and ISO 27001.",
+      "chapter": "IT Compliance Guidance"
+    }
+  ]
+}

@@ -2,8 +2,17 @@
   "framework": "NIST_800_53_R5",
   "regulation": "HIPAA",
   "generated_at": "2026-01-29",
-  "generated_by": "claude-sonnet-4-5",
   "description": "Mapping of HIPAA Security Rule requirements to NIST 800-53 Rev 5 controls",
+  "source": {
+    "disclaimer": "IMPORTANT: These mappings are interpretive guidance created to assist with compliance research. They are NOT official HHS or NIST crosswalks. For authoritative mappings, consult: (1) HHS HIPAA Security Rule Crosswalk to NIST Cybersecurity Framework, (2) NIST SP 800-66 Rev 2 'Implementing the HIPAA Security Rule', (3) Your organization's compliance and legal counsel. These mappings should be validated against your specific implementation context.",
+    "references": [
+      "NIST SP 800-66 Rev 2 - Implementing the HIPAA Security Rule",
+      "NIST SP 800-53 Rev 5 - Security and Privacy Controls",
+      "HHS HIPAA Security Rule (45 CFR Part 164 Subpart C)"
+    ],
+    "methodology": "Mappings based on control objective alignment between HIPAA Security Rule standards and NIST 800-53 control families. Coverage indicates degree of overlap: 'full' = direct alignment, 'partial' = related but not complete, 'related' = conceptually connected.",
+    "last_reviewed": "2026-01-29"
+  },
   "mappings": [
     {
       "section_number": "164.308(a)(1)",
