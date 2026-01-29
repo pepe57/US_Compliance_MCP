@@ -7,6 +7,9 @@
 [![GitHub stars](https://img.shields.io/github/stars/Ansvar-Systems/US_compliance_MCP?style=social)](https://github.com/Ansvar-Systems/US_compliance_MCP)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Ansvar-Systems/US_compliance_MCP/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Ansvar-Systems/US_compliance_MCP)
+[![CodeQL](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/CodeQL/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/actions/workflows/codeql.yml)
+[![Security](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/Semgrep/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/security)
 
 Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
 
@@ -70,6 +73,34 @@ Restart Claude Desktop. Done.
   }
 }
 ```
+
+---
+
+## Security & Compliance
+
+This MCP server follows **OpenSSF Best Practices** for secure open source development:
+
+- ✅ **Automated Security Scanning**
+  - CodeQL (semantic code analysis)
+  - Semgrep (SAST security rules)
+  - Trivy (vulnerability scanning)
+  - Gitleaks (secret detection)
+  - Socket Security (supply chain monitoring)
+
+- ✅ **Daily Freshness Monitoring**
+  - Automated checks for regulation updates from official sources
+  - Auto-generates PRs when changes detected
+
+- ✅ **Secure Publishing**
+  - npm provenance attestation (signed packages)
+  - MCP Registry cryptographic signing
+  - Azure Key Vault for secret management
+
+- ✅ **Security Metrics**
+  - OpenSSF Scorecard weekly evaluation
+  - GitHub Security tab for vulnerability tracking
+
+**Report security issues:** See [SECURITY.md](SECURITY.md)
 
 ---
 
