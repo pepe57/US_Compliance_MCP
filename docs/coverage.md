@@ -15,9 +15,9 @@ This document details the current regulation coverage, planned expansions, contr
 
 ---
 
-## MVP Regulations
+## Current Regulations
 
-The v1.1 release includes ten US regulations:
+The v1.2 release includes fourteen US regulations:
 
 | Regulation | Citation | Status | Sections |
 |------------|----------|--------|----------|
@@ -31,8 +31,12 @@ The v1.1 release includes ten US regulations:
 | EPA RMP | 40 CFR 68 | ✅ Production (v1.1) | 63 |
 | FFIEC | IT Examination Handbook | ✅ Production (v1.1) | 10 |
 | NYDFS 500 | 23 NYCRR 500 | ✅ Production (v1.1) | 16 |
+| Virginia CDPA | Va. Code Ann. §59.1-575 to 59.1-585 | ✅ Production (v1.2) | 10 |
+| Colorado CPA | C.R.S. §6-1-1301 to 6-1-1313 | ✅ Production (v1.2) | 13 |
+| Connecticut CTDPA | Conn. Gen. Stat. §42-515 to 42-524 | ✅ Production (v1.2) | 12 |
+| Utah UCPA | Utah Code Ann. §13-61-101 to 13-61-404 | ✅ Production (v1.2) | 14 |
 
-**Total**: 320 sections across 10 regulations
+**Total**: 369 sections across 14 regulations
 
 ### HIPAA - Health Insurance Portability and Accountability Act
 
@@ -395,6 +399,201 @@ The v1.1 release includes ten US regulations:
 
 ---
 
+### Virginia CDPA - Consumer Data Protection Act
+
+**Status**: Production (v1.2.0)
+
+**Citation**: Va. Code Ann. §59.1-575 to 59.1-585
+
+**Jurisdiction**: State (Virginia)
+
+**Effective Date**: January 1, 2023
+
+**Last Major Amendment**: January 1, 2023 (original effective date)
+
+**Coverage**:
+- Consumer Rights (§59.1-577)
+  - Right to access personal data
+  - Right to correct inaccuracies
+  - Right to delete personal data
+  - Right to data portability
+  - Right to opt out of data processing for targeted advertising, sale, and profiling
+- Controller Obligations (§59.1-578)
+  - Privacy notice requirements
+  - Data protection assessments
+  - Purpose limitation and data minimization
+  - Reasonable security measures
+- Processor Responsibilities (§59.1-579)
+  - Processing agreements
+  - Assistance with consumer rights
+  - Deletion or return of data
+- Exemptions and Scope (§59.1-580, §59.1-581)
+- Enforcement (§59.1-584)
+  - Exclusive enforcement by Attorney General
+  - 30-day cure period
+  - Civil penalties up to $7,500 per violation
+
+**Sections**: 10
+
+**Applicability**:
+- Controllers that conduct business in Virginia or produce products/services targeted to Virginia residents AND:
+  - Control or process personal data of 100,000+ Virginia consumers annually, OR
+  - Control or process personal data of 25,000+ Virginia consumers AND derive >50% revenue from sale of personal data
+- Exemptions: HIPAA, GLBA, FCRA covered entities, non-profits, higher education institutions
+
+**Data Source**: Seed data (data/seed/virginia-cdpa.json)
+
+---
+
+### Colorado CPA - Colorado Privacy Act
+
+**Status**: Production (v1.2.0)
+
+**Citation**: C.R.S. §6-1-1301 to 6-1-1313
+
+**Jurisdiction**: State (Colorado)
+
+**Effective Date**: July 1, 2023
+
+**Last Major Amendment**: July 1, 2023 (original effective date)
+
+**Coverage**:
+- Consumer Rights (§6-1-1306)
+  - Right to access personal data
+  - Right to correct inaccuracies
+  - Right to delete personal data
+  - Right to data portability
+  - Right to opt out of targeted advertising, sale of personal data, and profiling
+- Universal Opt-Out Mechanism (§6-1-1306(1)(a)(IV))
+  - Controllers must recognize and honor browser-based or device-based opt-out signals
+  - Technical specifications for opt-out signals
+- Controller Obligations (§6-1-1308)
+  - Data protection assessments for high-risk processing
+  - Privacy notices and transparency
+  - Consent requirements for sensitive data
+  - Reasonable security practices
+- Processor Requirements (§6-1-1307)
+  - Written contracts with controllers
+  - Adherence to controller instructions
+  - Assistance with consumer rights requests
+- Enforcement (§6-1-1313)
+  - Exclusive enforcement by Attorney General
+  - 60-day cure period (until January 1, 2025)
+  - Civil penalties under Colorado Consumer Protection Act
+
+**Sections**: 13
+
+**Applicability**:
+- Controllers that conduct business in Colorado or produce products/services targeted to Colorado residents AND:
+  - Control or process personal data of 100,000+ Colorado consumers annually, OR
+  - Control or process personal data of 25,000+ Colorado consumers AND derive revenue from sale of personal data
+- Exemptions: HIPAA, GLBA, FCRA covered entities, higher education institutions
+
+**Data Source**: Seed data (data/seed/colorado-cpa.json)
+
+---
+
+### Connecticut CTDPA - Connecticut Data Privacy Act
+
+**Status**: Production (v1.2.0)
+
+**Citation**: Conn. Gen. Stat. §42-515 to 42-524
+
+**Jurisdiction**: State (Connecticut)
+
+**Effective Date**: July 1, 2023
+
+**Last Major Amendment**: July 1, 2023 (original effective date)
+
+**Coverage**:
+- Consumer Rights (§42-520)
+  - Right to confirm processing of personal data
+  - Right to access personal data
+  - Right to correct inaccuracies
+  - Right to delete personal data
+  - Right to data portability
+  - Right to opt out of targeted advertising, sale, and profiling
+- Data Protection Assessments (§42-521)
+  - Required for processing presenting heightened risk of harm
+  - Processing for targeted advertising or sale
+  - Sensitive data processing
+  - Profiling with legal or similarly significant effects
+  - Assessment documentation requirements
+- Controller Responsibilities (§42-517, §42-518)
+  - Privacy notice requirements
+  - Consent for sensitive data processing
+  - Purpose limitation and data minimization
+  - Security safeguards
+- Processor Obligations (§42-519)
+  - Processing agreements with controllers
+  - Adherence to processing instructions
+  - Assistance with consumer rights
+- Enforcement (§42-523)
+  - Exclusive enforcement by Attorney General
+  - 60-day cure period (until December 31, 2024)
+  - Civil penalties up to $5,000 per violation
+
+**Sections**: 12
+
+**Applicability**:
+- Controllers that conduct business in Connecticut AND:
+  - Control or process personal data of 100,000+ Connecticut consumers annually (excluding data for payment transactions), OR
+  - Control or process personal data of 25,000+ Connecticut consumers AND derive >25% revenue from sale of personal data
+- Exemptions: HIPAA, GLBA, FCRA covered entities, non-profits, higher education institutions
+
+**Data Source**: Seed data (data/seed/connecticut-ctdpa.json)
+
+---
+
+### Utah UCPA - Utah Consumer Privacy Act
+
+**Status**: Production (v1.2.0)
+
+**Citation**: Utah Code Ann. §13-61-101 to 13-61-404
+
+**Jurisdiction**: State (Utah)
+
+**Effective Date**: December 31, 2023
+
+**Last Major Amendment**: December 31, 2023 (original effective date)
+
+**Coverage**:
+- Consumer Rights (§13-61-201)
+  - Right to access personal data
+  - Right to delete personal data
+  - Right to data portability
+  - Right to opt out of targeted advertising and sale of personal data
+  - Note: No right to correct or right to opt out of profiling
+- Controller Obligations (§13-61-301)
+  - Privacy notice requirements
+  - Transparency about data practices
+  - Reasonable security practices
+  - Purpose limitation
+- Processor Requirements (§13-61-302)
+  - Processing agreements with controllers
+  - Adherence to controller instructions
+  - Confidentiality obligations
+- Exemptions (§13-61-103)
+  - Broad exemptions for HIPAA, GLBA, FCRA covered entities
+  - Employee and business-to-business data
+  - Higher education institutions
+- Enforcement (§13-61-303)
+  - Exclusive enforcement by Division of Consumer Protection
+  - 30-day cure period (ongoing, no sunset)
+  - No private right of action
+
+**Sections**: 14
+
+**Applicability**:
+- Controllers that conduct business in Utah AND during a calendar year:
+  - Control or process personal data of 100,000+ Utah consumers, OR
+  - Control or process personal data of 25,000+ Utah consumers AND derive >50% revenue from sale of personal data
+- Note: Excludes data controlled or processed solely for payment transactions
+
+**Data Source**: Seed data (data/seed/utah-ucpa.json)
+
+---
+
 ### PCI DSS - Payment Card Industry Data Security Standard
 
 **Status**: Reference (see security-controls-mcp)
@@ -434,48 +633,34 @@ npx @ansvar/security-controls-mcp
 
 ## Planned Future Coverage
 
-### Phase 2: State Privacy Laws (Q2 2026)
+### Phase 2: Additional State Privacy Laws (Q2-Q3 2026)
 
-**Virginia CDPA** - Consumer Data Protection Act
-- Citation: Va. Code Ann. §59.1-575 to 59.1-585
-- Effective: January 1, 2023
-- ~30 sections
-- Similar structure to CCPA but narrower scope
+**Montana CDPA** - Montana Consumer Data Privacy Act
+- Citation: Mont. Code Ann. §30-14-2601 to 30-14-2622
+- Effective: October 1, 2024
+- Similar to Virginia CDPA structure
 
-**Colorado CPA** - Colorado Privacy Act
-- Citation: C.R.S. §6-1-1301 to 6-1-1313
-- Effective: July 1, 2023
-- ~25 sections
-- Universal opt-out mechanism requirements
+**Iowa CIPA** - Iowa Consumer Information Privacy Act
+- Citation: Iowa Code §715D.1 to §715D.11
+- Effective: January 1, 2025
+- Consumer rights and controller obligations
 
-**Connecticut CTDPA** - Connecticut Data Privacy Act
-- Citation: Conn. Gen. Stat. §42-515 to 42-524
-- Effective: July 1, 2023
-- ~20 sections
-- Data protection assessment requirements
+**Indiana CDPA** - Indiana Consumer Data Protection Act
+- Citation: Ind. Code §24-15-1 to §24-15-8
+- Effective: January 1, 2026
+- State privacy framework
 
-**Utah UCPA** - Utah Consumer Privacy Act
-- Citation: Utah Code Ann. §13-61-101 to 13-61-404
-- Effective: December 31, 2023
-- ~20 sections
-- Business-friendly privacy approach
+**Tennessee TIPA** - Tennessee Information Protection Act
+- Citation: Tenn. Code Ann. §47-18-3201 to 47-18-3226
+- Effective: July 1, 2025
+- Consumer data protection rights
+
+**Oregon OCPA** - Oregon Consumer Privacy Act
+- Citation: Or. Rev. Stat. §646A.600 to §646A.652
+- Effective: July 1, 2024
+- State privacy requirements
 
 ### Phase 3: Federal Privacy & Security (Q3 2026)
-
-**GLBA** - Gramm-Leach-Bliley Act
-- Financial services privacy and security
-- 16 CFR Part 314 - Safeguards Rule
-- ~40 sections
-
-**COPPA** - Children's Online Privacy Protection Act
-- 16 CFR Part 312
-- Online services directed to children <13
-- ~25 sections
-
-**FERPA** - Family Educational Rights and Privacy Act
-- 34 CFR Part 99
-- Student education records privacy
-- ~70 sections
 
 **FISMA** - Federal Information Security Management Act
 - 44 U.S.C. §3551 et seq.

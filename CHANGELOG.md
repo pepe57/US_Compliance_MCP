@@ -4,6 +4,53 @@ All notable changes to the US Compliance MCP will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-01-29
+
+### Added
+- **4 new state privacy laws - 40% regulation increase (10 → 14 regulations):**
+  - Virginia CDPA (Va. Code Ann. §59.1-575 to 59.1-585) - 10 sections
+    - Consumer rights framework (access, deletion, correction, portability, opt-out)
+    - Data protection assessments for high-risk processing
+    - Controller and processor obligations
+  - Colorado CPA (C.R.S. §6-1-1301 to 6-1-1313) - 13 sections
+    - Universal opt-out mechanism requirements
+    - Browser/device-based opt-out signal recognition
+    - Comprehensive consumer privacy rights
+  - Connecticut CTDPA (Conn. Gen. Stat. §42-515 to 42-524) - 12 sections
+    - Detailed data protection assessment requirements
+    - Consumer rights with appeal process
+    - Heightened risk processing standards
+  - Utah UCPA (Utah Code Ann. §13-61-101 to 13-61-404) - 14 sections
+    - Business-friendly privacy approach
+    - Streamlined consumer rights (no correction right)
+    - Ongoing 30-day cure period
+
+### Improved
+- **Seed data adapter infrastructure** for state-specific regulations
+  - StateSeedAdapter base class for consistent state law ingestion
+  - JSON-based configuration for rapid state law addition
+  - Structured metadata management (effective dates, jurisdiction, enforcement)
+
+- **Cross-state privacy comparison capabilities**
+  - Compare consumer rights across 5 state privacy laws (CA, VA, CO, CT, UT)
+  - Analyze opt-out mechanisms (universal vs. individual)
+  - Compare enforcement approaches and cure periods
+
+### Changed
+- Total coverage increased from 320 to 369 sections (+15%)
+- State privacy law representation now covers 5 of top 10 US states by population
+- Enhanced test suite with 4 new state privacy adapter tests
+
+### Documentation
+- Updated README with state privacy law examples and queries
+- Enhanced coverage.md with detailed state law sections
+- Added comparison guides for multi-state compliance
+
+### Performance
+- Regulation coverage increased 40% (10 → 14 regulations)
+- Geographic coverage: Federal + 3 states (CA, NY, VA, CO, CT, UT)
+- Section count increased 15% (320 → 369 sections)
+
 ## [1.1.0] - 2026-01-29
 
 ### Added

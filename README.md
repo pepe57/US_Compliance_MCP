@@ -8,7 +8,7 @@
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
 
-Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, EPA RMP, FFIEC, and NYDFS 500** directly from Claude, Cursor, or any MCP-compatible client.
+Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
 
 If you're building healthcare tech, consumer apps, or financial services for the US market, this is your compliance reference.
 
@@ -110,6 +110,26 @@ Once connected, just ask naturally:
 - *"What are the penetration testing requirements under NYDFS 500?"*
 - *"What information security program elements does GLBA require?"*
 
+### State Privacy Laws - Virginia CDPA
+- *"What consumer rights does Virginia CDPA provide?"*
+- *"What are the data protection assessment requirements under Virginia CDPA?"*
+- *"Compare opt-out mechanisms between CCPA and Virginia CDPA"*
+
+### State Privacy Laws - Colorado CPA
+- *"What is the universal opt-out mechanism under Colorado CPA?"*
+- *"What data subject rights does Colorado CPA grant?"*
+- *"Colorado CPA requirements for data controllers vs processors"*
+
+### State Privacy Laws - Connecticut CTDPA
+- *"What are Connecticut CTDPA data protection assessment requirements?"*
+- *"Compare consumer rights between CCPA and Connecticut CTDPA"*
+- *"What sensitive data processing restrictions apply under Connecticut law?"*
+
+### State Privacy Laws - Utah UCPA
+- *"What are Utah UCPA consumer privacy rights?"*
+- *"Utah UCPA data controller obligations and exemptions"*
+- *"Compare Utah UCPA with other state privacy laws"*
+
 ### Education & FERPA
 - *"What are FERPA requirements for student record access?"*
 - *"Can I share student data with third-party analytics tools under FERPA?"*
@@ -140,7 +160,7 @@ Once connected, just ask naturally:
 
 ## What's Included
 
-### v1.1 Regulations (8 total)
+### v1.2 Regulations (14 total, 369 sections)
 
 **Healthcare & Privacy:**
 - **HIPAA** - Health Insurance Portability and Accountability Act
@@ -180,6 +200,33 @@ Once connected, just ask naturally:
   - 40 CFR Part 68
   - Chemical facility accident prevention
 
+**Banking & Financial Institutions:**
+- **FFIEC** - IT Examination Handbook (NEW in v1.1)
+  - Federal Financial Institutions Examination Council guidelines
+  - Information security and cybersecurity for banking
+
+**State Financial Services:**
+- **NYDFS 500** - NY DFS Cybersecurity Regulation (NEW in v1.1)
+  - 23 NYCRR 500
+  - Cybersecurity requirements for New York financial services institutions
+
+**State Privacy Laws:**
+- **Virginia CDPA** - Consumer Data Protection Act (NEW in v1.2)
+  - Va. Code Ann. §59.1-575 to 59.1-585
+  - Consumer privacy rights and business obligations
+
+- **Colorado CPA** - Colorado Privacy Act (NEW in v1.2)
+  - C.R.S. §6-1-1301 to 6-1-1313
+  - Universal opt-out mechanism requirements
+
+- **Connecticut CTDPA** - Connecticut Data Privacy Act (NEW in v1.2)
+  - Conn. Gen. Stat. §42-515 to 42-524
+  - Data protection assessment requirements
+
+- **Utah UCPA** - Utah Consumer Privacy Act (NEW in v1.2)
+  - Utah Code Ann. §13-61-101 to 13-61-404
+  - Business-friendly privacy approach
+
 **Payment Card Industry:**
 - **PCI DSS** - Payment Card Industry Data Security Standard (cross-reference)
   - See [security-controls-mcp](https://github.com/Ansvar-Systems/security-controls-mcp) for PCI DSS v4.0 requirements
@@ -194,9 +241,10 @@ Once connected, just ask naturally:
 ### Roadmap
 
 Additional regulations in development:
-- **State breach notification laws** (50 states)
-- **FISMA** - Federal Information Security Management Act
-- **CAN-SPAM** - Email marketing regulations
+- **State breach notification laws** (50 states) - Breach reporting requirements across all US states
+- **FISMA** - Federal Information Security Management Act - Federal agency cybersecurity
+- **CAN-SPAM** - Email marketing regulations - Commercial email requirements
+- **State privacy laws** - Expansion to additional states (Montana, Iowa, Indiana, Tennessee, Oregon)
 
 **Detailed coverage:** [docs/coverage.md](docs/coverage.md)
 
