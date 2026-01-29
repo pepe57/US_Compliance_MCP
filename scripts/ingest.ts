@@ -45,12 +45,24 @@ async function ingestRegulation(
     let sectionsAdded = 0;
     let definitionsAdded = 0;
 
-    // One transaction per regulation (isolated failure)
-    await db.transaction(async () => {
-      // 1. Insert regulation metadata
-      console.log(`  Fetching metadata...`);
-      const metadata = await adapter.fetchMetadata();
+    // Fetch all data first (async operations)
+    console.log(`  Fetching metadata...`);
+    const metadata = await adapter.fetchMetadata();
 
+    console.log(`  Fetching sections...`);
+    const allSections: typeof sectionBatch = [];
+    for await (const sectionBatch of adapter.fetchSections()) {
+      allSections.push(...sectionBatch);
+      console.log(`    ${allSections.length} sections...`);
+    }
+
+    console.log(`  Fetching definitions...`);
+    const definitions = await adapter.extractDefinitions();
+
+    // Then insert everything in one synchronous transaction
+    console.log(`  Writing to database...`);
+    const insertTransaction = db.transaction(() => {
+      // 1. Insert regulation metadata
       db.prepare(`
         INSERT OR REPLACE INTO regulations
         (id, full_name, short_name, citation, effective_date, last_amended, source_url, jurisdiction, regulation_type)
@@ -67,54 +79,57 @@ async function ingestRegulation(
         metadata.regulation_type
       );
 
-      // 2. Insert sections (streaming)
-      console.log(`  Fetching sections...`);
-      for await (const sectionBatch of adapter.fetchSections()) {
-        for (const section of sectionBatch) {
-          db.prepare(`
-            INSERT OR REPLACE INTO sections
-            (regulation, section_number, title, text, part, subpart, chapter, parent_section, cross_references)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-          `).run(
-            regulationId,
-            section.sectionNumber,
-            section.title || null,
-            section.text,
-            null, // part (deprecated, using chapter)
-            null, // subpart (deprecated, using chapter)
-            section.chapter || null,
-            section.parentSection || null,
-            section.crossReferences ? JSON.stringify(section.crossReferences) : null
-          );
-          sectionsAdded++;
-        }
-        console.log(`    ${sectionsAdded} sections...`);
+      // 2. Insert sections
+      const insertSection = db.prepare(`
+        INSERT OR REPLACE INTO sections
+        (regulation, section_number, title, text, part, subpart, chapter, parent_section, cross_references)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `);
+
+      for (const section of allSections) {
+        insertSection.run(
+          regulationId,
+          section.sectionNumber,
+          section.title || null,
+          section.text,
+          null, // part (deprecated, using chapter)
+          null, // subpart (deprecated, using chapter)
+          section.chapter || null,
+          section.parentSection || null,
+          section.crossReferences ? JSON.stringify(section.crossReferences) : null
+        );
+        sectionsAdded++;
       }
 
       // 3. Insert definitions
-      console.log(`  Fetching definitions...`);
-      const definitions = await adapter.extractDefinitions();
+      const insertDef = db.prepare(`
+        INSERT OR REPLACE INTO definitions (regulation, term, definition, section)
+        VALUES (?, ?, ?, ?)
+      `);
+
       for (const def of definitions) {
-        db.prepare(`
-          INSERT OR REPLACE INTO definitions (regulation, term, definition, section)
-          VALUES (?, ?, ?, ?)
-        `).run(regulationId, def.term, def.definition, def.section);
+        insertDef.run(regulationId, def.term, def.definition, def.section);
         definitionsAdded++;
       }
 
       // 4. Update source registry
       db.prepare(`
         INSERT OR REPLACE INTO source_registry
-        (regulation, last_fetched, last_modified, sections_count, source_url)
-        VALUES (?, ?, ?, ?, ?)
+        (regulation, source_type, source_url, last_fetched, sections_expected, sections_parsed, quality_status)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
       `).run(
         regulationId,
+        'api',
+        metadata.source_url,
         new Date().toISOString(),
-        metadata.last_amended,
         sectionsAdded,
-        metadata.source_url
+        sectionsAdded,
+        sectionsAdded > 0 ? 'complete' : 'incomplete'
       );
-    })();
+    });
+
+    // Execute transaction
+    insertTransaction();
 
     const duration = Date.now() - startTime;
 

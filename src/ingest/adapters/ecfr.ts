@@ -58,8 +58,8 @@ export class EcfrAdapter implements SourceAdapter {
    * API endpoint: https://www.ecfr.gov/api/versioner/v1/full/{date}/title-{title}.xml
    */
   async *fetchSections(): AsyncGenerator<Section[]> {
-    // Get today's date in YYYY-MM-DD format
-    const date = new Date().toISOString().split('T')[0];
+    // Get the latest available date for this title
+    const date = await this.getLatestDate();
     const url = `https://www.ecfr.gov/api/versioner/v1/full/${date}/title-${this.cfr_title}.xml`;
 
     console.log(`Fetching eCFR Title ${this.cfr_title} from ${url}...`);
@@ -81,15 +81,40 @@ export class EcfrAdapter implements SourceAdapter {
     // Extract sections from relevant parts
     const sections: Section[] = [];
 
-    // Navigate XML structure: ECFR → DIV1 (Title) → DIV3 (Part) → DIV5 (Subpart) → DIV8 (Section)
+    // Navigate XML structure: ECFR → DIV1 (Title) → DIV5 (Part) → DIV8 (Section)
+    // The structure is: DIV1 (title) → DIV2 (subtitle) → DIV4 (subchapter) → DIV5 (part) → DIV8 (section)
     const title = xmlDoc.ECFR?.DIV1;
     if (!title) {
       console.warn(`No title found in eCFR XML for Title ${this.cfr_title}`);
       return;
     }
 
-    // Extract parts (array or single object)
-    const parts = Array.isArray(title.DIV3) ? title.DIV3 : [title.DIV3].filter(Boolean);
+    // Find all DIV5 (parts) recursively
+    const findParts = (node: any): any[] => {
+      if (!node || typeof node !== 'object') return [];
+
+      const parts: any[] = [];
+
+      if (node.DIV5) {
+        const div5s = Array.isArray(node.DIV5) ? node.DIV5 : [node.DIV5];
+        parts.push(...div5s.filter(Boolean));
+      }
+
+      // Recurse into child DIVs
+      for (const key of Object.keys(node)) {
+        if (key.startsWith('DIV') && key !== 'DIV5' && typeof node[key] === 'object') {
+          const childNodes = Array.isArray(node[key]) ? node[key] : [node[key]];
+          for (const child of childNodes) {
+            parts.push(...findParts(child));
+          }
+        }
+      }
+
+      return parts;
+    };
+
+    const parts = findParts(title);
+    console.log(`  Found ${parts.length} parts in Title ${this.cfr_title}`);
 
     for (const part of parts) {
       const partNum = this.extractNumber(part['@_N']);
@@ -99,18 +124,40 @@ export class EcfrAdapter implements SourceAdapter {
         continue;
       }
 
-      // Extract subparts
-      const subparts = Array.isArray(part.DIV5) ? part.DIV5 : [part.DIV5].filter(Boolean);
+      console.log(`  Processing Part ${partNum}...`);
 
-      for (const subpart of subparts) {
-        // Extract sections (DIV8)
-        const sectionDivs = Array.isArray(subpart.DIV8) ? subpart.DIV8 : [subpart.DIV8].filter(Boolean);
+      // Sections are in DIV6 (subparts) → DIV8 (sections)
+      const findSections = (node: any): any[] => {
+        if (!node || typeof node !== 'object') return [];
 
-        for (const sectionDiv of sectionDivs) {
-          const section = this.parseSection(sectionDiv, partNum, subpart['@_N']);
-          if (section) {
-            sections.push(section);
+        const secs: any[] = [];
+
+        // If this node has DIV8, collect them
+        if (node.DIV8) {
+          const div8s = Array.isArray(node.DIV8) ? node.DIV8 : [node.DIV8];
+          secs.push(...div8s.filter(Boolean));
+        }
+
+        // Recurse into DIV6 (subparts) and other child DIVs
+        for (const key of Object.keys(node)) {
+          if (key.startsWith('DIV') && key !== 'DIV8' && typeof node[key] === 'object') {
+            const childNodes = Array.isArray(node[key]) ? node[key] : [node[key]];
+            for (const child of childNodes) {
+              secs.push(...findSections(child));
+            }
           }
+        }
+
+        return secs;
+      };
+
+      const sectionDivs = findSections(part);
+      console.log(`    Found ${sectionDivs.length} sections in Part ${partNum}`);
+
+      for (const sectionDiv of sectionDivs) {
+        const section = this.parseSection(sectionDiv, partNum, '');
+        if (section) {
+          sections.push(section);
         }
       }
 
@@ -166,7 +213,8 @@ export class EcfrAdapter implements SourceAdapter {
 
     if (typeof element === 'object') {
       if (element['#text']) {
-        return element['#text'].trim();
+        const text = element['#text'];
+        return typeof text === 'string' ? text.trim() : String(text).trim();
       }
 
       // Recursively extract from child elements
@@ -227,6 +275,27 @@ export class EcfrAdapter implements SourceAdapter {
     if (!str) return 0;
     const match = str.match(/\d+/);
     return match ? parseInt(match[0]) : 0;
+  }
+
+  /**
+   * Get the latest available date for this title from eCFR titles API
+   */
+  private async getLatestDate(): Promise<string> {
+    try {
+      const response = await fetch('https://www.ecfr.gov/api/versioner/v1/titles');
+      const data = await response.json();
+
+      const titleInfo = data.titles.find((t: any) => t.number === this.cfr_title);
+      if (titleInfo && titleInfo.latest_issue_date) {
+        return titleInfo.latest_issue_date;
+      }
+
+      // Fallback to current date
+      return new Date().toISOString().split('T')[0];
+    } catch (error) {
+      console.warn('Failed to fetch latest date, using current date:', error);
+      return new Date().toISOString().split('T')[0];
+    }
   }
 
   /**

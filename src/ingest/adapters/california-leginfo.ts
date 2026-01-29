@@ -79,20 +79,20 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
     const BASE_URL = 'https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml';
     const sections: Section[] = [];
 
-    // CCPA spans sections 1798.100 - 1798.199
-    // Generate all section numbers (100, 105, 110, ..., 199)
-    const sectionNumbers: number[] = [];
-    for (let i = this.civilCodeStart; i <= this.civilCodeEnd; i += 5) {
-      sectionNumbers.push(i);
-    }
-    // Also add intermediate sections that exist
-    sectionNumbers.push(1798.140, 1798.145, 1798.150, 1798.155, 1798.160, 1798.185, 1798.192, 1798.196, 1798.198, 1798.199);
+    // CCPA main sections (based on actual structure)
+    const sectionNumbers: number[] = [
+      1798.100, 1798.105, 1798.110, 1798.115, 1798.120, 1798.121, 1798.125,
+      1798.130, 1798.135, 1798.140, 1798.145, 1798.150, 1798.155, 1798.160,
+      1798.175, 1798.180, 1798.185, 1798.190, 1798.192, 1798.194, 1798.196,
+      1798.198, 1798.199
+    ];
 
     console.log(`Fetching ${sectionNumbers.length} CCPA sections from California LegInfo...`);
 
     for (const sectionNum of sectionNumbers) {
       try {
-        const url = `${BASE_URL}?lawCode=CIV&division=3.&part=4.&section=${sectionNum}`;
+        // Use displaySection endpoint which has cleaner structure
+        const url = `https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=${sectionNum}`;
 
         // Fetch HTML with polite delay
         await this.sleep(500); // 500ms between requests
@@ -137,12 +137,12 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
    * Validate DOM structure with fail-fast assertions
    */
   private validateDOM($: cheerio.Root): void {
-    // Check for expected structure
-    const sectionContent = $('.codesectionsection, .sectioncontent, .Section');
+    // Check for expected structure - single_law_section div
+    const sectionContent = $('#single_law_section, #codeLawSectionNoHead');
 
     if (sectionContent.length === 0) {
       throw new ScrapingError(
-        'DOM structure changed: no section content found. Expected .codesectionsection, .sectioncontent, or .Section'
+        'DOM structure changed: no section content found. Expected #single_law_section or #codeLawSectionNoHead'
       );
     }
 
@@ -156,17 +156,18 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
    * Parse section from HTML
    */
   private parseSection($: cheerio.Root, sectionNum: string): Section | null {
-    // Try multiple selectors (LegInfo HTML structure varies)
-    let text = $('.codesectionsection').text().trim();
-    if (!text) {
-      text = $('.sectioncontent').text().trim();
+    // Extract from the main content div
+    const sectionDiv = $('#single_law_section');
+    if (sectionDiv.length === 0) {
+      console.warn(`Section § ${sectionNum} not found in HTML`);
+      return null;
     }
-    if (!text) {
-      text = $('.Section').text().trim();
-    }
-    if (!text) {
-      text = $('body').text().trim(); // Fallback: get all body text
-    }
+
+    // Get text content
+    let text = sectionDiv.text().trim();
+
+    // Clean up extra whitespace
+    text = text.replace(/\s+/g, ' ').replace(/\n\s*\n/g, '\n');
 
     // Validate text length
     if (!text || text.length < 100) {
@@ -174,17 +175,13 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
       return null;
     }
 
-    // Extract title from first line or heading
+    // Extract title from h6 tag (section number and title)
     let title: string | undefined;
-    const headings = $('h1, h2, h3, .sectiontitle').first();
-    if (headings.length > 0) {
-      title = headings.text().trim();
-    } else {
-      // Try to extract from first sentence
-      const firstLine = text.split('\n')[0];
-      if (firstLine.length < 200) {
-        title = firstLine;
-      }
+    const titleElement = sectionDiv.find('h6, p').first();
+    if (titleElement.length > 0) {
+      title = titleElement.text().trim();
+      // Remove section number from title if present
+      title = title.replace(/^1798\.\d+\.?\s*/, '');
     }
 
     // Extract cross-references (sections mentioned in text)
