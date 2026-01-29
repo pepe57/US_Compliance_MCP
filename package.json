@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "us-regulations-mcp": "./dist/index.js"
+    "us-regulations-mcp": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
