@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist && find . -name '*.tsbuildinfo' -not -path './node_modules/*' -delete",
-    "test": "tsx scripts/quality-test.ts && tsx scripts/test-remaining-tools.ts && tsx scripts/test-mcp-tools.ts && tsx scripts/test-ecfr-adapter.ts && tsx scripts/test-seed-adapters.ts",
+    "test": "tsx scripts/quality-test.ts && tsx scripts/test-remaining-tools.ts && tsx scripts/test-mcp-tools.ts && tsx scripts/test-ecfr-adapter.ts && tsx scripts/test-seed-adapters.ts && tsx scripts/test-v1.2-adapters.ts",
     "test:watch": "vitest",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
