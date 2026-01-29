@@ -80,11 +80,12 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
     const sections: Section[] = [];
 
     // CCPA main sections (based on actual structure)
-    const sectionNumbers: number[] = [
-      1798.100, 1798.105, 1798.110, 1798.115, 1798.120, 1798.121, 1798.125,
-      1798.130, 1798.135, 1798.140, 1798.145, 1798.150, 1798.155, 1798.160,
-      1798.175, 1798.180, 1798.185, 1798.190, 1798.192, 1798.194, 1798.196,
-      1798.198, 1798.199
+    // Use strings to preserve trailing zeros (1798.100 not 1798.1)
+    const sectionNumbers: string[] = [
+      '1798.100', '1798.105', '1798.110', '1798.115', '1798.120', '1798.121', '1798.125',
+      '1798.130', '1798.135', '1798.140', '1798.145', '1798.150', '1798.155', '1798.160',
+      '1798.175', '1798.180', '1798.185', '1798.190', '1798.192', '1798.194', '1798.196',
+      '1798.198', '1798.199'
     ];
 
     console.log(`Fetching ${sectionNumbers.length} CCPA sections from California LegInfo...`);
@@ -188,7 +189,7 @@ export class CaliforniaLeginfoAdapter implements SourceAdapter {
     const crossReferences = this.extractCrossReferences(text);
 
     return {
-      sectionNumber: `1798.${sectionNum}`,
+      sectionNumber: sectionNum,
       title,
       text,
       chapter: 'Title 1.81.5 - California Consumer Privacy Act',

@@ -40,14 +40,14 @@ function escapeFts5Query(query: string): string {
     return '';
   }
 
-  if (words.length <= 3) {
-    // Short queries: Use AND logic with prefix matching for precision
+  if (words.length <= 2) {
+    // Short queries (1-2 words): Use AND logic with prefix matching for precision
     // Example: "incident reporting" → incident* reporting*
     // Prefix matching handles word variations (encrypt vs encryption)
     return words.map(word => `${word}*`).join(' ');
   } else {
-    // Long queries: Use OR logic with prefix matching for better recall
-    // Example: "incident reporting notification timeline" → incident* OR reporting* OR notification* OR timeline*
+    // Long queries (3+ words): Use OR logic with prefix matching for better recall
+    // Example: "encryption transmission storage" → encryption* OR transmission* OR storage*
     // BM25 will still rank documents with more matches higher
     return words.map(word => `${word}*`).join(' OR ');
   }
@@ -67,7 +67,7 @@ export async function searchRegulations(
   limit = Math.min(Math.floor(limit), 1000);
 
   if (!query || query.trim().length === 0) {
-    return [];
+    throw new Error('Query cannot be empty. Please provide a search term.');
   }
 
   const escapedQuery = escapeFts5Query(query);
