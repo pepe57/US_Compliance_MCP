@@ -93,7 +93,7 @@ export class SoxAdapter implements SourceAdapter {
     // SOX statute is stable; SEC rules update periodically
     return {
       hasChanges: false,
-      message: 'SOX uses verified seed data. Check SEC.gov for regulatory updates.'
+      changes: ['SOX uses verified seed data. Check SEC.gov for regulatory updates.']
     };
   }
 

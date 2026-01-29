@@ -86,7 +86,7 @@ export class ColoradoLegAdapter implements SourceAdapter {
     // Seed data is static - updates require manual verification
     return {
       hasChanges: false,
-      message: 'Colorado CPA uses verified seed data. Check leg.colorado.gov for updates.'
+      changes: ['Colorado CPA uses verified seed data. Check leg.colorado.gov for updates.']
     };
   }
 }
