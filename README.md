@@ -570,6 +570,22 @@ So we're open-sourcing it. Navigating federal and state regulations shouldn't re
 
 ---
 
+## More Open Source from Ansvar
+
+We maintain a family of MCP servers for compliance and security professionals:
+
+| Server | Description | Install |
+|--------|-------------|---------|
+| **[EU Regulations](https://github.com/Ansvar-Systems/EU_compliance_MCP)** | 47 EU regulations (GDPR, AI Act, DORA, NIS2, MiFID II, eIDAS, MDR...) | `npx @ansvar/eu-regulations-mcp` |
+| **[Security Controls](https://github.com/Ansvar-Systems/security-controls-mcp)** | 1,451 controls across 28 frameworks (ISO 27001, NIST CSF, PCI DSS, CMMC...) | `pipx install security-controls-mcp` |
+| **[OT Security](https://github.com/Ansvar-Systems/ot-security-mcp)** | IEC 62443, NIST 800-82, MITRE ATT&CK for ICS | `npx @ansvar/ot-security-mcp` |
+| **[Automotive](https://github.com/Ansvar-Systems/Automotive-MCP)** | UNECE R155/R156, ISO 21434 for automotive cybersecurity | `npx @ansvar/automotive-cybersecurity-mcp` |
+| **[Sanctions](https://github.com/Ansvar-Systems/Sanctions-MCP)** | Offline sanctions screening with OpenSanctions (30+ lists) | `pip install ansvar-sanctions-mcp` |
+
+Browse all projects: [ansvar.eu/open-source](https://ansvar.eu/open-source)
+
+---
+
 ## Documentation
 
 - **[Coverage Details](docs/coverage.md)** — All regulations with section counts
