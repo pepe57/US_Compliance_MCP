@@ -33,6 +33,18 @@ coverage/
 
 # Internal documentation and work-in-progress
 internal/
+docs/plans/
+docs/STATUS.md
+docs/coverage.md
+GAPS_CLOSED.md
+QUALITY_REPORT.md
+
+# Development-only test scripts
+scripts/test-*.ts
+scripts/*-test.ts
+scripts/quality-*.ts
+scripts/cross-regulation-test.ts
+scripts/verify-*.ts
 
 # MCP Registry tokens and local configs
 .mcpregistry_*
