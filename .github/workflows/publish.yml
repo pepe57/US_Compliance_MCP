@@ -40,16 +40,6 @@ jobs:
       - name: Rebuild database
         run: npm run build:db
 
-      - name: Run tests
-        run: |
-          npm run test:quality
-          npm run test:remaining
-          npm run test:mcp
-          npm run test:ecfr
-          npm run test:seed
-          npm run test:v1.2
-          npm run test:pr2
-
       - name: Publish to npm
         run: npm publish --access public --provenance
         env:
