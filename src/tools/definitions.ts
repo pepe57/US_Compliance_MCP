@@ -19,7 +19,8 @@ export interface DefinitionsResult {
 }
 
 function escapeSqlLike(str: string): string {
-  return str.replace(/[%_]/g, '\\$&');
+  // Escape backslashes first, then SQL LIKE wildcards
+  return str.replace(/\\/g, '\\\\').replace(/[%_]/g, '\\$&');
 }
 
 /**

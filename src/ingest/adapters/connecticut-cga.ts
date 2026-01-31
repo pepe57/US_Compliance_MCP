@@ -64,7 +64,7 @@ export class ConnecticutCGAAdapter implements SourceAdapter {
 
   private async fetchWithHttps(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      https.get(url, { rejectUnauthorized: false }, (res) => {
+      https.get(url, (res) => {
         if (res.statusCode !== 200) {
           reject(new ScrapingError(`HTTP ${res.statusCode}`));
           return;
