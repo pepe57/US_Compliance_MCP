@@ -4,6 +4,25 @@ All notable changes to the US Compliance MCP will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-01-31
+
+### Added
+- Automated regulation update monitoring (`check-updates.ts`)
+- Comprehensive CI/CD pipeline with GitHub Actions
+  - Test workflow with security audit
+  - CodeQL semantic analysis
+  - Semgrep SAST scanning
+  - Trivy vulnerability scanning
+  - OpenSSF Scorecard metrics
+- CLAUDE.md development guide with [central architecture documentation](https://github.com/Ansvar-Systems/security-controls-mcp/blob/main/docs/ANSVAR_MCP_ARCHITECTURE.md)
+
+### Fixed
+- UpdateStatus interface usage in regulation adapters
+
+### Changed
+- Cleaned up repository structure (removed internal development artifacts)
+- Enhanced .gitignore for better development workflow
+
 ## [1.2.0] - 2026-01-29
 
 ### Added
