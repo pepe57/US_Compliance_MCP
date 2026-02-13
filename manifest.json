@@ -1,0 +1,83 @@
+{
+  "manifest_version": "0.3",
+  "name": "us-regulations-mcp",
+  "display_name": "US Regulations MCP Server",
+  "version": "1.2.5",
+  "description": "MCP server for US cybersecurity and privacy regulations. Query HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (VA, CO, CT, UT) directly from Claude.",
+  "author": {
+    "name": "Ansvar Systems",
+    "email": "hello@ansvar.eu",
+    "url": "https://ansvar.eu"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ansvar-Systems/US_compliance_MCP"
+  },
+  "homepage": "https://ansvar.eu",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "compliance",
+    "hipaa",
+    "ccpa",
+    "sox",
+    "glba",
+    "ferpa",
+    "coppa",
+    "fda",
+    "epa",
+    "ffiec",
+    "nydfs",
+    "virginia-cdpa",
+    "colorado-cpa",
+    "connecticut-ctdpa",
+    "utah-ucpa",
+    "state-privacy",
+    "us-regulations",
+    "cybersecurity",
+    "privacy",
+    "healthcare",
+    "financial-services",
+    "education",
+    "children-privacy",
+    "pharmaceutical",
+    "environmental",
+    "banking",
+    "sarbanes-oxley",
+    "california-consumer-privacy-act",
+    "gramm-leach-bliley",
+    "pci-dss",
+    "payment-card-security",
+    "23-nycrr-500",
+    "claude",
+    "llm"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {}
+    }
+  },
+  "tools": [
+    { "name": "search_regulations" },
+    { "name": "get_section" },
+    { "name": "list_regulations" },
+    { "name": "compare_requirements" },
+    { "name": "map_controls" },
+    { "name": "check_applicability" },
+    { "name": "get_definitions" },
+    { "name": "get_evidence_requirements" },
+    { "name": "get_compliance_action_items" },
+    { "name": "get_breach_notification_timeline" }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
