@@ -35,15 +35,52 @@ This MCP server makes US regulations **searchable, cross-referenceable, and AI-r
 
 ## Quick Start
 
-### Installation
+### Use Remotely (No Install Needed)
 
-```bash
-npm install @ansvar/us-regulations-mcp
+> Connect directly to the hosted version — zero dependencies, nothing to install.
+
+**Endpoint:** `https://us-regulations-mcp.vercel.app/mcp`
+
+| Client | How to Connect |
+|--------|---------------|
+| **Claude.ai** | Settings > Connectors > Add Integration > paste URL |
+| **Claude Code** | `claude mcp add us-regulations --transport http https://us-regulations-mcp.vercel.app/mcp` |
+| **Claude Desktop** | Add to config (see below) |
+| **GitHub Copilot** | Add to VS Code settings (see below) |
+
+**Claude Desktop** — add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "us-regulations": {
+      "type": "url",
+      "url": "https://us-regulations-mcp.vercel.app/mcp"
+    }
+  }
+}
 ```
 
-### Claude Desktop
+**GitHub Copilot** — add to VS Code `settings.json`:
 
-Add to your `claude_desktop_config.json`:
+```json
+{
+  "github.copilot.chat.mcp.servers": {
+    "us-regulations": {
+      "type": "http",
+      "url": "https://us-regulations-mcp.vercel.app/mcp"
+    }
+  }
+}
+```
+
+### Use Locally (npm)
+
+```bash
+npx @ansvar/us-regulations-mcp
+```
+
+**Claude Desktop** — add to `claude_desktop_config.json`:
 
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
@@ -59,9 +96,7 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
-Restart Claude Desktop. Done.
-
-### Cursor / VS Code
+**Cursor / VS Code:**
 
 ```json
 {
@@ -73,8 +108,6 @@ Restart Claude Desktop. Done.
   }
 }
 ```
-
----
 
 ## Security & Compliance
 
