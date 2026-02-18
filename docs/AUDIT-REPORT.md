@@ -89,7 +89,7 @@ The US Regulations MCP server has been hardened to **A-grade** production standa
 | 10 | Negative test (FAKE_REG) | — | — | PASS — descriptive error with available regulations list |
 
 ### 2.4 Known Data Gaps
-- **Definitions table is empty** (0 rows) — `get_definitions` tool description now explicitly warns about limited coverage
+- **Definitions table is empty** (0 rows) — `get_definitions` tool removed to avoid misleading agents with perpetually empty results
 - **GLBA uses CFR numbering** (314.x) not statutory numbering (501-510) — documented in sources.yml
 - **NIST 800-53 framework key** stored as `NIST_800_53_R5` — now enforced via enum constraint in schema
 
@@ -170,7 +170,7 @@ The US Regulations MCP server has been hardened to **A-grade** production standa
 
 ### Items Not Addressed (Require Manual Action)
 
-1. **Populate definitions table** — The `get_definitions` tool exists but the `definitions` table has 0 rows. The tool description now warns about limited coverage. Creating definition seed data from regulation texts would complete this.
+1. **Populate definitions table and restore `get_definitions` tool** — The definitions table has 0 rows. The tool was removed to avoid misleading agents. Re-add it once definition seed data is created from regulation texts.
 
 2. **@vercel/node dev vulnerabilities** — 5 vulnerabilities in the Vercel dev dependency require upgrading to `@vercel/node@4.0.0` (breaking change). Production dependencies are clean.
 

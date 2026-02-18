@@ -2,7 +2,7 @@
   "$schema": "Golden hash file for drift detection. Regenerate after: npm run build:db && npm run load-seed",
   "generated_at": "2026-02-18T05:36:00Z",
   "database": {
-    "sha256": "26073f8b2359f92604460bb560332d053d9b004ef85dd5bd5e7edee8c5614b23",
+    "sha256": "e34f4207458437be4398b7b63832ae3d052c3d8fdfe82e4c092325836270aece",
     "file": "data/regulations.db"
   },
   "table_counts": {
