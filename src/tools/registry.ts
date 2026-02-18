@@ -10,7 +10,6 @@ import { listRegulations, ListInput } from './list.js';
 import { compareRequirements, CompareInput } from './compare.js';
 import { mapControls, MapControlsInput } from './map.js';
 import { checkApplicability, ApplicabilityInput } from './applicability.js';
-import { getDefinitions, DefinitionsInput } from './definitions.js';
 import { getEvidenceRequirements, EvidenceInput } from './evidence.js';
 import { getComplianceActionItems, ActionItemsInput } from './action-items.js';
 import { getBreachNotificationTimeline, BreachNotificationInput } from './breach-notification.js';
@@ -200,27 +199,6 @@ export const TOOLS: ToolDefinition[] = [
     },
     handler: async (db: InstanceType<typeof Database>, args: any) => {
       return await checkApplicability(db, args as ApplicabilityInput);
-    },
-  },
-  {
-    name: 'get_definitions',
-    description: 'Look up official legal term definitions across US regulations. Uses partial matching (e.g., "health" matches "protected health information"). NOTE: The definitions table has limited coverage — if no results are returned, the term may still appear in regulation text (use search_regulations to find it). Output: { term, definitions: [{ regulation, term, definition }], total_results, diagnostics? }. Do not use this for general search — use search_regulations instead.',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        term: {
-          type: 'string',
-          description: 'Legal term to look up (e.g., "protected health information", "personal data", "covered entity")',
-        },
-        regulation: {
-          type: 'string',
-          description: 'Filter to definitions from a specific regulation (e.g., "HIPAA"). Omit to search all regulations.',
-        },
-      },
-      required: ['term'],
-    },
-    handler: async (db: InstanceType<typeof Database>, args: any) => {
-      return await getDefinitions(db, args as DefinitionsInput);
     },
   },
   {

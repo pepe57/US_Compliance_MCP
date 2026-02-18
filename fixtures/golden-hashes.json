@@ -1,8 +1,8 @@
 {
-  "$schema": "Golden hash file for drift detection. Regenerate with: npm run golden:update",
-  "generated_at": "2026-02-17T18:30:00Z",
+  "$schema": "Golden hash file for drift detection. Regenerate after: npm run build:db && npm run load-seed",
+  "generated_at": "2026-02-18T05:36:00Z",
   "database": {
-    "sha256": "4812cd9d2b5c856e8165afe8246fdcde701a11fe2b496e3cad7377561a3c5fa8",
+    "sha256": "26073f8b2359f92604460bb560332d053d9b004ef85dd5bd5e7edee8c5614b23",
     "file": "data/regulations.db"
   },
   "table_counts": {
@@ -11,7 +11,7 @@
     "control_mappings": 101,
     "breach_notification_rules": 13,
     "definitions": 0,
-    "applicability_rules": 15
+    "applicability_rules": 10
   },
   "regulation_ids": [
     "CCPA",

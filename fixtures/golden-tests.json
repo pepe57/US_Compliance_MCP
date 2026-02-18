@@ -1,6 +1,6 @@
 {
   "$schema": "Golden contract tests for data accuracy. Each test verifies a specific data point against known-good values.",
-  "generated_at": "2026-02-17T18:30:00Z",
+  "generated_at": "2026-02-18T05:36:00Z",
   "tests": [
     {
       "id": "hipaa-164.502-title",
@@ -83,23 +83,63 @@
       }
     },
     {
-      "id": "coppa-312.2-exists",
-      "description": "COPPA definitions section exists",
+      "id": "coppa-312.2-text-contains",
+      "description": "COPPA 312.2 contains full definition of 'Operator' from 16 CFR 312.2",
       "tool": "get_section",
       "input": { "regulation": "COPPA", "section": "312.2" },
       "assert": {
         "field": "text",
-        "min_length": 100
+        "contains": "Operator means any person who operates a Web site located on the Internet or an online service"
       }
     },
     {
-      "id": "fda-cfr11-exists",
-      "description": "FDA 21 CFR Part 11 has sections in the database",
+      "id": "coppa-312.2-personal-info",
+      "description": "COPPA 312.2 contains all 10 categories of personal information",
+      "tool": "get_section",
+      "input": { "regulation": "COPPA", "section": "312.2" },
+      "assert": {
+        "field": "text",
+        "contains": "A persistent identifier that can be used to recognize a user over time and across different Web sites"
+      }
+    },
+    {
+      "id": "fda-cfr11-text-contains",
+      "description": "FDA 21 CFR 11.10 uses 'shall' (not 'must') per official eCFR text",
       "tool": "get_section",
       "input": { "regulation": "FDA_CFR_11", "section": "11.10" },
       "assert": {
         "field": "text",
-        "min_length": 100
+        "contains": "shall employ procedures and controls designed to ensure the authenticity, integrity, and, when appropriate, the confidentiality"
+      }
+    },
+    {
+      "id": "fda-cfr11-audit-trails",
+      "description": "FDA 21 CFR 11.10(e) contains full audit trail requirements",
+      "tool": "get_section",
+      "input": { "regulation": "FDA_CFR_11", "section": "11.10" },
+      "assert": {
+        "field": "text",
+        "contains": "secure, computer-generated, time-stamped audit trails to independently record the date and time of operator entries"
+      }
+    },
+    {
+      "id": "glba-314.3-shall",
+      "description": "GLBA 314.3 uses 'shall' (not 'must') per official 16 CFR 314.3",
+      "tool": "get_section",
+      "input": { "regulation": "GLBA", "section": "314.3" },
+      "assert": {
+        "field": "text",
+        "contains": "You shall develop, implement, and maintain a comprehensive information security program"
+      }
+    },
+    {
+      "id": "ferpa-99.3-act-definition",
+      "description": "FERPA 99.3 includes the 'Act' definition (first definition in the section)",
+      "tool": "get_section",
+      "input": { "regulation": "FERPA", "section": "99.3" },
+      "assert": {
+        "field": "text",
+        "contains": "Act means the Family Educational Rights and Privacy Act of 1974"
       }
     },
     {

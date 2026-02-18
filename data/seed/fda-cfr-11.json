@@ -11,39 +11,39 @@
     "official_url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11",
     "publisher": "U.S. Food and Drug Administration",
     "title": "Electronic Records; Electronic Signatures",
-    "last_verified": "2026-02-07",
-    "verification_method": "Extracted from 21 CFR Part 11",
+    "last_verified": "2026-02-18",
+    "verification_method": "Extracted verbatim from 21 CFR Part 11 via eCFR API",
     "disclaimer": "Pharmaceutical and medical device companies must consult FDA.gov for complete compliance guidance."
   },
   "sections": [
     {
       "sectionNumber": "11.10",
       "title": "Controls for closed systems",
-      "text": "Persons using closed systems must employ procedures and controls designed to ensure authenticity, integrity, and confidentiality of electronic records. Requirements include: (a) Validation of systems; (b) Audit trails; (c) Operational system checks; (d) Authority checks; (e) Device checks; (f) Education and training; (g) Accountability; (h) Documentation controls; (i) Copying controls.",
+      "text": "Persons who use closed systems to create, modify, maintain, or transmit electronic records shall employ procedures and controls designed to ensure the authenticity, integrity, and, when appropriate, the confidentiality of electronic records, and to ensure that the signer cannot readily repudiate the signed record as not genuine. Such procedures and controls shall include the following: (a) Validation of systems to ensure accuracy, reliability, consistent intended performance, and the ability to discern invalid or altered records. (b) The ability to generate accurate and complete copies of records in both human readable and electronic form suitable for inspection, review, and copying by the agency. Persons should contact the agency if there are any questions regarding the ability of the agency to perform such review and copying of the electronic records. (c) Protection of records to enable their accurate and ready retrieval throughout the records retention period. (d) Limiting system access to authorized individuals. (e) Use of secure, computer-generated, time-stamped audit trails to independently record the date and time of operator entries and actions that create, modify, or delete electronic records. Record changes shall not obscure previously recorded information. Such audit trail documentation shall be retained for a period at least as long as that required for the subject electronic records and shall be available for agency review and copying. (f) Use of operational system checks to enforce permitted sequencing of steps and events, as appropriate. (g) Use of authority checks to ensure that only authorized individuals can use the system, electronically sign a record, access the operation or computer system input or output device, alter a record, or perform the operation at hand. (h) Use of device (e.g., terminal) checks to determine, as appropriate, the validity of the source of data input or operational instruction. (i) Determination that persons who develop, maintain, or use electronic record/electronic signature systems have the education, training, and experience to perform their assigned tasks. (j) The establishment of, and adherence to, written policies that hold individuals accountable and responsible for actions initiated under their electronic signatures, in order to deter record and signature falsification. (k) Use of appropriate controls over systems documentation including: (1) Adequate controls over the distribution of, access to, and use of documentation for system operation and maintenance. (2) Revision and change control procedures to maintain an audit trail that documents time-sequenced development and modification of systems documentation.",
       "chapter": "Electronic Records"
     },
     {
       "sectionNumber": "11.30",
       "title": "Controls for open systems",
-      "text": "Persons using open systems must employ additional procedures and controls including document encryption and use of digital signatures to ensure authenticity, integrity, and confidentiality of electronic records.",
+      "text": "Persons who use open systems to create, modify, maintain, or transmit electronic records shall employ procedures and controls designed to ensure the authenticity, integrity, and, as appropriate, the confidentiality of electronic records from the point of their creation to the point of their receipt. Such procedures and controls shall include those identified in § 11.10, as appropriate, and additional measures such as document encryption and use of appropriate digital signature standards to ensure, as necessary under the circumstances, record authenticity, integrity, and confidentiality.",
       "chapter": "Electronic Records"
     },
     {
       "sectionNumber": "11.50",
       "title": "Signature manifestations",
-      "text": "Signed electronic records must contain information associated with the signing including: (a) Printed name of signer; (b) Date and time when signature was executed; (c) Meaning of signature.",
+      "text": "(a) Signed electronic records shall contain information associated with the signing that clearly indicates all of the following: (1) The printed name of the signer; (2) The date and time when the signature was executed; and (3) The meaning (such as review, approval, responsibility, or authorship) associated with the signature. (b) The items identified in paragraphs (a)(1), (a)(2), and (a)(3) of this section shall be subject to the same controls as for electronic records and shall be included as part of any human readable form of the electronic record (such as electronic display or printout).",
       "chapter": "Electronic Signatures"
     },
     {
       "sectionNumber": "11.70",
       "title": "Signature/record linking",
-      "text": "Electronic signatures and handwritten signatures executed to electronic records shall be linked to their respective electronic records to ensure that signatures cannot be excised, copied, or transferred to falsify an electronic record.",
+      "text": "Electronic signatures and handwritten signatures executed to electronic records shall be linked to their respective electronic records to ensure that the signatures cannot be excised, copied, or otherwise transferred to falsify an electronic record by ordinary means.",
       "chapter": "Electronic Signatures"
     },
     {
       "sectionNumber": "11.100",
-      "title": "General requirements for electronic signatures",
-      "text": "Each electronic signature shall be unique to one individual and shall not be reused by, or reassigned to, anyone else. Before organization establishes, assigns, or certifies electronic signatures, it shall verify the identity of the individual.",
+      "title": "General requirements",
+      "text": "(a) Each electronic signature shall be unique to one individual and shall not be reused by, or reassigned to, anyone else. (b) Before an organization establishes, assigns, certifies, or otherwise sanctions an individual's electronic signature, or any element of such electronic signature, the organization shall verify the identity of the individual. (c) Persons using electronic signatures shall, prior to or at the time of such use, certify to the agency that the electronic signatures in their system, used on or after August 20, 1997, are intended to be the legally binding equivalent of traditional handwritten signatures. (1) The certification shall be submitted to the Office of Regional Operations (HFC-100), 5001 Campus Dr., College Park, MD 20740, in paper form and signed with a traditional handwritten signature, by no later than the time the electronic signature is first used. (2) Persons using electronic signatures shall, upon agency request, provide additional certification or testimony that a specific electronic signature is the legally binding equivalent of the signer's handwritten signature.",
       "chapter": "Electronic Signatures - General Requirements"
     }
   ]

@@ -12,10 +12,9 @@ Complete reference for all 9 MCP tools provided by US Regulations MCP.
 4. [compare_requirements](#compare_requirements)
 5. [map_controls](#map_controls)
 6. [check_applicability](#check_applicability)
-7. [get_definitions](#get_definitions)
-8. [get_evidence_requirements](#get_evidence_requirements)
-9. [get_compliance_action_items](#get_compliance_action_items)
-10. [NIST Framework Reference](#nist-framework-reference)
+7. [get_evidence_requirements](#get_evidence_requirements)
+8. [get_compliance_action_items](#get_compliance_action_items)
+9. [NIST Framework Reference](#nist-framework-reference)
 
 ---
 
@@ -552,75 +551,6 @@ Determine which regulations apply to a specific sector or subsector. Returns app
 {
   "sector": "retail",
   "subsector": "e-commerce"
-}
-```
-
----
-
-## get_definitions
-
-Look up official term definitions across regulations. Uses partial matching to find terms.
-
-### Input Schema
-
-```json
-{
-  "term": "string (required)",
-  "regulation": "string (optional)"
-}
-```
-
-### Parameters
-
-- **term** (required): Term to look up
-  - Supports partial matching: `"health"` matches `"protected health information"`
-  - Case-insensitive
-
-- **regulation** (optional): Filter to specific regulation
-  - Values: `"HIPAA"`, `"CCPA"`, `"SOX"`
-  - If omitted: Searches all regulations
-
-### Output Example
-
-```json
-{
-  "term": "protected health information",
-  "definitions": [
-    {
-      "regulation": "HIPAA",
-      "term": "Protected Health Information",
-      "definition": "Individually identifiable health information that is transmitted by electronic media, maintained in electronic media, or transmitted or maintained in any other form or medium. This includes information created or received by a health care provider, health plan, public health authority, employer, life insurer, school or university, or health care clearinghouse; and relates to the past, present, or future physical or mental health or condition of an individual; the provision of health care to an individual; or the past, present, or future payment for the provision of health care to an individual.",
-      "section": "160.103",
-      "citation": "45 CFR 160.103"
-    }
-  ],
-  "matches": 1
-}
-```
-
-### Token Usage Notes
-
-- Single definition: ~100-400 tokens depending on definition length
-- Multiple matches: Token usage scales linearly
-- Use regulation filter to reduce token usage
-
-### Example Queries
-
-```json
-# Look up HIPAA term
-{
-  "term": "protected health information",
-  "regulation": "HIPAA"
-}
-
-# Search across all regulations
-{
-  "term": "personal information"
-}
-
-# Partial matching
-{
-  "term": "breach"
 }
 ```
 

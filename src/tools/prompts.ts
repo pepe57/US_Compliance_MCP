@@ -91,7 +91,7 @@ export const PROMPTS: PromptDefinition[] = [
       prompt += `Steps:\n`;
       prompt += `1. Use \`compare_requirements\` with topic="${topic}" and regulations=[${regulations.map(r => `"${r}"`).join(', ')}]\n`;
       prompt += `2. For each regulation with matches, use \`get_section\` to read the full text of the most relevant sections\n`;
-      prompt += `3. Use \`get_definitions\` to check if key terms are defined differently across regulations\n`;
+      prompt += `3. Use \`search_regulations\` to check if key terms are defined differently across regulations\n`;
       prompt += `4. Use \`get_breach_notification_timeline\` if the topic relates to breach notification\n\n`;
       prompt += `Provide a comparison matrix showing:\n`;
       prompt += `- Which regulations address this topic\n`;

@@ -77,7 +77,7 @@ US_Compliance_MCP/
 │   ├── golden-tests.json      # Golden contract tests for data accuracy
 │   └── golden-hashes.json     # Database drift detection hashes
 ├── tests/
-│   ├── tools.test.ts          # Vitest tool test suite (38 tests)
+│   ├── tools.test.ts          # Vitest tool + adversarial tests (48 tests)
 │   └── golden.test.ts         # Golden contract tests (19 tests)
 └── vitest.config.ts           # Sequential test execution config
 ```
@@ -129,16 +129,13 @@ Map regulation requirements to control frameworks (NIST 800-53, NIST CSF). Filte
 ### 6. `check_applicability`
 Determine which regulations apply to a given industry sector/subsector. Returns diagnostics with available sectors on no match.
 
-### 7. `get_definitions`
-Look up legal term definitions across regulations. Supports partial matching and regulation filtering.
-
-### 8. `get_evidence_requirements`
+### 7. `get_evidence_requirements`
 Extract audit evidence requirements from a regulation section. Uses 26 keyword patterns to identify evidence types and marks mandatory vs. recommended items.
 
-### 9. `get_compliance_action_items`
+### 8. `get_compliance_action_items`
 Generate prioritized compliance action items from regulation sections. Extracts priority (high/medium/low) and evidence needs from section text.
 
-### 10. `get_breach_notification_timeline`
+### 9. `get_breach_notification_timeline`
 Query breach notification deadlines across federal and state jurisdictions. Filter by state or regulation. Returns notification requirements, thresholds, and penalties.
 
 ## MCP Prompts
@@ -239,10 +236,10 @@ npx vitest run tests/tools.test.ts
 ## Current Statistics
 
 - **Regulations**: 15 US federal & state laws
-- **Tools**: 10 MCP tools
+- **Tools**: 9 MCP tools (+1 `about` tool)
 - **Prompts**: 3 MCP workflow prompts
 - **Resources**: 4 MCP static resources
-- **Tests**: 57 passing (Vitest) — 38 tool tests + 19 golden contract tests
+- **Tests**: 71 passing (Vitest) — 35 tool + 13 adversarial + 23 golden contract tests
 - **Transports**: stdio, HTTP/SSE, REST
 
 ## Support

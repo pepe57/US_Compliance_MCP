@@ -431,7 +431,6 @@ The server provides 9 MCP tools:
 | `compare_requirements` | Compare topic across multiple regulations |
 | `map_controls` | Map NIST controls to regulation sections |
 | `check_applicability` | Determine which regulations apply to your sector |
-| `get_definitions` | Look up official term definitions |
 | `get_evidence_requirements` | Get compliance evidence requirements for a section |
 | `get_compliance_action_items` | Generate structured compliance action items |
 

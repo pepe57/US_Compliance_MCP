@@ -9,7 +9,6 @@ import { listRegulations } from '../src/tools/list.js';
 import { compareRequirements } from '../src/tools/compare.js';
 import { mapControls } from '../src/tools/map.js';
 import { checkApplicability } from '../src/tools/applicability.js';
-import { getDefinitions } from '../src/tools/definitions.js';
 import { getEvidenceRequirements } from '../src/tools/evidence.js';
 import { getComplianceActionItems } from '../src/tools/action-items.js';
 import { getBreachNotificationTimeline } from '../src/tools/breach-notification.js';
@@ -271,33 +270,6 @@ describe('check_applicability', () => {
 });
 
 // ──────────────────────────────────────────────
-// get_definitions
-// ──────────────────────────────────────────────
-describe('get_definitions', () => {
-  it('returns definitions when data exists', async () => {
-    const hasDefs = db.prepare('SELECT COUNT(*) as cnt FROM definitions').get() as { cnt: number };
-    if (hasDefs.cnt === 0) return; // skip if no definitions loaded
-
-    const term = db.prepare('SELECT term FROM definitions LIMIT 1').get() as { term: string };
-    const result = await getDefinitions(db, { term: term.term.substring(0, 5) });
-    expect(result.total_definitions).toBeGreaterThan(0);
-  });
-
-  it('returns diagnostics for non-matching term', async () => {
-    const result = await getDefinitions(db, { term: 'xyznonexistentterm' });
-    expect(result.total_definitions).toBe(0);
-    expect(result.diagnostics).toBeDefined();
-    expect(result.diagnostics!.hint).toBeDefined();
-  });
-
-  it('throws on empty term', async () => {
-    await expect(
-      getDefinitions(db, { term: '' })
-    ).rejects.toThrow('Term is required');
-  });
-});
-
-// ──────────────────────────────────────────────
 // get_evidence_requirements
 // ──────────────────────────────────────────────
 describe('get_evidence_requirements', () => {
@@ -418,5 +390,102 @@ describe('get_breach_notification_timeline', () => {
     if (result.diagnostics) {
       expect(result.diagnostics.hint).toContain('Narnia');
     }
+  });
+});
+
+// ──────────────────────────────────────────────
+// Adversarial input tests (Phase 3.1)
+// ──────────────────────────────────────────────
+describe('adversarial inputs', () => {
+  // SQL injection attempts
+  it('search_regulations handles SQL injection in query', async () => {
+    const result = await searchRegulations(db, { query: "'; DROP TABLE sections; --" });
+    expect(result.results).toEqual([]);
+    // Table should still exist
+    const check = db.prepare('SELECT COUNT(*) as cnt FROM sections').get() as { cnt: number };
+    expect(check.cnt).toBeGreaterThan(0);
+  });
+
+  it('get_section handles SQL injection in regulation param', async () => {
+    await expect(
+      getSection(db, { regulation: "' OR '1'='1", section: '1.1' })
+    ).rejects.toThrow('Available regulations');
+  });
+
+  it('get_section handles SQL injection in section param', async () => {
+    await expect(
+      getSection(db, { regulation: 'HIPAA', section: "' UNION SELECT * FROM regulations --" })
+    ).rejects.toThrow('not found');
+  });
+
+  it('search_regulations handles SQL injection in regulation filter', async () => {
+    const result = await searchRegulations(db, {
+      query: 'data',
+      regulations: ["'; DROP TABLE sections; --"],
+    });
+    expect(result.diagnostics).toBeDefined();
+    // Table should still exist
+    const check = db.prepare('SELECT COUNT(*) as cnt FROM sections').get() as { cnt: number };
+    expect(check.cnt).toBeGreaterThan(0);
+  });
+
+  // Extremely long inputs
+  it('search_regulations handles extremely long query', async () => {
+    const longQuery = 'a'.repeat(10000);
+    const result = await searchRegulations(db, { query: longQuery });
+    expect(result.results).toEqual([]);
+  });
+
+  it('get_section handles extremely long regulation ID', async () => {
+    await expect(
+      getSection(db, { regulation: 'X'.repeat(10000), section: '1.1' })
+    ).rejects.toThrow('Available regulations');
+  });
+
+  // Special characters and Unicode
+  it('search_regulations handles special characters', async () => {
+    const result = await searchRegulations(db, { query: '★ 日本語 émojis 🎉' });
+    expect(result.results).toEqual([]);
+    expect(result.diagnostics).toBeDefined();
+  });
+
+  it('search_regulations handles FTS5 operator abuse', async () => {
+    const result = await searchRegulations(db, { query: 'NOT NOT NOT NOT' });
+    expect(result.results).toEqual([]);
+    expect(result.diagnostics).toBeDefined();
+  });
+
+  // Whitespace-only inputs
+  it('search_regulations rejects whitespace-only query', async () => {
+    await expect(
+      searchRegulations(db, { query: '   \t\n  ' })
+    ).rejects.toThrow();
+  });
+
+  it('compare_requirements rejects whitespace-only topic', async () => {
+    await expect(
+      compareRequirements(db, { topic: '   ', regulations: ['HIPAA', 'CCPA'] })
+    ).rejects.toThrow();
+  });
+
+  // Boundary values
+  it('search_regulations handles offset beyond result count', async () => {
+    const result = await searchRegulations(db, { query: 'data', limit: 10, offset: 999999 });
+    expect(result.results).toEqual([]);
+  });
+
+  it('map_controls handles SQL injection in framework', async () => {
+    const result = await mapControls(db, { framework: "'; DROP TABLE control_mappings; --" });
+    expect(result.total_mappings).toBe(0);
+    expect(result.diagnostics).toBeDefined();
+    // Table should still exist
+    const check = db.prepare('SELECT COUNT(*) as cnt FROM control_mappings').get() as { cnt: number };
+    expect(check.cnt).toBeGreaterThan(0);
+  });
+
+  it('check_applicability handles SQL injection in sector', async () => {
+    const result = await checkApplicability(db, { sector: "' OR 1=1 --" });
+    expect(result.total_applicable).toBe(0);
+    expect(result.diagnostics).toBeDefined();
   });
 });

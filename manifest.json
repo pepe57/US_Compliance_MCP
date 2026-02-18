@@ -69,7 +69,6 @@
     { "name": "compare_requirements" },
     { "name": "map_controls" },
     { "name": "check_applicability" },
-    { "name": "get_definitions" },
     { "name": "get_evidence_requirements" },
     { "name": "get_compliance_action_items" },
     { "name": "get_breach_notification_timeline" },
