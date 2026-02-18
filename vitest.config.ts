@@ -5,5 +5,6 @@ export default defineConfig({
     // Run test files sequentially to avoid SQLite database locking
     // (node-sqlite3-wasm doesn't support concurrent access to the same file)
     fileParallelism: false,
+    exclude: ['**/node_modules/**', '**/.claude/**'],
   },
 });

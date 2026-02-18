@@ -20,7 +20,36 @@ export interface ToolDefinition {
   name: string;
   description: string;
   inputSchema: any;
+  annotations?: {
+    title: string;
+    readOnlyHint: boolean;
+    destructiveHint: boolean;
+  };
   handler: (db: InstanceType<typeof Database>, args: any) => Promise<any>;
+}
+
+
+const READ_ONLY_ANNOTATIONS = {
+  readOnlyHint: true,
+  destructiveHint: false,
+} as const;
+
+function toTitle(name: string): string {
+  return name
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}
+
+function annotateTools(tools: ToolDefinition[]): ToolDefinition[] {
+  return tools.map((tool) => ({
+    ...tool,
+    annotations: tool.annotations ?? {
+      title: toTitle(tool.name),
+      readOnlyHint: READ_ONLY_ANNOTATIONS.readOnlyHint,
+      destructiveHint: READ_ONLY_ANNOTATIONS.destructiveHint,
+    },
+  }));
 }
 
 /**
@@ -30,28 +59,32 @@ export interface ToolDefinition {
 export const TOOLS: ToolDefinition[] = [
   {
     name: 'search_regulations',
-    description: 'Search across all US regulations using full-text search. Returns relevant sections with highlighted snippets. Token-efficient: returns 32-token snippets with >>> <<< markers around matched terms. Supports pagination with offset. Returns diagnostics on empty results.',
+    description: 'Full-text search across 15 US federal and state regulations (HIPAA, CCPA, SOX, GLBA, etc.). Returns ranked results with BM25 scoring and 32-token snippets with >>> <<< markers around matched terms. Use this as the primary discovery tool when you need to find regulation text on a topic. Prefer get_section when you already know the exact regulation and section number. Output: { results: [{ regulation, section, title, snippet, score }], total_results, query, diagnostics? }. Returns diagnostics object with suggestions on empty results.',
     inputSchema: {
       type: 'object',
       properties: {
         query: {
           type: 'string',
-          description: 'Search query (supports natural language and technical terms)',
+          description: 'Search query — supports natural language ("breach notification requirements") and technical terms ("PHI", "GLBA safeguards"). Terms are stemmed and prefix-matched automatically.',
         },
         regulations: {
           type: 'array',
           items: { type: 'string' },
-          description: 'Optional: Filter results to specific regulations (e.g., ["HIPAA", "CCPA"]). Use list_regulations to see valid IDs.',
+          maxItems: 15,
+          description: 'Filter results to specific regulations (e.g., ["HIPAA", "CCPA"]). Use list_regulations to see valid IDs.',
         },
         limit: {
-          type: 'number',
-          description: 'Maximum number of results to return (default: 10, max: 1000)',
+          type: 'integer',
+          description: 'Maximum results to return',
           default: 10,
+          minimum: 1,
+          maximum: 1000,
         },
         offset: {
-          type: 'number',
-          description: 'Number of results to skip for pagination (default: 0)',
+          type: 'integer',
+          description: 'Number of results to skip for pagination',
           default: 0,
+          minimum: 0,
         },
       },
       required: ['query'],
@@ -62,17 +95,17 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_section',
-    description: 'Retrieve the full text of a specific regulation section. Returns section content, metadata, and cross-references. Large sections are automatically truncated with a warning. Throws descriptive error if section or regulation not found.',
+    description: 'Retrieve the full text of a specific regulation section by ID and section number. Use this when you know exactly which section you need — use search_regulations first if you need to discover sections. Output: { regulation, section, title, chapter, text, cross_references? }. Throws a descriptive error listing available regulations if the regulation ID is invalid, or available sections if the section number is not found. Large sections (>8000 chars) are truncated with a warning.',
     inputSchema: {
       type: 'object',
       properties: {
         regulation: {
           type: 'string',
-          description: 'Regulation ID (e.g., "HIPAA", "CCPA"). Use list_regulations to see valid IDs.',
+          description: 'Regulation ID (e.g., "HIPAA", "CCPA", "SOX"). Call list_regulations with no params to see all valid IDs.',
         },
         section: {
           type: 'string',
-          description: 'Section number (e.g., "164.502", "1798.100"). Use list_regulations with a regulation ID to see available sections.',
+          description: 'Section number (e.g., "164.502", "1798.100", "SOX-302"). Call list_regulations with a regulation ID to see available sections.',
         },
       },
       required: ['regulation', 'section'],
@@ -83,13 +116,13 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'list_regulations',
-    description: 'List all available regulations or get the structure of a specific regulation. Without parameters, returns all regulations with metadata. With a regulation ID, returns chapters and sections organized hierarchically. Call this first to discover valid regulation IDs and section numbers.',
+    description: 'List all available regulations or get the structure (chapters and sections) of a specific one. Call with no parameters first to discover valid regulation IDs. Call with a regulation ID to get its table of contents (chapters and section numbers). Output without params: { regulations: [{ id, title, description, effective_date }] }. Output with regulation param: { structure: { regulation: { id, title }, chapters: [{ name, sections: [{ number, title }] }] } }. Do not use this for searching — use search_regulations instead.',
     inputSchema: {
       type: 'object',
       properties: {
         regulation: {
           type: 'string',
-          description: 'Optional: Regulation ID to get detailed structure for (e.g., "HIPAA")',
+          description: 'Regulation ID to get detailed structure for (e.g., "HIPAA"). Omit to list all regulations.',
         },
       },
     },
@@ -99,18 +132,20 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'compare_requirements',
-    description: 'Compare requirements across multiple regulations for a specific topic. Searches each regulation, returns top matching sections with relevance scores, and provides a synthesis summary identifying common themes and coverage gaps.',
+    description: 'Compare how multiple regulations address the same topic (e.g., "encryption", "breach notification"). Returns the top 5 matching sections per regulation with relevance scores, plus a synthesis summary identifying common themes and coverage gaps. Use this when you need a cross-regulation comparison — for single-regulation searches, use search_regulations instead. Output: { topic, comparisons: [{ regulation, sections: [{ section, title, snippet, score }] }], synthesis: { coverage_summary, common_themes } }.',
     inputSchema: {
       type: 'object',
       properties: {
         topic: {
           type: 'string',
-          description: 'Topic to compare (e.g., "breach notification", "access controls", "encryption")',
+          description: 'Topic to compare across regulations (e.g., "breach notification", "access controls", "encryption", "data retention")',
         },
         regulations: {
           type: 'array',
           items: { type: 'string' },
-          description: 'List of regulations to compare (e.g., ["HIPAA", "CCPA"]). Use list_regulations to see valid IDs.',
+          minItems: 2,
+          maxItems: 10,
+          description: 'Regulations to compare (2-10). Use list_regulations to see valid IDs. Example: ["HIPAA", "CCPA", "GLBA"]',
         },
       },
       required: ['topic', 'regulations'],
@@ -121,21 +156,22 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'map_controls',
-    description: 'Map NIST controls (800-53, CSF) to regulation sections. Shows which regulatory requirements satisfy specific control objectives. Can filter by control ID or regulation. Returns diagnostics if no mappings exist for the given filter.',
+    description: 'Map NIST control framework objectives to US regulation sections. Shows which regulatory requirements satisfy specific control objectives. Use this for compliance mapping and gap analysis. Returns diagnostics with available frameworks if the framework ID is unknown. Output: { framework, mappings: [{ control_id, control_name, regulation, section, description }], total_mappings, diagnostics? }. Do not use this for free-text search — use search_regulations instead.',
     inputSchema: {
       type: 'object',
       properties: {
         framework: {
           type: 'string',
-          description: 'Control framework (e.g., "NIST_CSF", "NIST_800_53")',
+          enum: ['NIST_800_53_R5', 'NIST_CSF', 'NIST_CSF_2_0'],
+          description: 'Control framework to map from. NIST_800_53_R5 = NIST SP 800-53 Rev 5. NIST_CSF / NIST_CSF_2_0 = NIST Cybersecurity Framework.',
         },
         control: {
           type: 'string',
-          description: 'Optional: Specific control ID (e.g., "AC-1", "PR.AC-1")',
+          description: 'Specific control ID to look up (e.g., "AC-1", "PR.AC-1"). Omit to return all mappings for the framework.',
         },
         regulation: {
           type: 'string',
-          description: 'Optional: Filter to specific regulation (e.g., "HIPAA")',
+          description: 'Filter mappings to a specific regulation (e.g., "HIPAA", "SOX"). Omit to return mappings across all regulations.',
         },
       },
       required: ['framework'],
@@ -146,17 +182,18 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'check_applicability',
-    description: 'Determine which regulations apply to a specific sector or subsector. Returns applicable regulations with confidence levels (definite, likely, possible). Returns diagnostics with available sectors if no rules match.',
+    description: 'Determine which US regulations apply to a given industry sector. Returns applicable regulations with confidence levels (definite, likely, possible) and reasoning. Use this as a starting point for compliance assessments. Returns diagnostics listing all available sectors if no match is found. Output: { sector, subsector?, applicable_regulations: [{ regulation, confidence, reason }], diagnostics? }. Do not use this for text search — use search_regulations instead.',
     inputSchema: {
       type: 'object',
       properties: {
         sector: {
           type: 'string',
-          description: 'Industry sector (e.g., "healthcare", "financial", "retail", "technology")',
+          enum: ['all', 'financial', 'healthcare', 'insurance', 'marketing', 'retail', 'technology'],
+          description: 'Industry sector. Use "all" to see regulations that apply universally.',
         },
         subsector: {
           type: 'string',
-          description: 'Optional: Specific subsector (e.g., "hospital", "bank", "e-commerce")',
+          description: 'Specific subsector for more precise matching (e.g., "hospital", "bank", "e-commerce"). Optional — omit for sector-level results.',
         },
       },
       required: ['sector'],
@@ -167,17 +204,17 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_definitions',
-    description: 'Look up official term definitions across regulations. Uses partial matching to find terms (e.g., "health" matches "protected health information"). Returns diagnostics if no definitions match.',
+    description: 'Look up official legal term definitions across US regulations. Uses partial matching (e.g., "health" matches "protected health information"). NOTE: The definitions table has limited coverage — if no results are returned, the term may still appear in regulation text (use search_regulations to find it). Output: { term, definitions: [{ regulation, term, definition }], total_results, diagnostics? }. Do not use this for general search — use search_regulations instead.',
     inputSchema: {
       type: 'object',
       properties: {
         term: {
           type: 'string',
-          description: 'Term to look up (e.g., "protected health information", "personal data")',
+          description: 'Legal term to look up (e.g., "protected health information", "personal data", "covered entity")',
         },
         regulation: {
           type: 'string',
-          description: 'Optional: Filter to specific regulation (e.g., "HIPAA")',
+          description: 'Filter to definitions from a specific regulation (e.g., "HIPAA"). Omit to search all regulations.',
         },
       },
       required: ['term'],
@@ -188,17 +225,17 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_evidence_requirements',
-    description: 'Get compliance evidence requirements for a specific regulation section. Analyzes section text to identify required audit artifacts (policies, logs, assessments, plans). Distinguishes mandatory vs recommended evidence based on regulatory language.',
+    description: 'Extract audit evidence requirements from a specific regulation section. Analyzes section text using 26 keyword patterns to identify required artifacts (policies, logs, risk assessments, training records, incident response plans, etc.). Distinguishes mandatory ("shall", "must") vs recommended ("should", "may") evidence. Use this after identifying relevant sections via search_regulations or get_section. Output: { regulation, section, title, evidence: [{ type, description, mandatory, source_text }] }. Do not use this for discovery — use search_regulations first.',
     inputSchema: {
       type: 'object',
       properties: {
         regulation: {
           type: 'string',
-          description: 'Regulation ID (e.g., "HIPAA")',
+          description: 'Regulation ID (e.g., "HIPAA", "SOX", "NYDFS_500")',
         },
         section: {
           type: 'string',
-          description: 'Section number (e.g., "164.312(b)")',
+          description: 'Section number (e.g., "164.312(b)", "SOX-404")',
         },
       },
       required: ['regulation', 'section'],
@@ -209,18 +246,20 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_compliance_action_items',
-    description: 'Generate structured compliance action items from regulation sections. Extracts priority (high/medium/low) based on regulatory language (shall/must = high, should = medium) and identifies evidence needed.',
+    description: 'Generate prioritized compliance action items from one or more regulation sections. Extracts priority (high/medium/low) based on regulatory language: "shall"/"must" = high, "should" = medium, "may" = low. Identifies evidence needed for each action. Use this after identifying relevant sections via search_regulations. Output: { regulation, action_items: [{ section, title, priority, action, evidence_needed }] }. Do not use this for discovery — use search_regulations or check_applicability first.',
     inputSchema: {
       type: 'object',
       properties: {
         regulation: {
           type: 'string',
-          description: 'Regulation ID (e.g., "HIPAA", "CCPA")',
+          description: 'Regulation ID (e.g., "HIPAA", "CCPA", "GLBA")',
         },
         sections: {
           type: 'array',
           items: { type: 'string' },
-          description: 'Section numbers to generate action items for (e.g., ["164.308(a)(1)(ii)(A)", "164.312(b)"]). Max 20 sections.',
+          minItems: 1,
+          maxItems: 20,
+          description: 'Section numbers to generate action items for (1-20 sections). Example: ["164.308(a)(1)(ii)(A)", "164.312(b)"]',
         },
       },
       required: ['regulation', 'sections'],
@@ -231,17 +270,17 @@ export const TOOLS: ToolDefinition[] = [
   },
   {
     name: 'get_breach_notification_timeline',
-    description: 'Get breach notification requirements by state or regulation. Returns notification deadlines, who must be notified (individuals, regulators, media), penalties, and thresholds. Covers federal (HIPAA, GLBA, FERPA, COPPA) and state laws.',
+    description: 'Query breach notification deadlines across federal and state jurisdictions. Returns notification timelines, who must be notified (individuals, regulators, media), penalties, and trigger thresholds. Covers 4 federal laws (HIPAA, GLBA, FERPA, COPPA) and 9 state jurisdictions. Call with no parameters to get all jurisdictions. Output: { rules: [{ jurisdiction, regulation, timeline, notify_individuals, notify_regulators, notify_media, penalty, threshold }], total_results }. Use compare_requirements for topical comparison across regulations instead.',
     inputSchema: {
       type: 'object',
       properties: {
         state: {
           type: 'string',
-          description: 'Optional: State or jurisdiction name (e.g., "California", "New York", "Federal")',
+          description: 'State or jurisdiction name (e.g., "California", "New York", "Federal"). Omit to return all jurisdictions.',
         },
         regulation: {
           type: 'string',
-          description: 'Optional: Filter by regulation (e.g., "HIPAA", "CCPA")',
+          description: 'Filter by regulation (e.g., "HIPAA", "CCPA"). Omit to return all regulations.',
         },
       },
     },
@@ -255,8 +294,10 @@ function createAboutTool(context: AboutContext): ToolDefinition {
   return {
     name: 'about',
     description:
-      'Server metadata, dataset statistics, freshness, and provenance. ' +
-      'Call this to verify data coverage, currency, and content basis before relying on results.',
+      'Server metadata, dataset statistics, data freshness, and provenance information. ' +
+      'Call this first in any session to verify data coverage, currency (last update check date), ' +
+      'and content basis before relying on results for compliance decisions. ' +
+      'Output: { server, version, dataset: { regulations, sections, built, freshness }, provenance }.',
     inputSchema: {
       type: 'object',
       properties: {},
@@ -277,13 +318,14 @@ export function buildTools(context: AboutContext): ToolDefinition[] {
  * Use this for both stdio and HTTP servers to ensure parity.
  */
 export function registerTools(server: Server, db: InstanceType<typeof Database>, context?: AboutContext): void {
-  const allTools = context ? buildTools(context) : TOOLS;
+  const allTools = annotateTools(context ? buildTools(context) : TOOLS);
   // List available tools
   server.setRequestHandler(ListToolsRequestSchema, async () => ({
     tools: allTools.map(tool => ({
       name: tool.name,
       description: tool.description,
       inputSchema: tool.inputSchema,
+      annotations: tool.annotations,
     })),
   }));
 
@@ -293,7 +335,7 @@ export function registerTools(server: Server, db: InstanceType<typeof Database>,
     const tool = allTools.find(t => t.name === name);
 
     if (!tool) {
-      const available = TOOLS.map(t => t.name).join(', ');
+      const available = allTools.map(t => t.name).join(', ');
       return {
         content: [{ type: 'text', text: `Unknown tool: ${name}. Available tools: ${available}` }],
         isError: true,

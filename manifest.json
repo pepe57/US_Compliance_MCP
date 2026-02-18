@@ -72,7 +72,8 @@
     { "name": "get_definitions" },
     { "name": "get_evidence_requirements" },
     { "name": "get_compliance_action_items" },
-    { "name": "get_breach_notification_timeline" }
+    { "name": "get_breach_notification_timeline" },
+    { "name": "about" }
   ],
   "compatibility": {
     "platforms": ["darwin", "win32", "linux"],

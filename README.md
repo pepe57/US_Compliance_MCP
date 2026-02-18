@@ -624,6 +624,30 @@ Browse all projects: [ansvar.eu/open-source](https://ansvar.eu/open-source)
 - **[Coverage Details](docs/coverage.md)** — All regulations with section counts
 - **[Available Tools](docs/tools.md)** — Detailed tool descriptions with examples
 - **[Development Status](docs/STATUS.md)** — Current implementation status
+- **[Privacy Policy](PRIVACY.md)** — Data handling and retention notes
+
+---
+
+## Directory Review Notes
+
+### Testing Account and Sample Data
+
+This server is read-only and does not require a login account for functional review.
+For directory review, use the bundled dataset and these sample prompts:
+- *"What are HIPAA access control requirements?"*
+- *"Compare HIPAA and CCPA breach notification timelines."*
+- *"List regulations applicable to healthcare providers."*
+
+### Remote Authentication (OAuth 2.0)
+
+The default server runtime is read-only and can be deployed without authentication.
+If you deploy a remote authenticated endpoint, use OAuth 2.0 over TLS with certificates from recognized authorities.
+
+### Troubleshooting
+
+- If startup fails, verify `US_COMPLIANCE_DB_PATH` points to a readable SQLite file.
+- If HTTP tool calls fail, confirm `/mcp` POST routing and `mcp-session-id` header forwarding.
+- If results are empty, call `list_regulations` first to verify dataset initialization.
 
 ---
 
