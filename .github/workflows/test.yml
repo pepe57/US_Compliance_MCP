@@ -41,7 +41,9 @@ jobs:
 
       - name: Run tests
         run: npm test
-        continue-on-error: true # TODO: Fix quality test expectations in follow-up PR
+
+      - name: Run golden contract tests
+        run: npx vitest run tests/golden.test.ts
 
       - name: Test Summary
         if: always()

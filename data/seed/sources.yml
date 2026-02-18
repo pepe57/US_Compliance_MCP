@@ -1,0 +1,223 @@
+# US Regulations MCP - Data Provenance
+# Machine-readable provenance for all data sources in the database.
+# Last updated: 2026-02-17
+
+regulations:
+  - id: HIPAA
+    full_name: Health Insurance Portability and Accountability Act
+    citation: 45 CFR Parts 160, 162, and 164
+    jurisdiction: federal
+    type: regulation
+    effective_date: "2003-04-14"
+    last_amended: "2013-09-23"
+    publisher: U.S. Department of Health and Human Services
+    official_url: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 45 CFR Parts 160, 162, and 164
+
+  - id: HITECH
+    full_name: Health Information Technology for Economic and Clinical Health Act
+    citation: "42 U.S.C. \u00A7\u00A7 17921-17954; 45 CFR Parts 160, 164"
+    jurisdiction: federal
+    type: statute
+    effective_date: "2009-02-17"
+    last_amended: "2013-09-23"
+    publisher: U.S. Department of Health and Human Services
+    official_url: https://www.hhs.gov/hipaa/for-professionals/special-topics/hitech-act-enforcement-interim-final-rule/index.html
+    last_verified: "2026-02-07"
+    verification_method: Extracted from HITECH Act provisions and implementing regulations
+
+  - id: CCPA
+    full_name: California Consumer Privacy Act
+    citation: "Cal. Civ. Code \u00A7\u00A7 1798.100-1798.199"
+    jurisdiction: california
+    type: statute
+    effective_date: "2020-01-01"
+    last_amended: "2023-01-01"
+    publisher: California Legislature
+    official_url: https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5
+    last_verified: "2026-02-07"
+    verification_method: Extracted from California Civil Code Title 1.81.5
+
+  - id: VCDPA
+    full_name: Virginia Consumer Data Protection Act
+    citation: "Va. Code Ann. \u00A7\u00A7 59.1-575 to 59.1-585"
+    jurisdiction: virginia
+    type: statute
+    effective_date: "2023-01-01"
+    publisher: Virginia General Assembly
+    official_url: https://law.lis.virginia.gov/vacode/title59.1/chapter53/
+    last_verified: "2026-02-07"
+    verification_method: Extracted from Virginia Code Title 59.1 Chapter 53
+
+  - id: COLORADO_CPA
+    full_name: Colorado Privacy Act
+    citation: "C.R.S. \u00A76-1-1301 to 6-1-1313"
+    jurisdiction: colorado
+    type: statute
+    effective_date: "2023-07-01"
+    publisher: Colorado General Assembly
+    official_url: https://leg.colorado.gov/colorado-revised-statutes
+    last_verified: "2026-01-29"
+    verification_method: Extracted from official Colorado General Assembly CRS publication
+
+  - id: CTDPA
+    full_name: Connecticut Data Privacy Act
+    citation: "Conn. Gen. Stat. \u00A7\u00A7 42-515 to 42-523"
+    jurisdiction: connecticut
+    type: statute
+    effective_date: "2023-07-01"
+    publisher: Connecticut General Assembly
+    official_url: https://www.cga.ct.gov/current/pub/chap_746aa.htm
+    last_verified: "2026-02-07"
+    verification_method: Extracted from Connecticut General Statutes Chapter 746aa
+
+  - id: UCPA
+    full_name: Utah Consumer Privacy Act
+    citation: "Utah Code \u00A7\u00A7 13-61-101 to 13-61-404"
+    jurisdiction: utah
+    type: statute
+    effective_date: "2023-12-31"
+    publisher: Utah State Legislature
+    official_url: https://le.utah.gov/xcode/Title13/Chapter61/13-61.html
+    last_verified: "2026-02-07"
+    verification_method: Extracted from Utah Code Title 13 Chapter 61
+
+  - id: SOX
+    full_name: Sarbanes-Oxley Act of 2002
+    citation: "Pub.L. 107-204, 15 U.S.C. \u00A7\u00A7 7201-7266, 18 U.S.C. \u00A7\u00A7 1348-1350"
+    jurisdiction: federal
+    type: statute
+    effective_date: "2002-07-30"
+    publisher: United States Congress
+    official_url: https://www.congress.gov/bill/107th-congress/house-bill/3763
+    last_verified: "2026-01-29"
+    verification_method: Extracted from official Sarbanes-Oxley Act statutory text and SEC implementing regulations
+
+  - id: GLBA
+    full_name: Gramm-Leach-Bliley Act - Safeguards Rule
+    citation: 16 CFR Part 314
+    jurisdiction: federal
+    type: regulation
+    effective_date: "2003-05-23"
+    last_amended: "2023-06-09"
+    publisher: Federal Trade Commission
+    official_url: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-314
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 16 CFR Part 314 (FTC Safeguards Rule)
+    note: Uses CFR numbering (314.x), not original statute section numbering (501-510)
+
+  - id: FERPA
+    full_name: Family Educational Rights and Privacy Act
+    citation: 34 CFR Part 99
+    jurisdiction: federal
+    type: regulation
+    effective_date: "1974-11-19"
+    last_amended: "2011-12-02"
+    publisher: U.S. Department of Education
+    official_url: https://www.ecfr.gov/current/title-34/subtitle-A/part-99
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 34 CFR Part 99
+
+  - id: COPPA
+    full_name: Children's Online Privacy Protection Act
+    citation: 16 CFR Part 312
+    jurisdiction: federal
+    type: regulation
+    effective_date: "2000-04-21"
+    last_amended: "2013-07-01"
+    publisher: Federal Trade Commission
+    official_url: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 16 CFR Part 312
+
+  - id: FDA_CFR_11
+    full_name: FDA 21 CFR Part 11 - Electronic Records and Signatures
+    citation: 21 CFR Part 11
+    jurisdiction: federal
+    type: regulation
+    effective_date: "1997-08-20"
+    publisher: U.S. Food and Drug Administration
+    official_url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 21 CFR Part 11
+
+  - id: EPA_RMP
+    full_name: EPA Risk Management Plan Rule
+    citation: 40 CFR Part 68
+    jurisdiction: federal
+    type: regulation
+    effective_date: "1996-06-20"
+    last_amended: "2019-01-13"
+    publisher: U.S. Environmental Protection Agency
+    official_url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-68
+    last_verified: "2026-02-07"
+    verification_method: Extracted from 40 CFR Part 68
+
+  - id: FFIEC
+    full_name: FFIEC IT Examination Handbook
+    citation: FFIEC Interagency Guidelines
+    jurisdiction: federal
+    type: guidance
+    effective_date: "2023-01-01"
+    publisher: Federal Financial Institutions Examination Council
+    official_url: https://ithandbook.ffiec.gov/
+    last_verified: "2026-01-29"
+    verification_method: Extracted from official FFIEC IT Examination Handbook booklets
+    note: Examination guidance, not binding regulation
+
+  - id: NYDFS_500
+    full_name: NY DFS Cybersecurity Regulation
+    citation: 23 NYCRR 500
+    jurisdiction: new_york
+    type: rule
+    effective_date: "2017-03-01"
+    last_amended: "2023-11-01"
+    publisher: New York State Department of Financial Services
+    official_url: https://www.dfs.ny.gov/industry_guidance/cybersecurity
+    last_verified: "2026-01-29"
+    verification_method: Extracted from official 23 NYCRR 500 regulation text
+
+control_framework_mappings:
+  - file: hipaa-nist-800-53.json
+    framework: NIST_800_53_R5
+    regulation: HIPAA
+    last_reviewed: "2026-01-29"
+    disclaimer: Interpretive guidance, NOT official HHS or NIST crosswalks
+
+  - file: sox-nist-800-53.json
+    framework: NIST_800_53_R5
+    regulation: SOX
+    last_reviewed: "2026-02-07"
+    disclaimer: Interpretive guidance, NOT official SEC or NIST crosswalks
+
+  - file: glba-nist-800-53.json
+    framework: NIST_800_53_R5
+    regulation: GLBA
+    last_reviewed: "2026-02-07"
+    disclaimer: Interpretive guidance, NOT official FTC or NIST crosswalks
+
+  - file: ccpa-nist-csf.json
+    framework: NIST_CSF_2_0
+    regulation: CCPA
+    last_reviewed: "2026-01-29"
+    disclaimer: Interpretive guidance, NOT official CA AG or NIST crosswalks
+
+  - file: state-privacy-nist-csf.json
+    framework: NIST_CSF
+    regulation: STATE_PRIVACY_LAWS
+    last_reviewed: "2026-02-07"
+    disclaimer: Generic mapping for state privacy laws (CCPA, VCDPA, CTDPA, UCPA, CPA)
+
+breach_notification:
+  file: breach-notification-rules.json
+  jurisdictions: 13
+  federal: [HIPAA, GLBA, FERPA, COPPA]
+  states: [California, New York, Virginia, Colorado, Connecticut, Utah, Texas, Massachusetts, Illinois]
+  last_verified: "2026-02-07"
+
+authenticity_note: >
+  This dataset is derived from publicly available US regulatory text.
+  US federal law is public domain under 17 U.S.C. 105.
+  Verify against official publications (Federal Register, CFR) for legal purposes.
+  Framework mappings are interpretive guidance, not official crosswalks.

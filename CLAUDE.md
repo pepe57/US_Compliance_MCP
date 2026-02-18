@@ -68,12 +68,18 @@ US_Compliance_MCP/
 │   ├── regulations.db         # Pre-built database
 │   └── seed/                  # Source JSON files
 │       ├── *.json             # Regulation seed data
+│       ├── sources.yml         # Data provenance metadata
 │       ├── breach-notification-rules.json
 │       ├── mappings/          # Control framework mappings
 │       └── applicability/     # Sector applicability rules
 ├── scripts/                   # Build & ingestion scripts
-└── tests/
-    └── tools.test.ts          # Vitest test suite (38 tests)
+├── fixtures/
+│   ├── golden-tests.json      # Golden contract tests for data accuracy
+│   └── golden-hashes.json     # Database drift detection hashes
+├── tests/
+│   ├── tools.test.ts          # Vitest tool test suite (38 tests)
+│   └── golden.test.ts         # Golden contract tests (19 tests)
+└── vitest.config.ts           # Sequential test execution config
 ```
 
 ## Regulations Included
@@ -83,24 +89,25 @@ US_Compliance_MCP/
 - **HITECH** - Health Information Technology for Economic and Clinical Health Act
 
 ### Privacy
-- **CCPA** - California Consumer Privacy Act
-- **CPRA** - California Privacy Rights Act
+- **CCPA** - California Consumer Privacy Act (includes CPRA amendments)
 - **VCDPA** - Virginia Consumer Data Protection Act
-- **CPA** - Colorado Privacy Act
+- **COLORADO_CPA** - Colorado Privacy Act
 - **CTDPA** - Connecticut Data Privacy Act
 - **UCPA** - Utah Consumer Privacy Act
 
 ### Financial
 - **SOX** - Sarbanes-Oxley Act
-- **GLBA** - Gramm-Leach-Bliley Act
+- **GLBA** - Gramm-Leach-Bliley Act (Safeguards Rule, 16 CFR Part 314)
+- **NYDFS_500** - NY DFS Cybersecurity Regulation (23 NYCRR 500)
+- **FFIEC** - FFIEC IT Examination Handbook
 
 ### Education & Children
 - **FERPA** - Family Educational Rights and Privacy Act
 - **COPPA** - Children's Online Privacy Protection Act
 
 ### Industry-Specific
-- **FDA 21 CFR Part 11** - Electronic Records & Signatures
-- **FTC Act Section 5** - Unfair or Deceptive Practices
+- **FDA_CFR_11** - FDA 21 CFR Part 11 - Electronic Records & Signatures
+- **EPA_RMP** - EPA Risk Management Plan Rule (40 CFR Part 68)
 
 ## Available Tools
 
@@ -235,7 +242,7 @@ npx vitest run tests/tools.test.ts
 - **Tools**: 10 MCP tools
 - **Prompts**: 3 MCP workflow prompts
 - **Resources**: 4 MCP static resources
-- **Tests**: 38 passing (Vitest)
+- **Tests**: 57 passing (Vitest) — 38 tool tests + 19 golden contract tests
 - **Transports**: stdio, HTTP/SSE, REST
 
 ## Support

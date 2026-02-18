@@ -1,0 +1,168 @@
+{
+  "$schema": "Golden contract tests for data accuracy. Each test verifies a specific data point against known-good values.",
+  "generated_at": "2026-02-17T18:30:00Z",
+  "tests": [
+    {
+      "id": "hipaa-164.502-title",
+      "description": "HIPAA Privacy Rule general rules section has correct title",
+      "tool": "get_section",
+      "input": { "regulation": "HIPAA", "section": "164.502" },
+      "assert": {
+        "field": "title",
+        "equals": "Uses and disclosures of protected health information: General rules"
+      }
+    },
+    {
+      "id": "hipaa-164.502-text-contains",
+      "description": "HIPAA 164.502 text includes general prohibition on use/disclosure",
+      "tool": "get_section",
+      "input": { "regulation": "HIPAA", "section": "164.502" },
+      "assert": {
+        "field": "text",
+        "contains": "covered entity or business associate may not use or disclose protected health information"
+      }
+    },
+    {
+      "id": "ccpa-1798.100-title",
+      "description": "CCPA consumer right to know section exists with correct title",
+      "tool": "get_section",
+      "input": { "regulation": "CCPA", "section": "1798.100" },
+      "assert": {
+        "field": "title",
+        "equals": "Consumer's Right to Know"
+      }
+    },
+    {
+      "id": "ccpa-1798.100-text-contains",
+      "description": "CCPA 1798.100 enumerates consumer disclosure rights",
+      "tool": "get_section",
+      "input": { "regulation": "CCPA", "section": "1798.100" },
+      "assert": {
+        "field": "text",
+        "contains": "Categories of personal information collected"
+      }
+    },
+    {
+      "id": "glba-314.3-title",
+      "description": "GLBA Safeguards Rule section 314.3 has correct title",
+      "tool": "get_section",
+      "input": { "regulation": "GLBA", "section": "314.3" },
+      "assert": {
+        "field": "title",
+        "equals": "Standards for safeguarding customer information"
+      }
+    },
+    {
+      "id": "glba-314.3-text-contains",
+      "description": "GLBA 314.3 mandates comprehensive information security program",
+      "tool": "get_section",
+      "input": { "regulation": "GLBA", "section": "314.3" },
+      "assert": {
+        "field": "text",
+        "contains": "comprehensive information security program"
+      }
+    },
+    {
+      "id": "sox-302-title",
+      "description": "SOX Section 302 on corporate responsibility for financial reports",
+      "tool": "get_section",
+      "input": { "regulation": "SOX", "section": "SOX-302" },
+      "assert": {
+        "field": "title",
+        "equals": "Section 302 - Corporate Responsibility for Financial Reports"
+      }
+    },
+    {
+      "id": "ferpa-99.3-title",
+      "description": "FERPA definitions section has correct title",
+      "tool": "get_section",
+      "input": { "regulation": "FERPA", "section": "99.3" },
+      "assert": {
+        "field": "title",
+        "equals": "What definitions apply to these regulations?"
+      }
+    },
+    {
+      "id": "coppa-312.2-exists",
+      "description": "COPPA definitions section exists",
+      "tool": "get_section",
+      "input": { "regulation": "COPPA", "section": "312.2" },
+      "assert": {
+        "field": "text",
+        "min_length": 100
+      }
+    },
+    {
+      "id": "fda-cfr11-exists",
+      "description": "FDA 21 CFR Part 11 has sections in the database",
+      "tool": "get_section",
+      "input": { "regulation": "FDA_CFR_11", "section": "11.10" },
+      "assert": {
+        "field": "text",
+        "min_length": 100
+      }
+    },
+    {
+      "id": "nydfs-500-exists",
+      "description": "NYDFS 23 NYCRR 500 cybersecurity regulation exists",
+      "tool": "list_regulations",
+      "input": { "regulation": "NYDFS_500" },
+      "assert": {
+        "field": "structure.regulation.id",
+        "equals": "NYDFS_500"
+      }
+    },
+    {
+      "id": "search-breach-notification",
+      "description": "FTS search for 'breach notification' returns HIPAA results",
+      "tool": "search_regulations",
+      "input": { "query": "breach notification", "limit": 10 },
+      "assert": {
+        "field": "results",
+        "min_length": 1,
+        "any_result_has": { "regulation": "HIPAA" }
+      }
+    },
+    {
+      "id": "search-phi",
+      "description": "FTS search for 'protected health information' returns results",
+      "tool": "search_regulations",
+      "input": { "query": "protected health information", "limit": 10 },
+      "assert": {
+        "field": "results",
+        "min_length": 1,
+        "any_result_has": { "regulation": "HIPAA" }
+      }
+    },
+    {
+      "id": "negative-fake-regulation",
+      "description": "Invalid regulation ID throws descriptive error",
+      "tool": "get_section",
+      "input": { "regulation": "FAKE_REG", "section": "1.1" },
+      "assert": {
+        "throws": true,
+        "error_contains": "Available regulations"
+      }
+    },
+    {
+      "id": "control-mapping-nist-800-53",
+      "description": "NIST 800-53 R5 control mappings exist",
+      "tool": "map_controls",
+      "input": { "framework": "NIST_800_53_R5" },
+      "assert": {
+        "field": "total_mappings",
+        "min_value": 70
+      }
+    },
+    {
+      "id": "breach-notification-federal",
+      "description": "Federal breach notification rules exist",
+      "tool": "get_breach_notification_timeline",
+      "input": {},
+      "assert": {
+        "field": "total_results",
+        "min_value": 10
+      }
+    }
+  ]
+}

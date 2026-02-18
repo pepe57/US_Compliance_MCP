@@ -16,5 +16,13 @@
         "type": "stdio"
       }
     }
+  ],
+  "remoteEndpoints": [
+    {
+      "url": "https://us-regulations-mcp.vercel.app/mcp",
+      "transport": {
+        "type": "streamablehttp"
+      }
+    }
   ]
 }

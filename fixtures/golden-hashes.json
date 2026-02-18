@@ -1,0 +1,50 @@
+{
+  "$schema": "Golden hash file for drift detection. Regenerate with: npm run golden:update",
+  "generated_at": "2026-02-17T18:30:00Z",
+  "database": {
+    "sha256": "4812cd9d2b5c856e8165afe8246fdcde701a11fe2b496e3cad7377561a3c5fa8",
+    "file": "data/regulations.db"
+  },
+  "table_counts": {
+    "regulations": 15,
+    "sections": 144,
+    "control_mappings": 101,
+    "breach_notification_rules": 13,
+    "definitions": 0,
+    "applicability_rules": 15
+  },
+  "regulation_ids": [
+    "CCPA",
+    "COLORADO_CPA",
+    "COPPA",
+    "CTDPA",
+    "EPA_RMP",
+    "FDA_CFR_11",
+    "FERPA",
+    "FFIEC",
+    "GLBA",
+    "HIPAA",
+    "HITECH",
+    "NYDFS_500",
+    "SOX",
+    "UCPA",
+    "VCDPA"
+  ],
+  "section_counts_by_regulation": {
+    "CCPA": 10,
+    "COLORADO_CPA": 13,
+    "COPPA": 5,
+    "CTDPA": 6,
+    "EPA_RMP": 9,
+    "FDA_CFR_11": 5,
+    "FERPA": 10,
+    "FFIEC": 14,
+    "GLBA": 6,
+    "HIPAA": 13,
+    "HITECH": 8,
+    "NYDFS_500": 17,
+    "SOX": 15,
+    "UCPA": 6,
+    "VCDPA": 7
+  }
+}

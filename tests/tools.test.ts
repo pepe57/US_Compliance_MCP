@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import Database from 'better-sqlite3';
+import Database from '@ansvar/mcp-sqlite';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -17,7 +17,7 @@ import { getBreachNotificationTimeline } from '../src/tools/breach-notification.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let db: Database.Database;
+let db: InstanceType<typeof Database>;
 
 beforeAll(() => {
   const dbPath = join(__dirname, '..', 'data', 'regulations.db');
