@@ -1,0 +1,77 @@
+{
+  "regulation": {
+    "id": "FDA_524B",
+    "full_name": "FD&C Act Section 524B - Ensuring Cybersecurity of Devices (PATCH Act 2022)",
+    "citation": "21 USC 360n-2, FD&C Act § 524B (added by Consolidated Appropriations Act, 2023, Division FF, Title III, Subtitle F)",
+    "effective_date": "2023-03-29",
+    "jurisdiction": "federal",
+    "regulation_type": "statute"
+  },
+  "source": {
+    "official_url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section360n-2&num=0&edition=prelim",
+    "publisher": "U.S. Congress",
+    "title": "21 USC 360n-2 - Ensuring cybersecurity of devices",
+    "last_verified": "2026-02-20",
+    "verification_method": "United States Code, Title 21, Section 360n-2",
+    "disclaimer": "This is a summary of the statutory provisions. Consult the full text of 21 USC 360n-2 and related FDA guidance for authoritative requirements."
+  },
+  "sections": [
+    {
+      "sectionNumber": "524B(a)",
+      "title": "Cyber Device Definition",
+      "text": "A cyber device means a device that (1) includes software validated, installed, or authorized by the sponsor as a device or in a device, (2) has the ability to connect to the internet, and (3) contains any such technological characteristics validated, installed, or authorized by the sponsor that could be vulnerable to cybersecurity threats. This definition encompasses software as a medical device (SaMD), devices with wireless connectivity, and devices connected to hospital networks."
+    },
+    {
+      "sectionNumber": "524B(b)(1)",
+      "title": "Premarket Cybersecurity Requirements - Plan",
+      "text": "The sponsor of a cyber device shall submit to the Secretary a plan to monitor, identify, and address, as appropriate, in a reasonable time, postmarket cybersecurity vulnerabilities and exploits, including coordinated vulnerability disclosure and related procedures."
+    },
+    {
+      "sectionNumber": "524B(b)(2)",
+      "title": "Premarket Cybersecurity Requirements - Design and Development",
+      "text": "The sponsor of a cyber device shall design, develop, and maintain processes and procedures to provide a reasonable assurance that the device and related systems are cybersecure, and make available postmarket updates and patches to the device and related systems to address (A) on a reasonably justified regular cycle, known unacceptable vulnerabilities, and (B) as soon as possible out of cycle, critical vulnerabilities that could cause uncontrolled risks."
+    },
+    {
+      "sectionNumber": "524B(b)(3)",
+      "title": "Software Bill of Materials (SBOM) Requirement",
+      "text": "The sponsor of a cyber device shall provide a software bill of materials, including commercial, open-source, and off-the-shelf software components. The SBOM must follow a form determined by the Secretary, which shall include the NTIA minimum elements for SBOMs. The SBOM requirement enables identification of affected devices when vulnerabilities in third-party components are disclosed."
+    },
+    {
+      "sectionNumber": "524B(b)(4)",
+      "title": "Compliance with Other Requirements",
+      "text": "The sponsor shall comply with such other requirements as the Secretary may require through regulation to demonstrate reasonable assurance that the device and related systems are cybersecure."
+    },
+    {
+      "sectionNumber": "524B(c)",
+      "title": "Refuse to Accept Authority",
+      "text": "The Secretary may refuse to accept a premarket submission for a cyber device if the submission does not include the cybersecurity information required under subsection (b). This provision gives FDA explicit statutory authority to reject 510(k), PMA, and De Novo submissions that lack required cybersecurity documentation."
+    },
+    {
+      "sectionNumber": "524B(d)",
+      "title": "Exemptions",
+      "text": "The Secretary may identify devices or categories of devices that are exempt from the requirements of this section. Such determinations shall be published in the Federal Register."
+    },
+    {
+      "sectionNumber": "524B(e)",
+      "title": "Effective Date and Transition",
+      "text": "Requirements apply to submissions submitted on or after 90 days after enactment (effective March 29, 2023). The Secretary shall update guidance and provide resources to assist manufacturers in meeting the new requirements. The effective date gave manufacturers a 90-day window from the enactment of the Consolidated Appropriations Act, 2023."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Cyber Device",
+      "definition": "A device that (1) includes software validated, installed, or authorized by the sponsor as a device or in a device, (2) has the ability to connect to the internet, and (3) contains technological characteristics that could be vulnerable to cybersecurity threats (21 USC 360n-2(a)).",
+      "section": "524B(a)"
+    },
+    {
+      "term": "SBOM",
+      "definition": "Software Bill of Materials — a formal record containing the details and supply chain relationships of commercial, open-source, and off-the-shelf software components used in building a medical device, following the NTIA minimum elements.",
+      "section": "524B(b)(3)"
+    },
+    {
+      "term": "Coordinated Vulnerability Disclosure",
+      "definition": "A process for managing and disclosing cybersecurity vulnerabilities in which the manufacturer works with vulnerability reporters and other stakeholders to develop remediation before public disclosure.",
+      "section": "524B(b)(1)"
+    }
+  ]
+}

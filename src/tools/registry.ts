@@ -187,8 +187,8 @@ export const TOOLS: ToolDefinition[] = [
       properties: {
         sector: {
           type: 'string',
-          enum: ['all', 'financial', 'healthcare', 'insurance', 'marketing', 'retail', 'technology'],
-          description: 'Industry sector. Use "all" to see regulations that apply universally.',
+          enum: ['all', 'financial', 'healthcare', 'insurance', 'marketing', 'medical-devices', 'retail', 'technology'],
+          description: 'Industry sector. Use "medical-devices" for medical device manufacturers. Use "all" to see regulations that apply universally.',
         },
         subsector: {
           type: 'string',
