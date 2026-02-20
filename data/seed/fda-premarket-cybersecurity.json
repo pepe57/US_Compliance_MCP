@@ -1,0 +1,118 @@
+{
+  "regulation": {
+    "id": "FDA_PREMARKET_CYBER",
+    "full_name": "FDA Cybersecurity in Medical Devices: Quality System Considerations and Content of Premarket Submissions",
+    "citation": "FDA Guidance, June 2025",
+    "effective_date": "2025-06-01",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/119933/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "Cybersecurity in Medical Devices: Quality System Considerations and Content of Premarket Submissions",
+    "last_verified": "2026-02-20",
+    "verification_method": "Published FDA guidance document (final, June 2025)",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities. An alternative approach may be used if it satisfies applicable statutes and regulations."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Introduction and Scope",
+      "text": "This guidance provides recommendations for the cybersecurity design, development, and documentation of medical devices for premarket submissions, including 510(k), De Novo, PMA, PDP, and HDE submissions. This guidance applies to devices that contain software (including firmware) or programmable logic, as well as Software as a Medical Device (SaMD). The recommendations are intended to promote consistency, facilitate efficient premarket review, and help ensure that marketed devices are designed to be reasonably secure.",
+      "chapter": "Scope"
+    },
+    {
+      "sectionNumber": "II",
+      "title": "Cyber Device Definition (Section 524B)",
+      "text": "Section 524B of the FD&C Act defines a 'cyber device' as a device that: (1) includes software validated, installed, or authorized by the sponsor as a device or in a device; (2) has the ability to connect to the internet; and (3) contains any such technological characteristics validated, installed, or authorized by the sponsor that could be vulnerable to cybersecurity threats. Manufacturers of cyber devices are required to submit cybersecurity information as part of premarket submissions, including a plan to monitor, identify, and address postmarket cybersecurity vulnerabilities, a plan for coordinated vulnerability disclosure, and a Software Bill of Materials (SBOM).",
+      "chapter": "Definitions"
+    },
+    {
+      "sectionNumber": "III",
+      "title": "Secure Product Development Framework (SPDF)",
+      "text": "FDA recommends that manufacturers implement a Secure Product Development Framework (SPDF) encompassing security risk management, security architecture, cybersecurity testing, and cybersecurity management throughout the total product lifecycle (TPLC). The SPDF should be integrated with the Quality Management System (QMS) as required by 21 CFR Part 820 (QMSR). Key SPDF elements include: (1) Security Risk Management — identifying cybersecurity risks using threat modeling, evaluating risks, and implementing controls; (2) Security Architecture — designing devices with defense-in-depth, including authentication, encryption, secure boot, and least privilege; (3) Cybersecurity Testing — performing security testing including vulnerability scanning, software composition analysis, static analysis, dynamic analysis, penetration testing, and fuzz testing; (4) Cybersecurity Management — maintaining processes for vulnerability monitoring, coordinated disclosure, patch management, and decommissioning.",
+      "chapter": "Development Framework"
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "Threat Modeling",
+      "text": "FDA recommends that manufacturers perform threat modeling to identify cybersecurity risks. A threat model should include: (1) identification of the system and assets worth protecting (e.g., patient data, device functionality); (2) identification of potential threat sources and agents; (3) identification of potential cybersecurity threats and vulnerabilities using systematic methodologies such as STRIDE, MITRE ATT&CK, or the MITRE/MDIC Playbook for Threat Modeling Medical Devices; (4) assessment of the likelihood and impact of each threat; (5) identification of risk controls to mitigate the identified threats; and (6) assessment of residual risk. The threat model should encompass all device interfaces including network connections, USB ports, wireless protocols (Bluetooth, Wi-Fi, NFC), cloud connections, and connections to other medical devices or hospital systems.",
+      "chapter": "Threat Modeling"
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Cybersecurity Risk Assessment",
+      "text": "The cybersecurity risk assessment should evaluate risks to patients and users that could result from cybersecurity threats. Risk assessment should consider: (1) exploitability of vulnerabilities (leveraging Common Vulnerability Scoring System (CVSS), Exploit Prediction Scoring System (EPSS), and CISA Known Exploited Vulnerabilities (KEV) catalog); (2) severity of harm to patients if the vulnerability is exploited; (3) the clinical context of use; (4) compensating controls in the use environment; and (5) residual risk acceptability. FDA recommends aligning the cybersecurity risk assessment with the overall device risk management process per ISO 14971 and integrating cybersecurity risks into the risk management file.",
+      "chapter": "Risk Assessment"
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "Security Architecture and Design Controls",
+      "text": "The device security architecture should implement defense-in-depth with the following controls: (1) Authentication and Authorization — the device shall authenticate users and other devices before granting access to functionality or data, using strong authentication mechanisms appropriate to the risk level; (2) Encryption — data at rest and in transit shall be encrypted using validated cryptographic algorithms (e.g., AES-256, TLS 1.2+); (3) Secure Boot and Code Integrity — the device shall verify the integrity and authenticity of firmware/software at startup and during updates; (4) Audit Logging — the device shall maintain a tamper-evident log of security-relevant events; (5) Input Validation — all external inputs shall be validated to prevent injection attacks and buffer overflows; (6) Secure Update Mechanism — the device shall support authenticated and integrity-verified software/firmware updates; (7) Least Privilege — the device shall operate with minimum necessary privileges and restrict access to sensitive functions; (8) Network Segmentation — the device should support deployment in segmented network architectures.",
+      "chapter": "Security Architecture"
+    },
+    {
+      "sectionNumber": "VII",
+      "title": "Software Bill of Materials (SBOM)",
+      "text": "For cyber devices as defined in Section 524B, the premarket submission shall include an SBOM. The SBOM shall: (1) be generated in a machine-readable format (SPDX or CycloneDX recommended); (2) include the NTIA Minimum Elements: supplier name, component name, version, other unique identifiers (CPE or PURL), dependency relationships, author of SBOM data, and timestamp; (3) cover all software components including commercial, open-source, and proprietary components; (4) include support and end-of-life information for each component; (5) identify known vulnerabilities (CVE identifiers) for each component at the time of submission; (6) be updated and maintained throughout the lifecycle of the device. FDA may refuse to accept submissions for cyber devices that do not include an adequate SBOM (enforcement effective October 1, 2025).",
+      "chapter": "SBOM Requirements"
+    },
+    {
+      "sectionNumber": "VIII",
+      "title": "Cybersecurity Testing Documentation",
+      "text": "The premarket submission shall include documentation of cybersecurity testing performed during development: (1) Static Code Analysis — results of automated static analysis tools for security vulnerabilities; (2) Software Composition Analysis (SCA) — automated scanning of all software components against vulnerability databases; (3) Dynamic Analysis — results of runtime testing for security vulnerabilities; (4) Penetration Testing — findings from adversarial security testing by qualified testers; (5) Fuzz Testing — results of automated fuzz testing on device interfaces and protocols; (6) Vulnerability Scanning — results of automated vulnerability scanning; (7) Threat Model Validation — verification that identified threats have been addressed by security controls. Test results should include identified vulnerabilities, their severity assessment, and remediation actions taken.",
+      "chapter": "Testing Documentation"
+    },
+    {
+      "sectionNumber": "IX",
+      "title": "Premarket Submission Content",
+      "text": "The premarket submission for a cyber device should include: (1) a description of the device's cybersecurity features and the security architecture; (2) the threat model and cybersecurity risk assessment, integrated with or cross-referenced to the risk management file; (3) documentation of design controls related to cybersecurity, including design inputs (cybersecurity requirements), design outputs (implementation), and design verification/validation (security testing); (4) the SBOM in machine-readable format; (5) a Cybersecurity Management Plan describing: vulnerability monitoring processes, coordinated vulnerability disclosure policy, patch management plan, and device end-of-life plan; (6) cybersecurity testing results; (7) a summary of unresolved anomalies related to cybersecurity; (8) cybersecurity labeling including security-related warnings, network requirements, and user guidance.",
+      "chapter": "Submission Content"
+    },
+    {
+      "sectionNumber": "X",
+      "title": "Off-The-Shelf Software (OTS) Cybersecurity",
+      "text": "When a medical device incorporates off-the-shelf (OTS) software (operating systems, databases, libraries, or other third-party components), the manufacturer shall: (1) document all OTS software components in the SBOM; (2) assess the cybersecurity risk of each OTS component, including known vulnerabilities and end-of-life/end-of-support status; (3) implement compensating controls for OTS components that cannot be directly patched or updated by the manufacturer; (4) establish a process for monitoring OTS vendor security advisories and applying patches; (5) describe the manufacturer's strategy for managing OTS components that reach end-of-life. For devices incorporating OTS components with known unpatched vulnerabilities, the manufacturer shall provide a risk assessment demonstrating that residual risk is acceptable given compensating controls.",
+      "chapter": "OTS Software"
+    },
+    {
+      "sectionNumber": "XI",
+      "title": "Postmarket Cybersecurity Management",
+      "text": "FDA recommends that manufacturers establish a comprehensive postmarket cybersecurity management program including: (1) Vulnerability Monitoring — continuous monitoring of cybersecurity information sources including NVD/CVE databases, ICS-CERT/CISA advisories, vendor advisories, and cybersecurity research publications; (2) Coordinated Vulnerability Disclosure — establishing and publishing a vulnerability disclosure policy, providing a secure reporting channel, committing to timely acknowledgment and remediation; (3) Patch Management — developing and deploying validated security patches in a timely manner, with risk-based prioritization using CVSS, EPSS, and KEV; (4) Incident Response — maintaining a cybersecurity incident response plan and procedures; (5) End-of-Life Planning — providing advance notice of end of cybersecurity support, guidance for decommissioning, and migration paths to supported alternatives.",
+      "chapter": "Postmarket Management"
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Cyber Device",
+      "definition": "A device that includes software, has the ability to connect to the internet, and contains technological characteristics that could be vulnerable to cybersecurity threats, as defined in Section 524B of the FD&C Act.",
+      "section": "II"
+    },
+    {
+      "term": "Secure Product Development Framework (SPDF)",
+      "definition": "A set of processes that reduce the number and severity of vulnerabilities in products, covering security risk management, security architecture, cybersecurity testing, and cybersecurity management throughout the total product lifecycle.",
+      "section": "III"
+    },
+    {
+      "term": "Software Bill of Materials (SBOM)",
+      "definition": "A formal record containing the details and supply chain relationships of various components used in building software, including commercial, open-source, and proprietary components.",
+      "section": "VII"
+    },
+    {
+      "term": "Coordinated Vulnerability Disclosure (CVD)",
+      "definition": "A process through which vendors and finders cooperate in finding solutions to software vulnerabilities, minimizing public harm by responsibly managing the disclosure of security issues.",
+      "section": "XI"
+    },
+    {
+      "term": "Total Product Lifecycle (TPLC)",
+      "definition": "The entire lifecycle of a medical device from design and development through manufacturing, distribution, use, maintenance, and end-of-life, encompassing both pre-market and post-market phases.",
+      "section": "III"
+    },
+    {
+      "term": "Off-The-Shelf Software (OTS)",
+      "definition": "Software that is generally available, used by the medical device manufacturer for which the manufacturer cannot claim complete software lifecycle control, including operating systems, databases, middleware, and third-party libraries.",
+      "section": "X"
+    }
+  ]
+}

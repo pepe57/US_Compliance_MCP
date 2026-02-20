@@ -1,16 +1,16 @@
 {
   "$schema": "Golden hash file for drift detection. Regenerate after: npm run build:db && npm run load-seed",
-  "generated_at": "2026-02-18T05:36:00Z",
+  "generated_at": "2026-02-20T07:30:00Z",
   "database": {
-    "sha256": "e34f4207458437be4398b7b63832ae3d052c3d8fdfe82e4c092325836270aece",
+    "sha256": "d3d2a807329047b18c940e92f255421f285f4dea0a8890596425be093e527c6c",
     "file": "data/regulations.db"
   },
   "table_counts": {
-    "regulations": 15,
-    "sections": 144,
+    "regulations": 16,
+    "sections": 155,
     "control_mappings": 101,
     "breach_notification_rules": 13,
-    "definitions": 0,
+    "definitions": 6,
     "applicability_rules": 10
   },
   "regulation_ids": [
@@ -20,6 +20,7 @@
     "CTDPA",
     "EPA_RMP",
     "FDA_CFR_11",
+    "FDA_PREMARKET_CYBER",
     "FERPA",
     "FFIEC",
     "GLBA",
@@ -37,6 +38,7 @@
     "CTDPA": 6,
     "EPA_RMP": 9,
     "FDA_CFR_11": 5,
+    "FDA_PREMARKET_CYBER": 11,
     "FERPA": 10,
     "FFIEC": 14,
     "GLBA": 6,
