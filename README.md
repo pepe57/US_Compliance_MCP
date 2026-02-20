@@ -11,7 +11,7 @@
 [![CodeQL](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/CodeQL/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/actions/workflows/codeql.yml)
 [![Security](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/Semgrep/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/security)
 
-Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
+Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, FDA Premarket Cybersecurity Guidance, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
 
 If you're building healthcare tech, consumer apps, or financial services for the US market, this is your compliance reference.
 
@@ -209,6 +209,11 @@ Once connected, just ask naturally:
 - *"How must clinical trial data be validated under 21 CFR Part 11?"*
 - *"What audit trail requirements apply to electronic records in pharma?"*
 
+### Medical Device Cybersecurity
+- *"What is required in an SBOM for FDA premarket submissions?"*
+- *"What is a 'cyber device' under Section 524B?"*
+- *"What threat modeling approach does FDA require for medical devices?"*
+
 ### Environmental & EPA
 - *"Which chemical facilities must submit an EPA Risk Management Plan?"*
 - *"What accident prevention requirements does EPA RMP mandate?"*
@@ -260,6 +265,9 @@ Once connected, just ask naturally:
 **Pharmaceutical & Medical Devices:**
 - **FDA 21 CFR Part 11** - Electronic Records and Signatures (NEW in v1.1)
   - Electronic record keeping and digital signatures for FDA-regulated industries
+- **FDA Premarket Cybersecurity Guidance** - Cybersecurity in Medical Devices (NEW)
+  - Secure Product Development Framework (SPDF), threat modeling, SBOM requirements
+  - Covers cyber device definition (Section 524B), OTS software, and premarket submission content
 
 **Environmental & Chemical Safety:**
 - **EPA RMP** - Risk Management Plan Rule (NEW in v1.1)
