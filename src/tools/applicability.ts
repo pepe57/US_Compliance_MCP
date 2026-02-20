@@ -86,8 +86,20 @@ export async function checkApplicability(
       notes: row.notes,
     }));
 
+  // Deduplicate: prefer subsector-specific rules over generic (subsector IS NULL) ones.
+  // This prevents e.g. HIPAA appearing twice when querying (healthcare, medical-devices)
+  // because it matches both (healthcare, null) and (healthcare, medical-devices).
+  const deduped = new Map<string, typeof applicableRules[0]>();
+  for (const rule of applicableRules) {
+    const existing = deduped.get(rule.regulation);
+    if (!existing || (rule.subsector && !existing.subsector)) {
+      deduped.set(rule.regulation, rule);
+    }
+  }
+  const dedupedRules = Array.from(deduped.values());
+
   // If no results, provide diagnostics
-  if (applicableRules.length === 0) {
+  if (dedupedRules.length === 0) {
     const sectors = db.prepare('SELECT DISTINCT sector FROM applicability_rules ORDER BY sector').all() as Array<{ sector: string }>;
     const sectorIds = sectors.map(s => s.sector);
 
@@ -113,7 +125,7 @@ export async function checkApplicability(
   return {
     sector,
     subsector: subsector || null,
-    applicable_regulations: applicableRules,
-    total_applicable: applicableRules.length,
+    applicable_regulations: dedupedRules,
+    total_applicable: dedupedRules.length,
   };
 }

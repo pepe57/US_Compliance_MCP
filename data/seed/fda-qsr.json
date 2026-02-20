@@ -1,0 +1,103 @@
+{
+  "regulation": {
+    "id": "FDA_QSR",
+    "full_name": "FDA 21 CFR Part 820 — Quality System Regulation / QMSR",
+    "citation": "21 CFR Part 820",
+    "effective_date": "1996-10-07",
+    "last_amended": "2026-02-02",
+    "jurisdiction": "federal",
+    "regulation_type": "regulation"
+  },
+  "source": {
+    "official_url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820",
+    "publisher": "FDA / Code of Federal Regulations",
+    "title": "21 CFR Part 820 - Quality System Regulation",
+    "last_verified": "2026-02-20",
+    "verification_method": "Electronic Code of Federal Regulations (eCFR)",
+    "disclaimer": "This is a summary of the regulatory provisions. The QMSR final rule (effective February 2, 2026) aligns 21 CFR 820 with ISO 13485:2016. Consult the full regulation and FDA guidance for authoritative requirements."
+  },
+  "sections": [
+    {
+      "sectionNumber": "820.1",
+      "title": "Scope",
+      "text": "This part establishes current good manufacturing practice (CGMP) requirements for methods used in, and the facilities and controls used for, the design, manufacture, packaging, labeling, storage, installation, and servicing of all finished medical devices intended for human use. Manufacturers must establish and maintain a quality system appropriate for the specific medical device designed or manufactured. The QMSR amendment (effective February 2, 2026) incorporates ISO 13485:2016 by reference, allowing manufacturers to use a single quality system for domestic and international compliance."
+    },
+    {
+      "sectionNumber": "820.20",
+      "title": "Management Responsibility",
+      "text": "Management with executive responsibility shall establish its policy and objectives for, and commitment to, quality. Management shall establish and maintain an adequate organizational structure to ensure devices are designed and produced in accordance with requirements. A management representative shall be appointed with authority to ensure quality system requirements are effectively established and maintained. Management review shall be conducted at defined intervals to ensure continuing suitability and effectiveness of the quality system."
+    },
+    {
+      "sectionNumber": "820.30",
+      "title": "Design Controls",
+      "text": "Each manufacturer shall establish and maintain procedures to control the design of devices in order to ensure that specified design requirements are met. Design controls apply to all Class II and III devices and certain Class I devices. Subsections require: (a) Design and Development Planning, (b) Design Input — including intended use, performance requirements, safety, and cybersecurity requirements for connected devices, (c) Design Output — documentation that meets design input, (d) Design Review — formal documented reviews at suitable stages, (e) Design Verification — confirmation that design output meets input requirements, (f) Design Validation — ensuring devices conform to defined user needs including under actual or simulated use conditions, (g) Design Transfer — procedures for translating design to production, (h) Design Changes — documented change control, (i) Design History File (DHF) — complete records of each design."
+    },
+    {
+      "sectionNumber": "820.50",
+      "title": "Purchasing Controls",
+      "text": "Each manufacturer shall establish and maintain procedures to ensure that all purchased or otherwise received product and services conform to specified requirements. Procedures shall include evaluation of suppliers, contractors, and consultants based on their ability to meet specified requirements including quality. Purchasing data shall describe or reference specified requirements for purchased products and services, including requirements related to cybersecurity components, third-party software, and open-source libraries used in medical devices."
+    },
+    {
+      "sectionNumber": "820.70",
+      "title": "Production and Process Controls",
+      "text": "Each manufacturer shall develop, conduct, control, and monitor production processes to ensure that a device conforms to its specifications. Production processes shall be controlled by establishing and maintaining documented instructions, standard operating procedures, and methods that define and control the manner of production. Environmental controls, personnel hygiene, contamination control, equipment maintenance, and inspection requirements are specified. For software-containing devices, production processes include build environment security, code signing, and secure deployment procedures."
+    },
+    {
+      "sectionNumber": "820.70(i)",
+      "title": "Automated Processes — Software Validation",
+      "text": "When computers or automated data processing systems are used as part of production or the quality system, the manufacturer shall validate computer software for its intended use according to an established protocol. All software changes shall be validated before approval and issuance. These validation activities and results shall be documented. This requirement extends to software used in manufacturing, quality system management, and software that is itself a medical device or a component of a medical device. Validation must demonstrate that the software consistently produces results meeting predetermined specifications."
+    },
+    {
+      "sectionNumber": "820.75",
+      "title": "Process Validation",
+      "text": "Where the results of a process cannot be fully verified by subsequent inspection and test, the process shall be validated with a high degree of assurance and approved according to established procedures. Validation activities and results, including the date and signature of the individual(s) approving the validation and where appropriate the major equipment validated, shall be documented. Each manufacturer shall establish and maintain procedures for monitoring and control of process parameters for validated processes."
+    },
+    {
+      "sectionNumber": "820.90",
+      "title": "Nonconforming Product",
+      "text": "Each manufacturer shall establish and maintain procedures to control product that does not conform to specified requirements as specified in §820.90. The procedures shall address identification, documentation, evaluation, segregation, and disposition of nonconforming product. Disposition may include rejection, rework, acceptance under concession, or re-grading for alternative use. For cybersecurity vulnerabilities in marketed devices, nonconforming product procedures work in conjunction with CAPA to ensure timely remediation of identified security defects."
+    },
+    {
+      "sectionNumber": "820.100",
+      "title": "Corrective and Preventive Action (CAPA)",
+      "text": "Each manufacturer shall establish and maintain procedures for implementing corrective and preventive action. The procedures shall include: (a) analyzing processes, work operations, concessions, quality audit reports, quality records, service records, complaints, returned product, and other sources of quality data to identify existing and potential causes of nonconforming product; (b) investigating the cause of nonconformities; (c) identifying actions needed to correct and prevent recurrence; (d) verifying or validating the corrective and preventive action; (e) implementing and recording changes; (f) ensuring that information related to quality problems or nonconforming product is disseminated to those directly responsible; (g) submitting relevant information on identified quality problems for management review. CAPA is the primary mechanism for tracking and remediating cybersecurity vulnerabilities in medical device quality systems."
+    },
+    {
+      "sectionNumber": "820.180",
+      "title": "General Requirements — Records",
+      "text": "All records required by this part shall be maintained at the manufacturing establishment or other reasonably accessible location. Records shall be legible, stored to minimize deterioration or loss, and readily retrievable. Records stored in automated data processing systems shall be backed up. Confidential records shall be stored to protect their confidentiality. All records shall be retained for a period of time equivalent to the design and expected life of the device, but in no case less than 2 years from the date of release for commercial distribution."
+    },
+    {
+      "sectionNumber": "820.184",
+      "title": "Device History Record (DHR)",
+      "text": "Each manufacturer shall maintain device history records (DHRs). Each DHR shall include, or refer to the location of, the following information: (a) the dates of manufacture, (b) the quantity manufactured, (c) the quantity released for distribution, (d) the acceptance records demonstrating the device was manufactured in accordance with the device master record (DMR), (e) the primary identification label and labeling used for each production unit, and (f) any unique device identifier (UDI) or universal product code (UPC), and any other device identification(s) and control number(s) used."
+    },
+    {
+      "sectionNumber": "820.198",
+      "title": "Complaint Files",
+      "text": "Each manufacturer shall maintain complaint files. Each manufacturer shall establish and maintain procedures for receiving, reviewing, and evaluating complaints. Procedures shall ensure that: oral complaints are documented upon receipt; complaints are evaluated to determine whether the complaint represents an event required to be reported to FDA under Medical Device Reporting (MDR); any complaint involving the possible failure of a device to meet specifications shall be reviewed, evaluated, and investigated; any complaint that represents an event that must be reported shall be promptly reviewed, evaluated, and investigated; and when investigation is made, a record of investigation shall be maintained."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Quality System",
+      "definition": "The organizational structure, responsibilities, procedures, processes, and resources for implementing quality management. Under the QMSR amendment, the quality system incorporates ISO 13485:2016 requirements including risk management per ISO 14971.",
+      "section": "820.1"
+    },
+    {
+      "term": "Design History File (DHF)",
+      "definition": "A compilation of records which describes the design history of a finished device, including design inputs, outputs, verification and validation results, reviews, and changes. For cyber devices, the DHF should include threat models, cybersecurity risk assessments, and security testing results.",
+      "section": "820.30(i)"
+    },
+    {
+      "term": "Device Master Record (DMR)",
+      "definition": "A compilation of records containing the procedures and specifications for a finished device, including device specifications, production process specifications, quality assurance procedures, packaging and labeling specifications, and installation and servicing procedures.",
+      "section": "820.181"
+    },
+    {
+      "term": "Corrective and Preventive Action (CAPA)",
+      "definition": "A systematic process for investigating, understanding, and correcting discrepancies while attempting to prevent their recurrence (corrective action) or prevent occurrence of potential discrepancies (preventive action). CAPA is the primary quality system mechanism for tracking cybersecurity vulnerability remediation.",
+      "section": "820.100"
+    }
+  ]
+}

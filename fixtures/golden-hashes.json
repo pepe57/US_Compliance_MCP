@@ -1,20 +1,21 @@
 {
   "$schema": "Golden hash file for drift detection. Regenerate after: npm run build:db && npm run load-seed",
-  "generated_at": "2026-02-20T08:00:00Z",
+  "generated_at": "2026-02-20T08:34:00Z",
   "database": {
-    "sha256": "41ee21d3af44de41aa0c68b84d8558a83c0f085585714a97f92e750ff9433e46",
+    "sha256": "c00cdf3dc85db1438c8fe9ffc12733e171769097be2600d859bcd8a0cce402ff",
     "file": "data/regulations.db"
   },
   "table_counts": {
-    "regulations": 18,
-    "sections": 172,
-    "control_mappings": 101,
-    "breach_notification_rules": 13,
-    "definitions": 13,
-    "applicability_rules": 26
+    "regulations": 20,
+    "sections": 192,
+    "control_mappings": 112,
+    "breach_notification_rules": 14,
+    "definitions": 21,
+    "applicability_rules": 36
   },
   "regulation_ids": [
     "CCPA",
+    "CIRCIA",
     "COLORADO_CPA",
     "COPPA",
     "CTDPA",
@@ -23,6 +24,7 @@
     "FDA_CFR_11",
     "FDA_POSTMARKET_CYBER",
     "FDA_PREMARKET_CYBER",
+    "FDA_QSR",
     "FERPA",
     "FFIEC",
     "GLBA",
@@ -35,6 +37,7 @@
   ],
   "section_counts_by_regulation": {
     "CCPA": 10,
+    "CIRCIA": 8,
     "COLORADO_CPA": 13,
     "COPPA": 5,
     "CTDPA": 6,
@@ -43,6 +46,7 @@
     "FDA_CFR_11": 5,
     "FDA_POSTMARKET_CYBER": 9,
     "FDA_PREMARKET_CYBER": 11,
+    "FDA_QSR": 12,
     "FERPA": 10,
     "FFIEC": 14,
     "GLBA": 6,

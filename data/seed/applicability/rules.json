@@ -181,6 +181,76 @@
       "subsector": null,
       "confidence": "possible",
       "rationale": "Medical device companies with California operations may be subject to CCPA if they meet the revenue or data volume thresholds"
+    },
+    {
+      "regulation": "FDA_QSR",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "definite",
+      "rationale": "21 CFR 820 (Quality System Regulation / QMSR) applies to all manufacturers of finished medical devices intended for human use, including design controls, CAPA, and software validation"
+    },
+    {
+      "regulation": "FDA_QSR",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "Medical device manufacturers in the healthcare sector must comply with 21 CFR 820 quality system requirements including design controls and CAPA"
+    },
+    {
+      "regulation": "FDA_QSR",
+      "sector": "technology",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "Technology companies manufacturing SaMD or connected medical devices must maintain a 21 CFR 820 quality system"
+    },
+    {
+      "regulation": "CIRCIA",
+      "sector": "healthcare",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "Healthcare and Public Health is one of the 16 critical infrastructure sectors under PPD-21; healthcare entities meeting CISA's size thresholds will be covered entities under CIRCIA"
+    },
+    {
+      "regulation": "CIRCIA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "Medical device manufacturers in the Healthcare and Public Health critical infrastructure sector may be covered entities under CIRCIA, especially those whose devices support critical healthcare operations"
+    },
+    {
+      "regulation": "CIRCIA",
+      "sector": "financial",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "Financial Services is one of the 16 critical infrastructure sectors under PPD-21; financial institutions meeting CISA's size thresholds will be covered entities under CIRCIA"
+    },
+    {
+      "regulation": "CIRCIA",
+      "sector": "technology",
+      "subsector": null,
+      "confidence": "possible",
+      "rationale": "Information Technology is a critical infrastructure sector under PPD-21; technology companies meeting CISA's thresholds may be covered entities, though the final rule will determine specific criteria"
+    },
+    {
+      "regulation": "VCDPA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "possible",
+      "rationale": "Medical device companies operating in Virginia that process personal data of 100,000+ Virginia consumers or derive 50%+ revenue from selling data of 25,000+ consumers may be subject to VCDPA"
+    },
+    {
+      "regulation": "COLORADO_CPA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "possible",
+      "rationale": "Medical device companies doing business in Colorado that control or process personal data of 100,000+ Colorado residents may be subject to the Colorado Privacy Act"
+    },
+    {
+      "regulation": "CTDPA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "possible",
+      "rationale": "Medical device companies operating in Connecticut that process personal data of 100,000+ Connecticut consumers may be subject to CTDPA"
     }
   ]
 }

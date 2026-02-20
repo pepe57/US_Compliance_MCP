@@ -160,6 +160,18 @@
       "threshold": "500+ Illinois residents triggers AG and media notification",
       "penalties": "Up to $50,000 per violation; BIPA violations up to $5,000 per intentional violation",
       "notes": "815 ILCS 530. Illinois also has BIPA (Biometric Information Privacy Act) with private right of action."
+    },
+    {
+      "jurisdiction": "Federal",
+      "regulation": "CIRCIA",
+      "notification_deadline": "72 hours for cyber incidents; 24 hours for ransom payments",
+      "notify_individuals": false,
+      "notify_regulator": true,
+      "notify_media": false,
+      "regulator_name": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "threshold": "Covered cyber incidents experienced by covered entities in critical infrastructure sectors (16 PPD-21 sectors). Incident must cause substantial loss of confidentiality/integrity/availability, impact operational systems, or result from supply chain compromise.",
+      "penalties": "No direct civil penalties. Non-compliance may result in CISA subpoena and referral to Attorney General for federal court enforcement. Contempt proceedings possible for subpoena non-compliance.",
+      "notes": "6 USC §§ 681-681g. Reports receive strong legal protections: FOIA exempt, cannot be used for regulatory enforcement against reporting entity, litigation privilege applies. Final implementing rule expected March 2026; obligations not yet enforceable until final rule effective date."
     }
   ]
 }
