@@ -1,0 +1,87 @@
+{
+  "regulation": {
+    "id": "FDA_POSTMARKET_CYBER",
+    "full_name": "FDA Postmarket Management of Cybersecurity in Medical Devices",
+    "citation": "FDA Guidance, December 2016",
+    "effective_date": "2016-12-28",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/95862/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "Postmarket Management of Cybersecurity in Medical Devices",
+    "last_verified": "2026-02-20",
+    "verification_method": "Published FDA guidance document (final, December 2016)",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Introduction and Scope",
+      "text": "This guidance document provides recommendations to manufacturers for managing postmarket cybersecurity vulnerabilities for marketed and distributed medical devices. It applies to any marketed and distributed medical device including devices that contain software (including firmware) or programmable logic, as well as software that is a medical device (SaMD). Cybersecurity threats and vulnerabilities to medical devices are evolving, and effective postmarket management requires a total product lifecycle (TPLC) approach."
+    },
+    {
+      "sectionNumber": "II",
+      "title": "Essential Clinical Performance and Patient Safety",
+      "text": "Manufacturers should assess whether a cybersecurity vulnerability affecting a device could impact essential clinical performance or create a patient safety risk. Essential clinical performance means the clinical performance necessary for the device to achieve its intended purpose. A cybersecurity vulnerability that compromises essential clinical performance may constitute a situation that could reasonably be expected to cause serious adverse health consequences."
+    },
+    {
+      "sectionNumber": "III",
+      "title": "Risk Assessment of Vulnerabilities",
+      "text": "Manufacturers should characterize and assess known cybersecurity vulnerabilities using a risk-based approach. This includes evaluating the exploitability of the vulnerability (e.g., CVSS base score), the probability that the vulnerability will be exploited, and the severity of patient harm that could result. Uncontrolled risks may require additional mitigations, compensating controls, or remediation."
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "Monitoring and Detection",
+      "text": "Manufacturers should monitor cybersecurity information sources for identification and detection of cybersecurity vulnerabilities and risks. This includes monitoring CISA ICS-CERT advisories, NVD, manufacturer-specific vulnerability databases, third-party software component vulnerability databases, and participating in Information Sharing Analysis Organizations (ISAOs). Monitoring should be continuous and cover all software components including third-party and open-source software."
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Vulnerability Remediation and Mitigation",
+      "text": "When a vulnerability is identified, the manufacturer should assess the risk and determine appropriate actions, which may include: deploying a validated software patch, providing compensating controls or workarounds, communicating risk mitigation recommendations to users and healthcare delivery organizations, or planning device end-of-life. Manufacturers should have a coordinated vulnerability disclosure (CVD) policy and process."
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "Coordinated Vulnerability Disclosure (CVD)",
+      "text": "Manufacturers should establish and communicate a coordinated vulnerability disclosure policy. This includes providing a mechanism for security researchers and other stakeholders to report vulnerabilities, acknowledging receipt of vulnerability reports, providing timely updates on remediation progress, and publicly disclosing vulnerabilities after remediation is available. FDA strongly encourages participation in ISAOs."
+    },
+    {
+      "sectionNumber": "VII",
+      "title": "Controlled vs. Uncontrolled Risk",
+      "text": "A controlled risk exists when the residual risk of patient harm due to a cybersecurity vulnerability is acceptably low given: sufficient compensating controls exist, the vulnerability has not been actively exploited, and the manufacturer can adequately mitigate the risk. An uncontrolled risk exists when the vulnerability is being actively exploited or could cause serious adverse health consequences, and insufficient compensating controls exist. Uncontrolled risks may require device-level remediation."
+    },
+    {
+      "sectionNumber": "VIII",
+      "title": "Reporting Requirements",
+      "text": "Cybersecurity vulnerabilities that remain uncontrolled and could cause or contribute to serious adverse health consequences or death are reportable under 21 CFR Part 806 (reports of corrections and removals) or Part 803 (MDR). However, routine cybersecurity patches and updates that are part of a manufacturer's normal software maintenance program are not considered corrections or removals when they maintain the device's intended performance and do not reduce the safety of the device."
+    },
+    {
+      "sectionNumber": "IX",
+      "title": "Software Bill of Materials (SBOM)",
+      "text": "Manufacturers should maintain and provide a Software Bill of Materials (SBOM) that includes commercial, open-source, and off-the-shelf software components. The SBOM enables healthcare delivery organizations and users to manage cybersecurity risks by identifying affected devices when new vulnerabilities in third-party components are disclosed. SBOMs should follow a recognized format such as SPDX or CycloneDX."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Controlled Risk",
+      "definition": "A situation where the residual risk of patient harm due to a cybersecurity vulnerability is acceptably low because sufficient compensating controls exist and the vulnerability is not being actively exploited.",
+      "section": "VII"
+    },
+    {
+      "term": "Uncontrolled Risk",
+      "definition": "A situation where a cybersecurity vulnerability could cause serious adverse health consequences and insufficient compensating controls exist, potentially requiring device-level remediation and FDA reporting.",
+      "section": "VII"
+    },
+    {
+      "term": "Essential Clinical Performance",
+      "definition": "The clinical performance necessary for the medical device to achieve its intended purpose without presenting an unacceptable risk to the patient.",
+      "section": "II"
+    },
+    {
+      "term": "ISAO",
+      "definition": "Information Sharing Analysis Organization - a collaborative entity for sharing cybersecurity threat information and best practices among medical device manufacturers, such as the Health Information Sharing and Analysis Center (H-ISAC).",
+      "section": "IV"
+    }
+  ]
+}

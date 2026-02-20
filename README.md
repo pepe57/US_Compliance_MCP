@@ -11,7 +11,7 @@
 [![CodeQL](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/CodeQL/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/actions/workflows/codeql.yml)
 [![Security](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/Semgrep/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/security)
 
-Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, FDA Premarket Cybersecurity Guidance, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
+Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, FDA Premarket & Postmarket Cybersecurity Guidance, FD&C Act Section 524B (PATCH Act), EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
 
 If you're building healthcare tech, consumer apps, or financial services for the US market, this is your compliance reference.
 
@@ -268,6 +268,12 @@ Once connected, just ask naturally:
 - **FDA Premarket Cybersecurity Guidance** - Cybersecurity in Medical Devices (NEW)
   - Secure Product Development Framework (SPDF), threat modeling, SBOM requirements
   - Covers cyber device definition (Section 524B), OTS software, and premarket submission content
+- **FDA Postmarket Cybersecurity Guidance** - Postmarket Management (NEW)
+  - Controlled vs. uncontrolled risk assessment, CVD, ISAO participation, SBOM maintenance
+  - Vulnerability monitoring, remediation timelines, and FDA reporting requirements
+- **FD&C Act Section 524B (PATCH Act 2022)** - Statutory Cybersecurity Requirements (NEW)
+  - Cyber device definition, mandatory SBOM, premarket cybersecurity plans
+  - FDA refuse-to-accept authority for non-compliant submissions (effective March 2023)
 
 **Environmental & Chemical Safety:**
 - **EPA RMP** - Risk Management Plan Rule (NEW in v1.1)

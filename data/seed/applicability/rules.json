@@ -69,6 +69,118 @@
       "subsector": "accounting-firms",
       "confidence": "definite",
       "rationale": "Public accounting firms auditing public companies must comply with SOX"
+    },
+    {
+      "regulation": "FDA_PREMARKET_CYBER",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "FDA premarket cybersecurity guidance applies to all manufacturers submitting premarket submissions for cyber devices under FD&C Act Section 524B"
+    },
+    {
+      "regulation": "FDA_PREMARKET_CYBER",
+      "sector": "technology",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "Technology companies manufacturing software as a medical device (SaMD) or connected medical devices must comply with FDA premarket cybersecurity requirements"
+    },
+    {
+      "regulation": "FDA_CFR_11",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "likely",
+      "rationale": "FDA 21 CFR Part 11 applies to medical device manufacturers maintaining electronic records for FDA-regulated activities"
+    },
+    {
+      "regulation": "HIPAA",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "likely",
+      "rationale": "Medical device manufacturers are business associates under HIPAA when their devices process, store, or transmit PHI"
+    },
+    {
+      "regulation": "HITECH",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "likely",
+      "rationale": "HITECH breach notification requirements apply to medical device manufacturers handling PHI as business associates"
+    },
+    {
+      "regulation": "FDA_POSTMARKET_CYBER",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "FDA postmarket cybersecurity guidance applies to all manufacturers of marketed medical devices containing software or programmable logic"
+    },
+    {
+      "regulation": "FDA_POSTMARKET_CYBER",
+      "sector": "technology",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "Technology companies manufacturing SaMD or connected medical devices must manage postmarket cybersecurity per FDA guidance"
+    },
+    {
+      "regulation": "FDA_524B",
+      "sector": "healthcare",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "FD&C Act Section 524B (PATCH Act) requires all cyber device manufacturers to submit cybersecurity plans, SBOM, and demonstrate cybersecure design in premarket submissions"
+    },
+    {
+      "regulation": "FDA_524B",
+      "sector": "technology",
+      "subsector": "medical-devices",
+      "confidence": "definite",
+      "rationale": "Technology companies developing software as a medical device (SaMD) or connected medical devices are subject to Section 524B cyber device requirements"
+    },
+    {
+      "regulation": "FDA_PREMARKET_CYBER",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "definite",
+      "rationale": "FDA premarket cybersecurity guidance applies to all cyber device manufacturers submitting 510(k), PMA, or De Novo premarket submissions"
+    },
+    {
+      "regulation": "FDA_POSTMARKET_CYBER",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "definite",
+      "rationale": "FDA postmarket cybersecurity guidance applies to all manufacturers of marketed medical devices containing software or programmable logic"
+    },
+    {
+      "regulation": "FDA_524B",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "definite",
+      "rationale": "FD&C Act Section 524B (PATCH Act) requires all cyber device manufacturers to submit cybersecurity plans, SBOM, and demonstrate cybersecure design"
+    },
+    {
+      "regulation": "FDA_CFR_11",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "FDA 21 CFR Part 11 applies to medical device manufacturers maintaining electronic records for quality system and design history files"
+    },
+    {
+      "regulation": "HIPAA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "Medical device manufacturers are business associates under HIPAA when their devices process, store, or transmit protected health information"
+    },
+    {
+      "regulation": "HITECH",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "likely",
+      "rationale": "HITECH breach notification requirements apply to medical device manufacturers handling PHI as business associates"
+    },
+    {
+      "regulation": "CCPA",
+      "sector": "medical-devices",
+      "subsector": null,
+      "confidence": "possible",
+      "rationale": "Medical device companies with California operations may be subject to CCPA if they meet the revenue or data volume thresholds"
     }
   ]
 }
