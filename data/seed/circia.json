@@ -1,0 +1,82 @@
+{
+  "regulation": {
+    "id": "CIRCIA",
+    "full_name": "Cyber Incident Reporting for Critical Infrastructure Act of 2022",
+    "citation": "6 USC §§ 681-681g (Pub. L. 117-103, Division Y)",
+    "effective_date": "2022-03-15",
+    "jurisdiction": "federal",
+    "regulation_type": "statute"
+  },
+  "source": {
+    "official_url": "https://www.congress.gov/bill/117th-congress/house-bill/2471",
+    "publisher": "U.S. Congress",
+    "title": "Consolidated Appropriations Act, 2022, Division Y — Cyber Incident Reporting for Critical Infrastructure Act of 2022",
+    "last_verified": "2026-02-20",
+    "verification_method": "Public Law 117-103, codified at 6 USC §§ 681-681g",
+    "disclaimer": "This is a summary of the statutory provisions. CISA is developing the final implementing rule (NPRM published April 2024, final rule expected March 2026). Requirements are not yet enforceable until the final rule takes effect. Consult the full statute, NPRM, and final rule for authoritative requirements."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Covered Entities",
+      "text": "CIRCIA applies to entities in critical infrastructure sectors as defined by Presidential Policy Directive 21 (PPD-21). The 16 critical infrastructure sectors include: Chemical, Commercial Facilities, Communications, Critical Manufacturing, Dams, Defense Industrial Base, Emergency Services, Energy, Financial Services, Food and Agriculture, Government Facilities, Healthcare and Public Health, Information Technology, Nuclear Reactors/Materials/Waste, Transportation Systems, and Water and Wastewater Systems. CISA's final rule will further define which entities within these sectors qualify as 'covered entities' based on size, criticality, and operational impact thresholds."
+    },
+    {
+      "sectionNumber": "II",
+      "title": "Covered Cyber Incidents",
+      "text": "A covered cyber incident is a substantial cyber incident experienced by a covered entity that: (1) leads to substantial loss of confidentiality, integrity, or availability of information on an information system, (2) seriously impacts the safety and resiliency of operational systems and processes, (3) causes disruption of business or industrial operations (including due to a denial-of-service attack or ransomware), or (4) results in unauthorized access to an information system or nonpublic information facilitated through or caused by a compromise of a cloud service provider, managed service provider, or other third-party data hosting provider, or a supply chain compromise."
+    },
+    {
+      "sectionNumber": "III",
+      "title": "72-Hour Cyber Incident Reporting",
+      "text": "A covered entity that experiences a covered cyber incident shall report the incident to CISA not later than 72 hours after the covered entity reasonably believes that the covered cyber incident has occurred. The report must include: (1) a description of the covered cyber incident including identification of affected systems, (2) a description of the vulnerabilities exploited and security defenses in place, (3) tactics, techniques, and procedures used, (4) identification of the threat actor (if known), (5) categories of information believed to have been accessed or acquired, (6) name and other identifying information of the covered entity, (7) contact information, and (8) CISA-designated sector-specific information."
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "24-Hour Ransom Payment Reporting",
+      "text": "A covered entity that makes a ransom payment as a result of a ransomware attack shall report the payment to CISA not later than 24 hours after the ransom payment has been made. The ransom payment report must include: (1) date of the ransom payment, (2) ransom payment demand including currency type and amount, (3) ransom payment instructions including information about where to send payment, (4) amount of the ransom payment, and (5) the covered cyber incident report (if not already submitted). If a covered entity makes a ransom payment before the 72-hour incident report deadline, the 24-hour ransom payment report satisfies the 72-hour reporting obligation if it includes all required incident information."
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Supplemental and Updated Reports",
+      "text": "A covered entity shall promptly submit to CISA an updated or supplemental covered cyber incident report if substantial new or different information becomes available, or if the covered entity makes a ransom payment after submitting the initial incident report. Covered entities must submit supplemental reports until the covered entity notifies CISA that the covered cyber incident has concluded and has been fully remediated and restored. CISA may request additional information from covered entities as needed."
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "CISA Protections and Information Handling",
+      "text": "Reports submitted to CISA under CIRCIA receive significant legal protections: (1) reported information is exempt from FOIA disclosure, (2) reports cannot be used as evidence in regulatory enforcement actions against the reporting entity, (3) federal, state, tribal, and local governments cannot use reports for regulation or enforcement, (4) reports are treated as commercial, financial, and proprietary information, (5) a litigation privilege applies to reports. These protections are designed to encourage full and candid reporting without fear of regulatory or legal consequences from the disclosure itself."
+    },
+    {
+      "sectionNumber": "VII",
+      "title": "Enforcement and Compliance",
+      "text": "If CISA has reason to believe a covered entity has experienced a covered cyber incident or made a ransom payment without reporting, CISA may issue a request for information (RFI). If the entity does not respond within 72 hours, CISA may issue a subpoena compelling production of information. If the entity fails to comply with the subpoena, CISA may refer the matter to the Attorney General for enforcement in federal court. CISA may also refer information to sector-specific agencies, the DOJ, or other federal agencies as appropriate. The statute does not impose direct civil penalties but enforcement through subpoena and contempt proceedings."
+    },
+    {
+      "sectionNumber": "VIII",
+      "title": "Rulemaking Status",
+      "text": "CISA published a Notice of Proposed Rulemaking (NPRM) in April 2024 establishing the implementing regulations for CIRCIA. The NPRM defines covered entities, covered cyber incidents, and reporting procedures in detail. The comment period closed in July 2024. CISA must publish the final rule no later than 18 months after the NPRM (approximately October 2025). Reporting obligations take effect on the effective date of the final rule, expected March 2026. Until the final rule is effective, there is no legal obligation to report under CIRCIA, though voluntary reporting to CISA is encouraged."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Covered Entity",
+      "definition": "An entity in a critical infrastructure sector (as defined by PPD-21) that meets the criteria established by CISA's implementing rule. The 16 critical infrastructure sectors include Healthcare and Public Health, Information Technology, Financial Services, Energy, and others. CISA's final rule will specify size and criticality thresholds.",
+      "section": "I"
+    },
+    {
+      "term": "Covered Cyber Incident",
+      "definition": "A substantial cyber incident experienced by a covered entity that leads to substantial loss of confidentiality, integrity, or availability; seriously impacts safety and resiliency of operational systems; causes disruption of business or industrial operations; or results from a supply chain or third-party compromise. The incident must meet a significance threshold above routine cyber events.",
+      "section": "II"
+    },
+    {
+      "term": "Ransom Payment",
+      "definition": "The transmission of any money or other property or asset, including virtual currency, or any portion thereof, which has at any time been delivered as ransom in connection with a ransomware attack.",
+      "section": "IV"
+    },
+    {
+      "term": "Critical Infrastructure Sector",
+      "definition": "One of the 16 sectors identified in Presidential Policy Directive 21 (PPD-21): Chemical, Commercial Facilities, Communications, Critical Manufacturing, Dams, Defense Industrial Base, Emergency Services, Energy, Financial Services, Food and Agriculture, Government Facilities, Healthcare and Public Health, Information Technology, Nuclear Reactors/Materials/Waste, Transportation Systems, and Water and Wastewater Systems.",
+      "section": "I"
+    }
+  ]
+}

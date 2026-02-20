@@ -11,7 +11,7 @@
 [![CodeQL](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/CodeQL/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/actions/workflows/codeql.yml)
 [![Security](https://github.com/Ansvar-Systems/US_compliance_MCP/workflows/Semgrep/badge.svg)](https://github.com/Ansvar-Systems/US_compliance_MCP/security)
 
-Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, FDA Premarket & Postmarket Cybersecurity Guidance, FD&C Act Section 524B (PATCH Act), EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
+Query **HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, FDA 21 CFR 820 (QSR/QMSR), FDA Premarket & Postmarket Cybersecurity Guidance, FD&C Act Section 524B (PATCH Act), CIRCIA, EPA RMP, FFIEC, NYDFS 500, and 4 state privacy laws (Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA)** directly from Claude, Cursor, or any MCP-compatible client.
 
 If you're building healthcare tech, consumer apps, or financial services for the US market, this is your compliance reference.
 
@@ -229,7 +229,7 @@ Once connected, just ask naturally:
 
 ## What's Included
 
-### v1.2 Regulations (14 total, ~380 sections)
+### v1.2 Regulations (20 total, ~192 sections)
 
 **Healthcare & Privacy:**
 - **HIPAA** - Health Insurance Portability and Accountability Act
@@ -274,6 +274,15 @@ Once connected, just ask naturally:
 - **FD&C Act Section 524B (PATCH Act 2022)** - Statutory Cybersecurity Requirements (NEW)
   - Cyber device definition, mandatory SBOM, premarket cybersecurity plans
   - FDA refuse-to-accept authority for non-compliant submissions (effective March 2023)
+- **FDA 21 CFR Part 820 (QSR/QMSR)** - Quality System Regulation (NEW)
+  - Design Controls (820.30), CAPA (820.90/820.100), Software Validation (820.70(i))
+  - QMSR amendment (effective February 2, 2026) aligns with ISO 13485:2016
+
+**Critical Infrastructure & Incident Reporting:**
+- **CIRCIA** - Cyber Incident Reporting for Critical Infrastructure Act of 2022 (NEW)
+  - 72-hour cyber incident reporting and 24-hour ransom payment reporting to CISA
+  - Applies to entities in 16 critical infrastructure sectors (healthcare, financial, IT, etc.)
+  - Final implementing rule expected March 2026
 
 **Environmental & Chemical Safety:**
 - **EPA RMP** - Risk Management Plan Rule (NEW in v1.1)
@@ -573,7 +582,7 @@ This server is part of **Ansvar's Compliance Suite** - three MCP servers that wo
 
 ### 🇺🇸 US Regulations MCP (This Project)
 **Query US federal and state compliance laws directly from Claude**
-- HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA 21 CFR Part 11, and 8 more
+- HIPAA, CCPA, SOX, GLBA, FERPA, COPPA, FDA QSR, CIRCIA, and 12 more
 - Federal and state privacy law comparison
 - Breach notification timeline mapping
 - **Install:** `npm install @ansvar/us-regulations-mcp`

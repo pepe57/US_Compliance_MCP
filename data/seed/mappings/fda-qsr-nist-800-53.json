@@ -1,0 +1,107 @@
+{
+  "framework": "NIST_800_53_R5",
+  "regulation": "FDA_QSR",
+  "generated_at": "2026-02-20",
+  "description": "Mapping of FDA 21 CFR 820 (Quality System Regulation / QMSR) requirements to NIST 800-53 Rev 5 controls",
+  "source": {
+    "disclaimer": "IMPORTANT: These mappings are interpretive guidance created to assist with compliance research. They are NOT official FDA or NIST crosswalks. For authoritative mappings, consult: (1) FDA guidance on Quality System Regulation, (2) NIST SP 800-53 Rev 5, (3) AAMI TIR57:2016 for medical device security risk management, (4) Your organization's quality and compliance counsel. These mappings should be validated against your specific implementation context.",
+    "references": [
+      "21 CFR Part 820 - Quality System Regulation",
+      "NIST SP 800-53 Rev 5 - Security and Privacy Controls",
+      "AAMI TIR57:2016 - Principles for medical device security — Risk management",
+      "FDA QMSR Final Rule (February 2, 2026)"
+    ],
+    "methodology": "Mappings based on control objective alignment between QSR requirements and NIST 800-53 control families. Coverage indicates degree of overlap: 'full' = direct alignment, 'partial' = related but not complete, 'related' = conceptually connected.",
+    "last_reviewed": "2026-02-20"
+  },
+  "mappings": [
+    {
+      "section_number": "820.30",
+      "control_id": "SA-3",
+      "control_name": "System Development Life Cycle",
+      "coverage": "full",
+      "confidence": 92,
+      "rationale": "Design controls (820.30) require a structured development lifecycle with planning, inputs, outputs, reviews, verification, and validation — directly aligned with SA-3 SDLC requirements"
+    },
+    {
+      "section_number": "820.30",
+      "control_id": "SA-8",
+      "control_name": "Security and Privacy Engineering Principles",
+      "coverage": "partial",
+      "confidence": 85,
+      "rationale": "Design input requirements (820.30(c)) must include safety and performance requirements; for cyber devices this encompasses security engineering principles during design"
+    },
+    {
+      "section_number": "820.30(e)",
+      "control_id": "SA-11",
+      "control_name": "Developer Testing and Evaluation",
+      "coverage": "full",
+      "confidence": 90,
+      "rationale": "Design verification (820.30(e)) requires confirmation that design output meets design input requirements through testing and evaluation"
+    },
+    {
+      "section_number": "820.30(f)",
+      "control_id": "SA-11(1)",
+      "control_name": "Developer Testing - Static Code Analysis",
+      "coverage": "partial",
+      "confidence": 78,
+      "rationale": "Design validation (820.30(f)) under actual or simulated use conditions may include static and dynamic analysis for software-containing devices"
+    },
+    {
+      "section_number": "820.70(i)",
+      "control_id": "SA-11",
+      "control_name": "Developer Testing and Evaluation",
+      "coverage": "full",
+      "confidence": 93,
+      "rationale": "Software validation (820.70(i)) requires validation of computer software for its intended use according to an established protocol — directly maps to developer testing requirements"
+    },
+    {
+      "section_number": "820.90",
+      "control_id": "SI-2",
+      "control_name": "Flaw Remediation",
+      "coverage": "partial",
+      "confidence": 82,
+      "rationale": "Nonconforming product procedures (820.90) address identification and disposition of products not meeting specifications, including cybersecurity defects in software"
+    },
+    {
+      "section_number": "820.100",
+      "control_id": "CA-5",
+      "control_name": "Plan of Action and Milestones",
+      "coverage": "full",
+      "confidence": 88,
+      "rationale": "CAPA (820.100) requires systematic investigation, corrective action planning, verification, and tracking — directly aligned with POA&M for security findings"
+    },
+    {
+      "section_number": "820.100",
+      "control_id": "SI-2",
+      "control_name": "Flaw Remediation",
+      "coverage": "full",
+      "confidence": 90,
+      "rationale": "CAPA is the primary mechanism for tracking and remediating cybersecurity vulnerabilities in the quality system, mapping directly to flaw remediation"
+    },
+    {
+      "section_number": "820.50",
+      "control_id": "SA-12",
+      "control_name": "Supply Chain Protection",
+      "coverage": "partial",
+      "confidence": 80,
+      "rationale": "Purchasing controls (820.50) require evaluation of suppliers and purchased components — for cyber devices this includes third-party software and supply chain security"
+    },
+    {
+      "section_number": "820.180",
+      "control_id": "AU-11",
+      "control_name": "Audit Record Retention",
+      "coverage": "partial",
+      "confidence": 83,
+      "rationale": "Records requirements (820.180) mandate retention for the design and expected life of the device (minimum 2 years), aligning with audit record retention requirements"
+    },
+    {
+      "section_number": "820.198",
+      "control_id": "IR-6",
+      "control_name": "Incident Reporting",
+      "coverage": "partial",
+      "confidence": 76,
+      "rationale": "Complaint files (820.198) require evaluation of complaints including potential MDR-reportable events, relating to incident reporting for cybersecurity issues affecting device safety"
+    }
+  ]
+}
