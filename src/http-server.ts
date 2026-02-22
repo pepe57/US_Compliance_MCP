@@ -82,8 +82,6 @@ function createMcpServer(): Server {
 
 // Start HTTP server with Streamable HTTP transport
 async function main() {
-  const mcpServer = createMcpServer();
-
   // Map to store transports by session ID
   const transports = new Map<string, StreamableHTTPServerTransport>();
 
@@ -99,39 +97,29 @@ async function main() {
 
     // MCP endpoint
     if (url.pathname === '/mcp' || url.pathname === '/') {
-      // Get or create session
       const sessionId = req.headers['mcp-session-id'] as string | undefined;
 
-      let transport: StreamableHTTPServerTransport;
-
       if (sessionId && transports.has(sessionId)) {
-        // Reuse existing transport for this session
-        transport = transports.get(sessionId)!;
-      } else {
-        // Create new transport with session ID generator
-        transport = new StreamableHTTPServerTransport({
+        await transports.get(sessionId)!.handleRequest(req, res);
+        return;
+      }
+
+      if (req.method === 'POST') {
+        const transport = new StreamableHTTPServerTransport({
           sessionIdGenerator: () => randomUUID(),
         });
-
-        // Connect MCP server to transport
-        await mcpServer.connect(transport);
-
-        // Store transport by session ID once it's assigned
+        const server = createMcpServer();
+        await server.connect(transport);
         transport.onclose = () => {
-          if (transport.sessionId) {
-            transports.delete(transport.sessionId);
-          }
+          if (transport.sessionId) transports.delete(transport.sessionId);
         };
+        await transport.handleRequest(req, res);
+        if (transport.sessionId) transports.set(transport.sessionId, transport);
+        return;
       }
 
-      // Handle the request
-      await transport.handleRequest(req, res);
-
-      // Store transport if new session was created
-      if (transport.sessionId && !transports.has(transport.sessionId)) {
-        transports.set(transport.sessionId, transport);
-      }
-
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Bad request' }));
       return;
     }
 
