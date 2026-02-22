@@ -7,13 +7,15 @@ RUN apk add --no-cache python3 make g++
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --ignore-scripts
+# Rebuild better-sqlite3 native module (needed by build:db script via tsx)
+RUN cd node_modules/better-sqlite3 && npm run build-release
 
 COPY src/ ./src/
 COPY tsconfig.json ./
 RUN npx tsc
 
-# Build database from seed data (uses better-sqlite3 via tsx)
+# Build database from seed data
 COPY scripts/ ./scripts/
 COPY data/seed/ ./data/seed/
 RUN npm run build:db
