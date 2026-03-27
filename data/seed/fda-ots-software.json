@@ -1,0 +1,63 @@
+{
+  "regulation": {
+    "id": "FDA_OTS",
+    "full_name": "FDA Off-The-Shelf Software Use in Medical Devices",
+    "short_name": "FDA OTS Guidance",
+    "citation": "FDA Guidance, September 2019",
+    "effective_date": "2019-09-09",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/71794/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "Off-The-Shelf Software Use in Medical Devices",
+    "last_verified": "2026-03-27",
+    "verification_method": "Published FDA guidance document",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Introduction and Scope",
+      "text": "This guidance provides recommendations for the use of off-the-shelf (OTS) software in medical devices. OTS software is generally available software that is not developed for the specific purpose of being incorporated into a medical device. Examples include operating systems (Windows, Linux), database engines, web servers, real-time operating systems, and commercially available libraries. This guidance applies to any medical device that incorporates OTS software, regardless of the device classification.",
+      "chapter": "Scope"
+    },
+    {
+      "sectionNumber": "II",
+      "title": "Definition of OTS Software",
+      "text": "OTS software means software that is already developed and generally available, which is not developed for the specific purpose of being incorporated into a medical device. This includes commercial-off-the-shelf (COTS), free and open-source software (FOSS), and previously developed (legacy) software. OTS software is distinguished from software developed specifically for the medical device ('bespoke' or 'custom' software) in that the device manufacturer does not have full control over the software lifecycle.",
+      "chapter": "Definitions"
+    },
+    {
+      "sectionNumber": "III",
+      "title": "Risk-Based Approach to OTS Software",
+      "text": "The level of documentation and testing required for OTS software should be commensurate with the risk associated with its use in the medical device. Factors affecting risk include: (1) the level of concern of the device (minor, moderate, major), (2) the role of the OTS software in the device (critical vs. non-critical), (3) the maturity and track record of the OTS software, (4) whether the OTS software is used as provided or modified. For OTS software with a major level of concern, manufacturers should provide comprehensive documentation of verification and validation activities.",
+      "chapter": "Risk Assessment"
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "Basic Documentation Requirements",
+      "text": "For all levels of concern, manufacturers must identify: (1) the OTS software item and version, (2) the OTS software manufacturer, (3) the intended use of the OTS software within the device, (4) how the device interfaces with the OTS software. For moderate and major levels of concern, additional documentation includes: hazard analysis, verification and validation evidence, anomaly assessment (known bugs/vulnerabilities), and a strategy for managing OTS software updates and patches.",
+      "chapter": "Documentation"
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Hazard Analysis for OTS Software",
+      "text": "Manufacturers should perform a hazard analysis that addresses the potential hazards resulting from the failure of the OTS software or from its misuse. The hazard analysis should consider: (1) identified OTS software anomalies (bugs, vulnerabilities, known failure modes), (2) the severity of harm if the OTS software fails, (3) the probability of occurrence based on the OTS software's track record, (4) the ability to detect and mitigate failures. Where the OTS software plays a critical safety role, fault tolerance or redundancy mechanisms should be implemented.",
+      "chapter": "Risk Management"
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "Cybersecurity Considerations for OTS Software",
+      "text": "Manufacturers must assess cybersecurity risks introduced by OTS software components. This includes: monitoring the OTS vendor's security advisories and CVE disclosures, assessing whether known vulnerabilities affect the medical device's intended use, establishing a process for timely security patch deployment, maintaining a Software Bill of Materials (SBOM) that includes all OTS components and their versions. OTS software with known unpatched critical vulnerabilities that affect device safety or effectiveness should not be used unless adequate compensating controls are implemented.",
+      "chapter": "Cybersecurity"
+    },
+    {
+      "sectionNumber": "VII",
+      "title": "Lifecycle Management of OTS Software",
+      "text": "Manufacturers should establish processes for managing OTS software throughout the device lifecycle, including: (1) monitoring for end-of-support/end-of-life announcements from OTS vendors, (2) planning for OTS software migration or replacement when support ends, (3) assessing the impact of OTS software updates on device safety and effectiveness, (4) validating OTS software updates before deployment to devices. When OTS software reaches end-of-life and no replacement is available, manufacturers should implement compensating controls and communicate the risk to users.",
+      "chapter": "Lifecycle"
+    }
+  ]
+}
