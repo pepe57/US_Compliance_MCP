@@ -1,0 +1,63 @@
+{
+  "regulation": {
+    "id": "FDA_GPSV",
+    "full_name": "FDA General Principles of Software Validation",
+    "short_name": "FDA GPSV Guidance",
+    "citation": "FDA Guidance, January 2002",
+    "effective_date": "2002-01-11",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/73141/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "General Principles of Software Validation; Final Guidance for Industry and FDA Staff",
+    "last_verified": "2026-03-27",
+    "verification_method": "Published FDA guidance document (final). Note: partially superseded by CSA guidance (2022) for production/quality system software, but remains authoritative for device software validation.",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities."
+  },
+  "sections": [
+    {
+      "sectionNumber": "1",
+      "title": "Purpose",
+      "text": "This guidance outlines general validation principles that the FDA considers applicable to the validation of medical device software and the validation of software used to design, develop, or manufacture medical devices. It provides guidance on what FDA considers to be appropriate software validation activities, including planning, verification, testing, traceability, configuration management, and documentation. This guidance is applicable to software used as a component, part, or accessory of a medical device; software that is itself a medical device; and software used in production or the quality system.",
+      "chapter": "Introduction"
+    },
+    {
+      "sectionNumber": "2",
+      "title": "Software Validation Principles",
+      "text": "Software validation is a requirement of the Quality System regulation (21 CFR Part 820). Validation confirms through examination and provision of objective evidence that the particular requirements for a specific intended use can be consistently fulfilled. Software validation includes: requirements validation, design validation, verification of individual modules and integration, system testing, and user site testing. The rigor of validation efforts should be commensurate with the risk associated with the use of the software. Validation should be conducted throughout the software lifecycle, not just at the end.",
+      "chapter": "Principles"
+    },
+    {
+      "sectionNumber": "3",
+      "title": "Validation Planning",
+      "text": "A software validation plan should define the scope of the validation effort, identify the software items to be validated, identify the validation tasks and responsibilities, define acceptance criteria, identify the necessary resources and schedule, and define the procedures and documentation requirements. The plan should be risk-based, focusing the most rigorous validation activities on the highest-risk software functions. Configuration management and change control procedures should be in place before validation begins.",
+      "chapter": "Planning"
+    },
+    {
+      "sectionNumber": "4",
+      "title": "Verification and Testing",
+      "text": "Software verification provides objective evidence that the design outputs of a particular phase meet all the design input requirements of that phase. Testing is one important type of verification. Testing activities include: unit testing (individual modules), integration testing (module interactions), system testing (complete system), and acceptance testing (user environment). Test cases should trace to requirements. Both normal and abnormal conditions should be tested. Automated testing tools can increase efficiency but must themselves be validated for their intended use.",
+      "chapter": "Verification"
+    },
+    {
+      "sectionNumber": "5",
+      "title": "Traceability Analysis",
+      "text": "A traceability analysis demonstrates that all software requirements have been implemented in the design and that all elements of the design have been tested. The analysis links requirements to design elements, design elements to code modules, and code modules to test cases. A complete traceability matrix provides assurance that: no requirements have been omitted, all design elements relate to stated requirements (no unnecessary functionality), and all software has been adequately tested. Traceability should be maintained throughout the software lifecycle.",
+      "chapter": "Traceability"
+    },
+    {
+      "sectionNumber": "6",
+      "title": "Independent Evaluation",
+      "text": "FDA strongly recommends that software verification and validation activities be conducted by individuals who are independent of the software development team. Independence provides an unbiased assessment of the software and reduces the risk that developers' assumptions about the software will influence the testing. The degree of independence should be commensurate with the level of risk associated with the software. For high-risk software, an independent test team is recommended.",
+      "chapter": "Independence"
+    },
+    {
+      "sectionNumber": "7",
+      "title": "Maintenance and Changes",
+      "text": "When software is changed after initial validation, the change should be evaluated for its potential impact on previously validated functions. Regression analysis should determine the scope of re-validation needed. Changes that could affect safety or effectiveness require re-validation of the affected functions. All changes should be documented, including the rationale for the change, the impact assessment, and the re-validation activities performed. Configuration management procedures should track all software versions and their validation status.",
+      "chapter": "Maintenance"
+    }
+  ]
+}

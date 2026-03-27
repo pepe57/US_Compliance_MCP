@@ -1,0 +1,57 @@
+{
+  "regulation": {
+    "id": "FDA_CSA",
+    "full_name": "FDA Computer Software Assurance for Production and Quality System Software",
+    "short_name": "FDA CSA Guidance",
+    "citation": "FDA Guidance, September 2022",
+    "effective_date": "2022-09-14",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/161521/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "Computer Software Assurance for Production and Quality System Software",
+    "last_verified": "2026-03-27",
+    "verification_method": "Published FDA guidance document (final)",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Introduction and Scope",
+      "text": "This guidance provides recommendations for applying a risk-based approach to assuring computer software functions used in production and the quality system. It applies to Computer Software Assurance (CSA) for automated equipment and quality system software (e.g., ERP, LIMS, CAPA tracking, document management) used in the manufacture of medical devices. This guidance supplements and clarifies expectations under 21 CFR Part 820 (Quality System Regulation) for software validation. It replaces overly prescriptive validation approaches with risk-based, intended-use-focused assurance activities.",
+      "chapter": "Scope"
+    },
+    {
+      "sectionNumber": "II",
+      "title": "Risk-Based Approach to Software Assurance",
+      "text": "CSA uses a risk-based approach where the rigor of assurance activities is proportional to the risk associated with the software's intended use. Software functions with a direct impact on product quality or patient safety require more rigorous assurance (e.g., formal testing with documented protocols). Software functions with an indirect or no impact on product quality may use less rigorous assurance (e.g., ad hoc testing, unscripted testing, or operational checks). The risk assessment should consider: (1) the impact of software failure on product safety and quality, (2) the complexity of the software function, (3) the novelty of the software or its configuration, (4) the probability of undetected errors.",
+      "chapter": "Risk Assessment"
+    },
+    {
+      "sectionNumber": "III",
+      "title": "Assurance Activities",
+      "text": "Assurance activities include, in increasing order of rigor: (1) Unscripted testing — exploratory testing by knowledgeable users without predefined test scripts, suitable for low-risk functions. (2) Scripted testing — formal test protocols with predefined steps, expected results, and documented evidence, suitable for moderate-to-high-risk functions. (3) Requirements-based testing — testing derived from documented software requirements, suitable for high-risk functions. For all risk levels, the manufacturer should document: the software function being assured, the risk assessment, the assurance activities performed, and the conclusion. The goal is adequate assurance with minimal burden, not exhaustive IQ/OQ/PQ documentation.",
+      "chapter": "Assurance Methods"
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "Change Management and Regression",
+      "text": "When software is updated, patched, or reconfigured, the manufacturer should assess whether the change could affect previously assured functions. The scope of re-assurance should be limited to functions affected by the change. A full revalidation is not required for minor changes that do not affect product quality functions. Manufacturers should maintain a record of changes and the corresponding assurance decisions.",
+      "chapter": "Change Management"
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Cloud and SaaS Software",
+      "text": "For cloud-based or Software-as-a-Service (SaaS) quality system software, manufacturers should: (1) establish vendor qualification processes, (2) define roles and responsibilities for software assurance between the manufacturer and vendor, (3) assess the impact of vendor-initiated updates on assured functions, (4) maintain access to data for quality system purposes. The manufacturer retains responsibility for assurance of the software function's intended use, regardless of the hosting model.",
+      "chapter": "Cloud Software"
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "Relationship to Part 11 (Electronic Records)",
+      "text": "Computer Software Assurance for quality system software is distinct from 21 CFR Part 11 compliance. Part 11 addresses electronic records and electronic signatures. CSA addresses the assurance that the software performs its intended function reliably. A single software system may require both CSA (for functional assurance) and Part 11 compliance (for record integrity). Manufacturers should address both requirements in their validation approach but may combine documentation where practical.",
+      "chapter": "Part 11 Relationship"
+    }
+  ]
+}
