@@ -1,0 +1,63 @@
+{
+  "regulation": {
+    "id": "FDA_SAMD",
+    "full_name": "FDA Software as a Medical Device (SaMD): Clinical Evaluation",
+    "short_name": "FDA SaMD Guidance",
+    "citation": "FDA Guidance, December 2017",
+    "effective_date": "2017-12-08",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.fda.gov/media/100714/download",
+    "publisher": "U.S. Food and Drug Administration, Center for Devices and Radiological Health (CDRH)",
+    "title": "Software as a Medical Device (SaMD): Clinical Evaluation",
+    "last_verified": "2026-03-27",
+    "verification_method": "Published FDA guidance document (final)",
+    "disclaimer": "This guidance represents the FDA's current thinking on this topic. It does not establish legally enforceable responsibilities."
+  },
+  "sections": [
+    {
+      "sectionNumber": "I",
+      "title": "Introduction and Scope",
+      "text": "This guidance provides a risk-based framework for clinical evaluation of Software as a Medical Device (SaMD). SaMD is software intended to be used for one or more medical purposes that perform these purposes without being part of a hardware medical device. This framework is based on the IMDRF N12 guidance document and defines when clinical evidence is needed and what level of clinical evidence is appropriate for different categories of SaMD.",
+      "chapter": "Scope"
+    },
+    {
+      "sectionNumber": "II",
+      "title": "SaMD Categorization",
+      "text": "SaMD is categorized based on: (1) the significance of the information provided by the SaMD to the healthcare decision (treat or diagnose, drive clinical management, inform clinical management), and (2) the state of the healthcare situation or condition (critical, serious, non-serious). Category IV (highest risk): SaMD that provides information to treat or diagnose a critical/serious condition. Category III: SaMD that drives clinical management of a serious/critical condition, or treats/diagnoses a non-serious condition. Category II: SaMD that informs clinical management or drives management of non-serious conditions. Category I (lowest risk): SaMD that informs clinical management of non-serious conditions.",
+      "chapter": "Categorization"
+    },
+    {
+      "sectionNumber": "III",
+      "title": "Clinical Evaluation Approach",
+      "text": "The clinical evaluation should demonstrate that the SaMD: (1) generates clinically meaningful output (valid clinical association), (2) produces accurate and reliable output (analytical/technical validation), and (3) achieves its intended clinical purpose (clinical validation). For higher SaMD categories (III, IV), all three types of evidence are generally needed. For lower categories (I, II), the emphasis may shift to analytical/technical validation with less need for formal clinical validation studies.",
+      "chapter": "Clinical Evaluation"
+    },
+    {
+      "sectionNumber": "IV",
+      "title": "Valid Clinical Association",
+      "text": "A valid clinical association demonstrates that the SaMD output (e.g., a risk score, diagnostic classification, treatment recommendation) is based on a clinically accepted relationship between the input data and the clinical condition or outcome. Evidence of valid clinical association may include: peer-reviewed literature, clinical practice guidelines, established clinical databases, or documented clinical expertise. For well-established clinical associations (e.g., BMI calculation), reference to published evidence may be sufficient.",
+      "chapter": "Clinical Association"
+    },
+    {
+      "sectionNumber": "V",
+      "title": "Analytical and Technical Validation",
+      "text": "Analytical validation demonstrates that the SaMD accurately and reliably generates the intended output from the input data. This includes: (1) accuracy testing against a reference standard or ground truth, (2) precision/reproducibility testing across expected operating conditions, (3) robustness testing against edge cases, missing data, and out-of-range inputs, (4) performance metrics appropriate to the SaMD output type (sensitivity, specificity, AUC, concordance, etc.). For AI/ML-based SaMD, this includes evaluation on independent test datasets not used during training.",
+      "chapter": "Technical Validation"
+    },
+    {
+      "sectionNumber": "VI",
+      "title": "Clinical Validation",
+      "text": "Clinical validation demonstrates that the SaMD achieves its intended clinical purpose — that using the SaMD leads to clinically meaningful outcomes. Evidence may include: prospective clinical studies, retrospective analyses with real-world data, clinical performance data from intended use conditions, or comparative studies against existing clinical decision-making. The type and rigor of clinical validation should be proportional to the SaMD category and the novelty of the clinical application.",
+      "chapter": "Clinical Validation"
+    },
+    {
+      "sectionNumber": "VII",
+      "title": "AI/ML-Based SaMD Considerations",
+      "text": "For SaMD that incorporates artificial intelligence or machine learning, additional considerations include: (1) transparency of the algorithm's decision-making process (explainability), (2) training data representativeness and potential biases, (3) performance monitoring for dataset drift over time, (4) a predetermined change control plan if the algorithm is designed to continuously learn. FDA's Total Product Lifecycle (TPLC) approach applies — manufacturers should describe how they will manage algorithm changes while maintaining safety and effectiveness throughout the device lifecycle.",
+      "chapter": "AI/ML Considerations"
+    }
+  ]
+}

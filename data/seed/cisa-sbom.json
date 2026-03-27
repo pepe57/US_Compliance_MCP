@@ -1,0 +1,64 @@
+{
+  "regulation": {
+    "id": "CISA_SBOM",
+    "full_name": "CISA Software Bill of Materials (SBOM) Minimum Elements",
+    "short_name": "CISA SBOM Guidance",
+    "citation": "CISA, NTIA SBOM Minimum Elements, 2021 (updated 2025)",
+    "effective_date": "2021-07-12",
+    "last_amended": "2025-01-01",
+    "jurisdiction": "federal",
+    "regulation_type": "guidance"
+  },
+  "source": {
+    "official_url": "https://www.cisa.gov/sbom",
+    "publisher": "Cybersecurity and Infrastructure Security Agency (CISA) / National Telecommunications and Information Administration (NTIA)",
+    "title": "The Minimum Elements for a Software Bill of Materials (SBOM)",
+    "last_verified": "2026-03-27",
+    "verification_method": "CISA SBOM resources page and NTIA published minimum elements",
+    "disclaimer": "These minimum elements represent a starting point. SBOMs may include additional information as practices evolve."
+  },
+  "sections": [
+    {
+      "sectionNumber": "1",
+      "title": "Overview and Purpose",
+      "text": "A Software Bill of Materials (SBOM) is a formal record of the components used in building a piece of software. SBOMs enable organizations to identify and track components within their software supply chain, assess exposure to known vulnerabilities, and manage license compliance. SBOMs are referenced by FDA Section 524B as a mandatory premarket submission requirement for cyber devices (medical devices with software connectivity). This document defines the minimum data fields, practices, and support requirements for SBOM generation and consumption.",
+      "chapter": "Overview"
+    },
+    {
+      "sectionNumber": "2",
+      "title": "Minimum Data Fields",
+      "text": "Each SBOM must include the following data fields for every component: (1) Supplier Name — the name of the entity that creates, defines, and identifies components. (2) Component Name — designation assigned to a unit of software defined by the original supplier. (3) Version of the Component — identifier used by the supplier to specify a change in software from a previously identified version. (4) Other Unique Identifiers — other identifiers used for identification or cross-reference (e.g., CPE, PURL, SWID). (5) Dependency Relationship — characterizing the relationship that an upstream component X is included in software Y. (6) Author of SBOM Data — the name of the entity that creates the SBOM data for this component. (7) Timestamp — record of the date and time of the SBOM data assembly.",
+      "chapter": "Data Fields"
+    },
+    {
+      "sectionNumber": "3",
+      "title": "SBOM Formats",
+      "text": "SBOMs should be provided in a machine-readable format. The two widely accepted formats are: (1) SPDX (Software Package Data Exchange) — an ISO/IEC 5962:2021 standard maintained by the Linux Foundation. Supports JSON, XML, YAML, RDF, and tag-value formats. (2) CycloneDX — an OWASP standard designed for security use cases. Supports JSON and XML formats. CycloneDX includes native support for vulnerability references (VEX), which is increasingly relevant for medical device SBOM submissions. Both formats satisfy FDA SBOM requirements. Manufacturers should select the format most compatible with their toolchain and downstream consumers.",
+      "chapter": "Formats"
+    },
+    {
+      "sectionNumber": "4",
+      "title": "SBOM Generation Practices",
+      "text": "SBOMs should be generated during the build process using automated tooling integrated into the CI/CD pipeline. Manual SBOM creation is error-prone and not recommended for production use. Best practices include: (1) generate SBOMs at each release, (2) include both direct and transitive dependencies, (3) include the depth of dependency relationships (how many levels deep each component sits), (4) identify known unknowns — components that exist but cannot be fully enumerated. For medical devices, the SBOM should cover: device firmware, embedded operating system, third-party libraries, OTS software components, and cloud service dependencies if applicable.",
+      "chapter": "Generation"
+    },
+    {
+      "sectionNumber": "5",
+      "title": "SBOM Distribution and Access",
+      "text": "SBOM data should be available to those who need it for vulnerability management and supply chain risk assessment. Distribution mechanisms include: (1) direct delivery with the product, (2) publication on the manufacturer's website, (3) delivery upon request, (4) access through a central repository. For medical devices, FDA expects the SBOM to be included in the premarket submission and made available to healthcare delivery organizations (HDOs) for their cybersecurity risk management. SBOMs should be updated when the software is updated.",
+      "chapter": "Distribution"
+    },
+    {
+      "sectionNumber": "6",
+      "title": "Vulnerability Exploitability Exchange (VEX)",
+      "text": "A VEX document accompanies an SBOM to communicate whether a known vulnerability in a component actually affects the product in question. VEX statuses include: (1) Not Affected — the vulnerability is present in a component but does not affect the product due to usage context or configuration. (2) Affected — the vulnerability affects the product and action is needed. (3) Fixed — the vulnerability was present but has been remediated. (4) Under Investigation — the manufacturer is assessing the impact. For medical devices, VEX reduces unnecessary alarm when a component CVE does not affect device safety or effectiveness, and focuses remediation efforts on actual risks.",
+      "chapter": "VEX"
+    },
+    {
+      "sectionNumber": "7",
+      "title": "SBOM and FDA Section 524B Requirements",
+      "text": "Section 524B of the FD&C Act requires cyber device manufacturers to provide an SBOM in premarket submissions. The SBOM must include: commercial, open-source, and off-the-shelf software components. FDA recommends using machine-readable formats (SPDX or CycloneDX) and including both direct and transitive dependencies. The SBOM should be updated and provided to customers throughout the device lifecycle. Failure to provide an adequate SBOM may result in a Refuse to Accept (RTA) decision on the premarket submission. SBOM requirements became effective October 1, 2023 under Section 524B.",
+      "chapter": "FDA Requirements"
+    }
+  ]
+}

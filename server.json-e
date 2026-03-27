@@ -19,7 +19,7 @@
   ],
   "remoteEndpoints": [
     {
-      "url": "https://mcp.ansvar.eu/us-regulations/mcp",
+      "url": "https://us-regulations-mcp.vercel.app/mcp",
       "transport": {
         "type": "streamablehttp"
       }

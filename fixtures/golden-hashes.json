@@ -6,8 +6,8 @@
     "file": "data/regulations.db"
   },
   "table_counts": {
-    "regulations": 20,
-    "sections": 192,
+    "regulations": 25,
+    "sections": 226,
     "control_mappings": 112,
     "breach_notification_rules": 14,
     "definitions": 21,
@@ -16,15 +16,20 @@
   "regulation_ids": [
     "CCPA",
     "CIRCIA",
+    "CISA_SBOM",
     "COLORADO_CPA",
     "COPPA",
     "CTDPA",
     "EPA_RMP",
     "FDA_524B",
     "FDA_CFR_11",
+    "FDA_CSA",
+    "FDA_GPSV",
+    "FDA_OTS",
     "FDA_POSTMARKET_CYBER",
     "FDA_PREMARKET_CYBER",
     "FDA_QSR",
+    "FDA_SAMD",
     "FERPA",
     "FFIEC",
     "GLBA",
@@ -55,6 +60,11 @@
     "NYDFS_500": 17,
     "SOX": 15,
     "UCPA": 6,
-    "VCDPA": 7
+    "VCDPA": 7,
+    "CISA_SBOM": 7,
+    "FDA_CSA": 6,
+    "FDA_GPSV": 7,
+    "FDA_OTS": 7,
+    "FDA_SAMD": 7
   }
 }
