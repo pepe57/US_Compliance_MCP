@@ -1,4 +1,5 @@
 import type { Database } from '@ansvar/mcp-sqlite';
+import { buildCitation } from '../citation.js';
 
 export interface GetSectionInput {
   regulation: string;
@@ -99,5 +100,11 @@ export async function getSection(
     truncated,
     original_length: truncated ? originalLength : undefined,
     token_estimate: truncated ? tokenEstimate : undefined,
+    _citation: buildCitation(
+      `${row.regulation} § ${row.section_number}`,
+      `${row.title || row.section_number} (${row.regulation})`,
+      'get_section',
+      { regulation: input.regulation, section: input.section },
+    ),
   };
 }

@@ -1,4 +1,5 @@
 import type { Database } from '@ansvar/mcp-sqlite';
+import { buildCitation } from '../citation.js';
 
 export interface SearchInput {
   query: string;
@@ -145,6 +146,12 @@ export async function searchRegulations(
     const results = sectionRows.map(row => ({
       ...row,
       relevance: Math.abs(row.relevance),
+      _citation: buildCitation(
+        `${row.regulation} § ${row.section}`,
+        `${row.title || row.section} (${row.regulation})`,
+        'get_section',
+        { regulation: row.regulation, section: row.section },
+      ),
     }));
 
     // If no results, provide diagnostics to help the agent self-correct
